@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Test - @localhost" uuid="4ce5d163-60d7-4f03-8de6-bae61b811ff8">
+    <database-info product="MySQL" version="5.7.7-rc-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="sys"/>
+    <table name="host_summary" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statements" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="statement_avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="table_scans" sqlType="DECIMAL" precision="65" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_ios" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_io_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="unique_users" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="current_memory" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_memory_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="host_summary_by_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ios" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="host_summary_by_file_io_type" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="host_summary_by_stages" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="host_summary_by_statement_latency" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_affected" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="full_scans" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="host_summary_by_statement_type" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statement" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="full_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="innodb_buffer_stats_by_schema" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="pages" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="innodb_buffer_stats_by_table" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_name" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="pages" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="innodb_lock_waits" schema="" catalog="sys" type="VIEW">
+      <column name="wait_started" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="wait_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="locked_table" sqlType="VARCHAR" precision="1024" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="locked_index" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="locked_type" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_trx_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_trx_started" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="waiting_trx_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="waiting_trx_rows_locked" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_trx_rows_modified" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_pid" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="waiting_lock_id" sqlType="VARCHAR" precision="81" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_lock_mode" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_trx_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_pid" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="blocking_query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="blocking_lock_id" sqlType="VARCHAR" precision="81" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_lock_mode" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_trx_started" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="blocking_trx_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="blocking_trx_rows_locked" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="blocking_trx_rows_modified" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="io_by_thread_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="min_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="thread_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="processlist_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="io_global_by_file_by_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="file" sqlType="VARCHAR" precision="260" scale="0" nullable="true" jdbcType="12"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_write" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="write_pct" sqlType="DECIMAL" precision="26" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+    </table>
+    <table name="io_global_by_file_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="file" sqlType="VARCHAR" precision="260" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="read_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="write_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_misc" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="misc_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="io_global_by_wait_by_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="min_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_written" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_requested" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="io_global_by_wait_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="read_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="write_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="misc_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_written" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="latest_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="thread" sqlType="VARCHAR" precision="149" scale="0" nullable="true" jdbcType="12"/>
+      <column name="file" sqlType="VARCHAR" precision="260" scale="0" nullable="true" jdbcType="12"/>
+      <column name="latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="operation" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="requested" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="memory_by_host_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_avg_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_max_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="memory_by_thread_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="thread_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_avg_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_max_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="memory_by_user_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_avg_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_max_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="memory_global_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="current_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_avg_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="high_count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="high_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="high_avg_alloc" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="memory_global_total" schema="" catalog="sys" type="VIEW">
+      <column name="total_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="processlist" schema="" catalog="sys" type="VIEW">
+      <column name="thd_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="conn_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="command" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="current_statement" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tmp_disk_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="current_memory" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="last_statement" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="last_statement_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="last_wait" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_wait_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="source" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="ps_check_lost_instrumentation" schema="" catalog="sys" type="VIEW">
+      <column name="variable_name" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="variable_value" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="schema_index_statistics" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="index_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_selected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="select_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="schema_object_overview" schema="" catalog="sys" type="VIEW">
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="object_type" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="schema_table_statistics" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_fetched" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="fetch_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_read_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_read_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_write_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_write_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_misc_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="schema_table_statistics_with_buffer" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_fetched" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="fetch_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_read_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_read_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_write_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_write_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="io_misc_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="innodb_buffer_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="innodb_buffer_data" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="innodb_buffer_free" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="innodb_buffer_pages" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="true" jdbcType="3" def="MA=="/>
+    </table>
+    <table name="schema_tables_with_full_table_scans" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="object_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_full_scanned" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="schema_unused_indexes" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="object_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="index_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="statement_analysis" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="err_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warn_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="tmp_disk_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sorted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sort_merge_passes" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="statements_with_errors_or_warnings" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="errors" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="error_pct" sqlType="DECIMAL" precision="27" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="warnings" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warning_pct" sqlType="DECIMAL" precision="27" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="statements_with_full_table_scans" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="no_index_used_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="no_good_index_used_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="no_index_used_pct" sqlType="DECIMAL" precision="24" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL UNSIGNED" precision="21" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL UNSIGNED" precision="21" scale="0" nullable="true" jdbcType="3"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="statements_with_runtimes_in_95th_percentile" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="err_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warn_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="statements_with_sorting" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="sort_merge_passes" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_sort_merges" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="sorts_using_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sort_using_range" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sorted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_rows_sorted" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="statements_with_temp_tables" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="memory_tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="disk_tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_tmp_tables_per_query" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="tmp_tables_to_disk_pct" sqlType="DECIMAL" precision="24" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="sys_config" schema="" catalog="sys" type="TABLE">
+      <column name="variable" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="value" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="set_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="set_by" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="variable"/>
+    </table>
+    <table name="user_summary" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statements" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="statement_avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="table_scans" sqlType="DECIMAL" precision="65" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_ios" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_io_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="current_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="unique_hosts" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="current_memory" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="total_memory_allocated" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="user_summary_by_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ios" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="user_summary_by_file_io_type" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="user_summary_by_stages" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="user_summary_by_statement_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_affected" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="full_scans" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="user_summary_by_statement_type" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statement" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="full_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="version" schema="" catalog="sys" type="VIEW">
+      <column name="sys_version" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="mysql_version" sqlType="VARCHAR" precision="12" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+    </table>
+    <table name="wait_classes_global_by_avg_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_class" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="min_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="wait_classes_global_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_class" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="min_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="waits_by_host_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="waits_by_user_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="waits_global_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="events" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="avg_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="max_latency" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="x$host_summary" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statements" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_latency" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_avg_latency" sqlType="DECIMAL" precision="65" scale="4" nullable="true" jdbcType="3"/>
+      <column name="table_scans" sqlType="DECIMAL" precision="65" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_ios" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_io_latency" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="unique_users" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="current_memory" sqlType="DECIMAL" precision="63" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_memory_allocated" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$host_summary_by_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ios" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$host_summary_by_file_io_type" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$host_summary_by_stages" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$host_summary_by_statement_latency" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="max_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="lock_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_sent" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_affected" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="full_scans" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$host_summary_by_statement_type" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statement" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="lock_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="full_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="x$innodb_buffer_stats_by_schema" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="allocated" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="data" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="pages" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+    </table>
+    <table name="x$innodb_buffer_stats_by_table" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_name" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="allocated" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="data" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="pages" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+    </table>
+    <table name="x$innodb_lock_waits" schema="" catalog="sys" type="VIEW">
+      <column name="wait_started" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="wait_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="locked_table" sqlType="VARCHAR" precision="1024" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="locked_index" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="locked_type" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_trx_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_trx_started" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="waiting_trx_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="waiting_trx_rows_locked" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_trx_rows_modified" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_pid" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="waiting_query" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="waiting_lock_id" sqlType="VARCHAR" precision="81" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="waiting_lock_mode" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_trx_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_pid" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="blocking_query" sqlType="VARCHAR" precision="1024" scale="0" nullable="true" jdbcType="12"/>
+      <column name="blocking_lock_id" sqlType="VARCHAR" precision="81" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_lock_mode" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="blocking_trx_started" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="blocking_trx_age" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="blocking_trx_rows_locked" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="blocking_trx_rows_modified" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="x$io_by_thread_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="min_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="DECIMAL" precision="24" scale="4" nullable="true" jdbcType="3"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="thread_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="processlist_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="x$io_global_by_file_by_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="file" sqlType="VARCHAR" precision="512" scale="0" nullable="false" jdbcType="12"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_read" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_write" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="total" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="write_pct" sqlType="DECIMAL" precision="26" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+    </table>
+    <table name="x$io_global_by_file_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="file" sqlType="VARCHAR" precision="512" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="read_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="write_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="count_misc" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="misc_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$io_global_by_wait_by_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_read" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_written" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="total_requested" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="x$io_global_by_wait_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="read_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="write_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="misc_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="count_read" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_read" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_read" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="count_write" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_written" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_written" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+    </table>
+    <table name="x$latest_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="thread" sqlType="VARCHAR" precision="149" scale="0" nullable="true" jdbcType="12"/>
+      <column name="file" sqlType="VARCHAR" precision="512" scale="0" nullable="true" jdbcType="12"/>
+      <column name="latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="operation" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="requested" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="x$memory_by_host_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_avg_alloc" sqlType="DECIMAL" precision="45" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="current_max_alloc" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="total_allocated" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$memory_by_thread_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="thread_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_avg_alloc" sqlType="DECIMAL" precision="45" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="current_max_alloc" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="total_allocated" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$memory_by_user_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_count_used" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_allocated" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_avg_alloc" sqlType="DECIMAL" precision="45" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="current_max_alloc" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="total_allocated" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$memory_global_by_current_bytes" schema="" catalog="sys" type="VIEW">
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="current_alloc" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="current_avg_alloc" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="high_count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="high_alloc" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="high_avg_alloc" sqlType="DECIMAL" precision="23" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+    </table>
+    <table name="x$memory_global_total" schema="" catalog="sys" type="VIEW">
+      <column name="total_allocated" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$processlist" schema="" catalog="sys" type="VIEW">
+      <column name="thd_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="conn_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="user" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="command" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="current_statement" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="lock_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tmp_disk_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="current_memory" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="last_statement" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="last_statement_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="last_wait" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_wait_latency" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="source" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$ps_digest_95th_percentile_by_avg_us" schema="" catalog="sys" type="VIEW">
+      <column name="avg_us" sqlType="DECIMAL" precision="21" scale="0" nullable="true" jdbcType="3"/>
+      <column name="percentile" sqlType="DECIMAL" precision="46" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+    </table>
+    <table name="x$ps_digest_avg_latency_distribution" schema="" catalog="sys" type="VIEW">
+      <column name="cnt" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="avg_us" sqlType="DECIMAL" precision="21" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$ps_schema_table_statistics_io" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="count_read" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="sum_number_of_bytes_read" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="sum_timer_read" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="count_write" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="sum_number_of_bytes_write" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="sum_timer_write" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="count_misc" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="sum_timer_misc" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$schema_index_statistics" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="index_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_selected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="select_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$schema_table_statistics" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_fetched" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="fetch_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="io_read_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$schema_table_statistics_with_buffer" schema="" catalog="sys" type="VIEW">
+      <column name="table_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_fetched" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="fetch_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_inserted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="insert_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_updated" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="update_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_deleted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="delete_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="io_read_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_read_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_write_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_requests" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_misc_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="innodb_buffer_allocated" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="innodb_buffer_data" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+      <column name="innodb_buffer_free" sqlType="DECIMAL" precision="44" scale="0" nullable="true" jdbcType="3"/>
+      <column name="innodb_buffer_pages" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_pages_hashed" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_pages_old" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" def="MA=="/>
+      <column name="innodb_buffer_rows_cached" sqlType="DECIMAL" precision="44" scale="0" nullable="true" jdbcType="3" def="MA=="/>
+    </table>
+    <table name="x$schema_tables_with_full_table_scans" schema="" catalog="sys" type="VIEW">
+      <column name="object_schema" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="object_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rows_full_scanned" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$statement_analysis" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="err_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warn_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="lock_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="tmp_disk_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sorted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sort_merge_passes" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="x$statements_with_errors_or_warnings" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="errors" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="error_pct" sqlType="DECIMAL" precision="27" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="warnings" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warning_pct" sqlType="DECIMAL" precision="27" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$statements_with_full_table_scans" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="no_index_used_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="no_good_index_used_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="no_index_used_pct" sqlType="DECIMAL" precision="24" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL UNSIGNED" precision="21" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL UNSIGNED" precision="21" scale="0" nullable="true" jdbcType="3"/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$statements_with_runtimes_in_95th_percentile" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_scan" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="err_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="warn_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined_avg" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$statements_with_sorting" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sort_merge_passes" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_sort_merges" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="sorts_using_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sort_using_range" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sorted" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_rows_sorted" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$statements_with_temp_tables" schema="" catalog="sys" type="VIEW">
+      <column name="query" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="db" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exec_count" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="memory_tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="disk_tmp_tables" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_tmp_tables_per_query" sqlType="DECIMAL" precision="21" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="tmp_tables_to_disk_pct" sqlType="DECIMAL" precision="24" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="first_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="last_seen" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="digest" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="x$user_summary" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statements" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_latency" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="statement_avg_latency" sqlType="DECIMAL" precision="65" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="table_scans" sqlType="DECIMAL" precision="65" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_ios" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="file_io_latency" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+      <column name="current_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_connections" sqlType="DECIMAL" precision="41" scale="0" nullable="true" jdbcType="3"/>
+      <column name="unique_hosts" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="current_memory" sqlType="DECIMAL" precision="63" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_memory_allocated" sqlType="DECIMAL" precision="64" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$user_summary_by_file_io" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ios" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="io_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$user_summary_by_file_io_type" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$user_summary_by_stages" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event_name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$user_summary_by_statement_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="max_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="lock_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_sent" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_examined" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="rows_affected" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="full_scans" sqlType="DECIMAL" precision="43" scale="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="x$user_summary_by_statement_type" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="statement" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="lock_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_sent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_examined" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rows_affected" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="full_scans" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="x$wait_classes_global_by_avg_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_class" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="min_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="DECIMAL" precision="46" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="x$wait_classes_global_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="event_class" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="total" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_latency" sqlType="DECIMAL" precision="42" scale="0" nullable="true" jdbcType="3"/>
+      <column name="min_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="DECIMAL" precision="46" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="x$waits_by_host_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="host" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$waits_by_user_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="user" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="x$waits_global_by_latency" schema="" catalog="sys" type="VIEW">
+      <column name="events" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="total_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="avg_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_latency" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <procedure name="create_synonym_db" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHNvdXJjZSBkYXRhYmFzZSBuYW1lIGFuZCBzeW5vbnltIG5hbWUsIGFuZCB0aGVuIGNyZWF0ZXMgdGhlIAogc3lub255bSBkYXRhYmFzZSB3aXRoIHZpZXdzIHRoYXQgcG9pbnQgdG8gYWxsIG9mIHRoZSB0YWJsZXMgd2l0aGluCiB0aGUgc291cmNlIGRhdGFiYXNlLgogCiBVc2VmdWwgZm9yIGNyZWF0aW5nIGEgInBzIiBzeW5vbnltIGZvciAicGVyZm9ybWFuY2Vfc2NoZW1hIiwKIG9yICJpcyIgaW5zdGVhZCBvZiAiaW5mb3JtYXRpb25fc2NoZW1hIiwgZm9yIGV4YW1wbGUuCiAKIFBhcmFtZXRlcnMKIAogaW5fZGJfbmFtZSAoVkFSQ0hBUig2NCkpOgogVGhlIGRhdGFiYXNlIG5hbWUgdGhhdCB5b3Ugd291bGQgbGlrZSB0byBjcmVhdGUgYSBzeW5vbnltIGZvci4KIGluX3N5bm9ueW0gKFZBUkNIQVIoNjQpKToKIFRoZSBkYXRhYmFzZSBzeW5vbnltIG5hbWUuCiAKIEV4YW1wbGUKIAogbXlzcWw+IFNIT1cgREFUQUJBU0VTOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEYXRhYmFzZSAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBpbmZvcm1hdGlvbl9zY2hlbWEgfAogfCBteXNxbCAgICAgICAgICAgICAgfAogfCBwZXJmb3JtYW5jZV9zY2hlbWEgfAogfCBzeXMgICAgICAgICAgICAgICAgfAogfCB0ZXN0ICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogNSByb3dzIGluIHNldCAoMC4wMCBzZWMpCiAKIG15c3FsPiBDQUxMIHN5cy5jcmVhdGVfc3lub255bV9kYigncGVyZm9ybWFuY2Vfc2NoZW1hJywgJ3BzJyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IENyZWF0ZWQgNzQgdmlld3MgaW4gdGhlIHBzIGRhdGFiYXNlIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICg4LjU3IHNlYykKIAogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoOC41NyBzZWMpCiAKIG15c3FsPiBTSE9XIERBVEFCQVNFUzsKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRGF0YWJhc2UgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgaW5mb3JtYXRpb25fc2NoZW1hIHwKIHwgbXlzcWwgICAgICAgICAgICAgIHwKIHwgcGVyZm9ybWFuY2Vfc2NoZW1hIHwKIHwgcHMgICAgICAgICAgICAgICAgIHwKIHwgc3lzICAgICAgICAgICAgICAgIHwKIHwgdGVzdCAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDYgcm93cyBpbiBzZXQgKDAuMDAgc2VjKQogCiBteXNxbD4gU0hPVyBGVUxMIFRBQkxFUyBGUk9NIHBzOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rCiB8IFRhYmxlc19pbl9wcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBUYWJsZV90eXBlIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKwogfCBhY2NvdW50cyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgVklFVyAgICAgICB8CiB8IGNvbmRfaW5zdGFuY2VzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBWSUVXICAgICAgIHwKIHwgZXZlbnRzX3N0YWdlc19jdXJyZW50ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IFZJRVcgICAgICAgfAogfCBldmVudHNfc3RhZ2VzX2hpc3RvcnkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgVklFVyAgICAgICB8CiAuLi4KIA=="/>
+    <procedure name="extract_schema_from_file_name" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHJhdyBmaWxlIHBhdGgsIGFuZCBhdHRlbXB0cyB0byBleHRyYWN0IHRoZSBzY2hlbWEgbmFtZSBmcm9tIGl0LgogCiBVc2VmdWwgZm9yIHdoZW4gaW50ZXJhY3Rpbmcgd2l0aCBQZXJmb3JtYW5jZSBTY2hlbWEgZGF0YSAKIGNvbmNlcm5pbmcgSU8gc3RhdGlzdGljcywgZm9yIGV4YW1wbGUuCiAKIEN1cnJlbnRseSByZWxpZXMgb24gdGhlIGZhY3QgdGhhdCBhIHRhYmxlIGRhdGEgZmlsZSB3aWxsIGJlIHdpdGhpbiBhIAogc3BlY2lmaWVkIGRhdGFiYXNlIGRpcmVjdG9yeSAod2lsbCBub3Qgd29yayB3aXRoIHBhcnRpdGlvbnMgb3IgdGFibGVzCiB0aGF0IHNwZWNpZnkgYW4gaW5kaXZpZHVhbCBEQVRBX0RJUkVDVE9SWSkuCiAKIFBhcmFtZXRlcnMKIAogcGF0aCAoVkFSQ0hBUig1MTIpKToKIFRoZSBmdWxsIGZpbGUgcGF0aCB0byBhIGRhdGEgZmlsZSB0byBleHRyYWN0IHRoZSBzY2hlbWEgbmFtZSBmcm9tLgogCiBSZXR1cm5zCiAKIFZBUkNIQVIoNjQpCiAKIEV4YW1wbGUKIAogbXlzcWw+IFNFTEVDVCBzeXMuZXh0cmFjdF9zY2hlbWFfZnJvbV9maWxlX25hbWUoJy92YXIvbGliL215c3FsL2VtcGxveWVlcy9lbXBsb3llZS5pYmQnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzeXMuZXh0cmFjdF9zY2hlbWFfZnJvbV9maWxlX25hbWUoJy92YXIvbGliL215c3FsL2VtcGxveWVlcy9lbXBsb3llZS5pYmQnKSB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgZW1wbG95ZWVzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="extract_table_from_file_name" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHJhdyBmaWxlIHBhdGgsIGFuZCBleHRyYWN0cyB0aGUgdGFibGUgbmFtZSBmcm9tIGl0LgogCiBVc2VmdWwgZm9yIHdoZW4gaW50ZXJhY3Rpbmcgd2l0aCBQZXJmb3JtYW5jZSBTY2hlbWEgZGF0YSAKIGNvbmNlcm5pbmcgSU8gc3RhdGlzdGljcywgZm9yIGV4YW1wbGUuCiAKIFBhcmFtZXRlcnMKIAogcGF0aCAoVkFSQ0hBUig1MTIpKToKIFRoZSBmdWxsIGZpbGUgcGF0aCB0byBhIGRhdGEgZmlsZSB0byBleHRyYWN0IHRoZSB0YWJsZSBuYW1lIGZyb20uCiAKIFJldHVybnMKIAogVkFSQ0hBUig2NCkKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5leHRyYWN0X3RhYmxlX2Zyb21fZmlsZV9uYW1lKCcvdmFyL2xpYi9teXNxbC9lbXBsb3llZXMvZW1wbG95ZWUuaWJkJyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzeXMuZXh0cmFjdF90YWJsZV9mcm9tX2ZpbGVfbmFtZSgnL3Zhci9saWIvbXlzcWwvZW1wbG95ZWVzL2VtcGxveWVlLmliZCcpIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGVtcGxveWVlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMiBzZWMpCiA="/>
+    <procedure name="format_bytes" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHJhdyBieXRlcyB2YWx1ZSwgYW5kIGNvbnZlcnRzIGl0IHRvIGEgaHVtYW4gcmVhZGFibGUgZm9ybWF0LgogCiBQYXJhbWV0ZXJzCiAKIGJ5dGVzIChURVhUKToKIEEgcmF3IGJ5dGVzIHZhbHVlLgogCiBSZXR1cm5zCiAKIFRFWFQKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5mb3JtYXRfYnl0ZXMoMjM0ODcyMzQ5MjcyMzc0NikgQVMgc2l6ZTsKICstLS0tLS0tLS0tKwogfCBzaXplICAgICB8CiArLS0tLS0tLS0tLSsKIHwgMi4wOSBQaUIgfAogKy0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQogCiBteXNxbD4gU0VMRUNUIHN5cy5mb3JtYXRfYnl0ZXMoMjM0ODcyMzQ5MjcyMykgQVMgc2l6ZTsKICstLS0tLS0tLS0tKwogfCBzaXplICAgICB8CiArLS0tLS0tLS0tLSsKIHwgMi4xNCBUaUIgfAogKy0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQogCiBteXNxbD4gU0VMRUNUIHN5cy5mb3JtYXRfYnl0ZXMoMjM0ODcyMzQpIEFTIHNpemU7CiArLS0tLS0tLS0tLS0rCiB8IHNpemUgICAgICB8CiArLS0tLS0tLS0tLS0rCiB8IDIyLjQwIE1pQiB8CiArLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="format_path" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHJhdyBwYXRoIHZhbHVlLCBhbmQgc3RyaXBzIG91dCB0aGUgZGF0YWRpciBvciB0bXBkaXIKIHJlcGxhY2luZyB3aXRoIEBAZGF0YWRpciBhbmQgQEB0bXBkaXIgcmVzcGVjdGl2ZWx5LiAKIAogQWxzbyBub3JtYWxpemVzIHRoZSBwYXRocyBhY3Jvc3Mgb3BlcmF0aW5nIHN5c3RlbXMsIHNvIGJhY2tzbGFzaGVzCiBvbiBXaW5kb3dzIGFyZSBjb252ZXJ0ZWQgdG8gZm9yd2FyZCBzbGFzaGVzCiAKIFBhcmFtZXRlcnMKIAogcGF0aCAoVkFSQ0hBUigyNjApKTogCiBUaGUgcmF3IGZpbGUgcGF0aCB2YWx1ZSB0byBmb3JtYXQuCiAKIFJldHVybnMKIAogVkFSQ0hBUigyNjApIENIQVJTRVQgVVRGOAogCiBFeGFtcGxlCiAKIG15c3FsPiBzZWxlY3QgQEBkYXRhZGlyOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBAQGRhdGFkaXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCAvVXNlcnMvbWFyay9zYW5kYm94ZXMvU21hbGxUcmVlL0FNYXN0ZXIvZGF0YS8gfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjA2IHNlYykKIAogbXlzcWw+IHNlbGVjdCBmb3JtYXRfcGF0aCgnL1VzZXJzL21hcmsvc2FuZGJveGVzL1NtYWxsVHJlZS9BTWFzdGVyL2RhdGEvbXlzcWwvcHJvYy5NWUQnKSBBUyBwYXRoOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBwYXRoICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBAQGRhdGFkaXIvbXlzcWwvcHJvYy5NWUQgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAzIHNlYykKIA=="/>
+    <procedure name="format_statement" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBGb3JtYXRzIGEgbm9ybWFsaXplZCBzdGF0ZW1lbnQsIHRydW5jYXRpbmcgaXQgaWYgaXQncyA+IDY0IGNoYXJhY3RlcnMgbG9uZyBieSBkZWZhdWx0LgogCiBUbyBjb25maWd1cmUgdGhlIGxlbmd0aCB0byB0cnVuY2F0ZSB0aGUgc3RhdGVtZW50IHRvIGJ5IGRlZmF1bHQsIHVwZGF0ZSB0aGUgYHN0YXRlbWVudF90cnVuY2F0ZV9sZW5gCiB2YXJpYWJsZSB3aXRoIGBzeXNfY29uZmlnYCB0YWJsZSB0byBhIGRpZmZlcmVudCB2YWx1ZS4gQWx0ZXJuYXRpdmVseSwgdG8gY2hhbmdlIGl0IGp1c3QgZm9yIGp1c3QgCiB5b3VyIHBhcnRpY3VsYXIgc2Vzc2lvbiwgdXNlIGBTRVQgQHN5cy5zdGF0ZW1lbnRfdHJ1bmNhdGVfbGVuIDo9IDxzb21lIG5ldyB2YWx1ZT5gLgogCiBVc2VmdWwgZm9yIHByaW50aW5nIHN0YXRlbWVudCByZWxhdGVkIGRhdGEgZnJvbSBQZXJmb3JtYW5jZSBTY2hlbWEgZnJvbSAKIHRoZSBjb21tYW5kIGxpbmUuCiAKIFBhcmFtZXRlcnMKIAogc3RhdGVtZW50IChMT05HVEVYVCk6IAogVGhlIHN0YXRlbWVudCB0byBmb3JtYXQuCiAKIFJldHVybnMKIAogVkFSQ0hBUig2NSkKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5mb3JtYXRfc3RhdGVtZW50KGRpZ2VzdF90ZXh0KQogLT4gICBGUk9NIHBlcmZvcm1hbmNlX3NjaGVtYS5ldmVudHNfc3RhdGVtZW50c19zdW1tYXJ5X2J5X2RpZ2VzdAogLT4gIE9SREVSIGJ5IHN1bV90aW1lcl93YWl0IERFU0MgbGltaXQgNTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzeXMuZm9ybWF0X3N0YXRlbWVudChkaWdlc3RfdGV4dCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgQ1JFQVRFIFNRTCBTRUNVUklUWSBJTlZPS0VSIFZJIC4uLiBLRSA/IEFORCBgdmFyaWFibGVfdmFsdWVgID4gPyAgfAogfCBDUkVBVEUgU1FMIFNFQ1VSSVRZIElOVk9LRVIgVkkgLi4uIGFpdGAgSVMgTk9UIE5VTEwgLCBgZXNjYCAuIC4uLiB8CiB8IENSRUFURSBTUUwgU0VDVVJJVFkgSU5WT0tFUiBWSSAuLi4gYWl0YCBJUyBOT1QgTlVMTCAsIGBzeXNgIC4gLi4uIHwKIHwgQ1JFQVRFIFNRTCBTRUNVUklUWSBJTlZPS0VSIFZJIC4uLiAgLCBgY29tcHJlc3NlZF9zaXplYCApICkgREVTQyAgfAogfCBDUkVBVEUgU1FMIFNFQ1VSSVRZIElOVk9LRVIgVkkgLi4uIExJS0UgPyBPUkRFUiBCWSBgdGltZXJfc3RhcnRgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDUgcm93cyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="format_time" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBUYWtlcyBhIHJhdyBwaWNvc2Vjb25kcyB2YWx1ZSwgYW5kIGNvbnZlcnRzIGl0IHRvIGEgaHVtYW4gcmVhZGFibGUgZm9ybS4KIAogUGljb3NlY29uZHMgYXJlIHRoZSBwcmVjaXNpb24gdGhhdCBhbGwgbGF0ZW5jeSB2YWx1ZXMgYXJlIHByaW50ZWQgaW4gCiB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hLCBob3dldmVyIGFyZSBub3QgdXNlciBmcmllbmRseSB3aGVuIHdhbnRpbmcKIHRvIHNjYW4gb3V0cHV0IGZyb20gdGhlIGNvbW1hbmQgbGluZS4KIAogUGFyYW1ldGVycwogCiBwaWNvc2Vjb25kcyAoVEVYVCk6IAogVGhlIHJhdyBwaWNvc2Vjb25kcyB2YWx1ZSB0byBjb252ZXJ0LgogCiBSZXR1cm5zCiAKIFRFWFQKIAogRXhhbXBsZQogCiBteXNxbD4gc2VsZWN0IGZvcm1hdF90aW1lKDM0MjM0MjM0MjM0MjM0NSk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBmb3JtYXRfdGltZSgzNDIzNDIzNDIzNDIzNDUpIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IDAwOjA1OjQyICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKIG15c3FsPiBzZWxlY3QgZm9ybWF0X3RpbWUoMzQyMzQyMzQyKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGZvcm1hdF90aW1lKDM0MjM0MjM0MikgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgMzQyLjM0IHVzICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIAogbXlzcWw+IHNlbGVjdCBmb3JtYXRfdGltZSgzNDIzNCk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGZvcm1hdF90aW1lKDM0MjM0KSB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IDM0LjIzIG5zICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="ps_is_account_enabled" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBEZXRlcm1pbmVzIHdoZXRoZXIgaW5zdHJ1bWVudGF0aW9uIG9mIGFuIGFjY291bnQgaXMgZW5hYmxlZCAKIHdpdGhpbiBQZXJmb3JtYW5jZSBTY2hlbWEuCiAKIFBhcmFtZXRlcnMKIAogaW5faG9zdCBWQVJDSEFSKDYwKTogCiBUaGUgaG9zdG5hbWUgb2YgdGhlIGFjY291bnQgdG8gY2hlY2suCiBpbl91c2VyIChWQVJDSEFSKDE2KSk6CiBUaGUgdXNlcm5hbWUgb2YgdGhlIGFjY291bnQgdG8gY2hlY2suCiAKIFJldHVybnMKIAogRU5VTSgnWUVTJywgJ05PJywgJ1BBUlRJQUwnKQogCiBFeGFtcGxlCiAKIG15c3FsPiBTRUxFQ1Qgc3lzLnBzX2lzX2FjY291bnRfZW5hYmxlZCgnbG9jYWxob3N0JywgJ3Jvb3QnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN5cy5wc19pc19hY2NvdW50X2VuYWJsZWQoJ2xvY2FsaG9zdCcsICdyb290JykgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgWUVTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAxIHNlYykKIA=="/>
+    <procedure name="ps_is_consumer_enabled" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBEZXRlcm1pbmVzIHdoZXRoZXIgYSBjb25zdW1lciBpcyBlbmFibGVkICh0YWtpbmcgdGhlIGNvbnN1bWVyIGhpZXJhcmNoeSBpbnRvIGNvbnNpZGVyYXRpb24pCiB3aXRoaW4gdGhlIFBlcmZvcm1hbmNlIFNjaGVtYS4KIAogUGFyYW1ldGVycwogCiBpbl9jb25zdW1lciBWQVJDSEFSKDY0KTogCiBUaGUgbmFtZSBvZiB0aGUgY29uc3VtZXIgdG8gY2hlY2suCiAKIFJldHVybnMKIAogRU5VTSgnWUVTJywgJ05PJykKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5wc19pc19jb25zdW1lcl9lbmFibGVkKCdldmVudHNfc3RhZ2VzX2hpc3RvcnknKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3lzLnBzX2lzX2NvbnN1bWVyX2VuYWJsZWQoJ2V2ZW50c19zdGFnZXNfaGlzdG9yeScpIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgTk8gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiA="/>
+    <procedure name="ps_is_instrument_default_enabled" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBSZXR1cm5zIHdoZXRoZXIgYW4gaW5zdHJ1bWVudCBpcyBlbmFibGVkIGJ5IGRlZmF1bHQgaW4gdGhpcyB2ZXJzaW9uIG9mIE15U1FMLgogCiBQYXJhbWV0ZXJzCiAKIGluX2luc3RydW1lbnQgVkFSQ0hBUigxMjgpOiAKIFRoZSBpbnN0cnVtZW50IHRvIGNoZWNrLgogCiBSZXR1cm5zCiAKIEVOVU0oJ1lFUycsICdOTycpCiAKIEV4YW1wbGUKIAogbXlzcWw+IFNFTEVDVCBzeXMucHNfaXNfaW5zdHJ1bWVudF9kZWZhdWx0X2VuYWJsZWQoJ3N0YXRlbWVudC9zcWwvc2VsZWN0Jyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN5cy5wc19pc19pbnN0cnVtZW50X2RlZmF1bHRfZW5hYmxlZCgnc3RhdGVtZW50L3NxbC9zZWxlY3QnKSB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IFlFUyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="ps_is_instrument_default_timed" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBSZXR1cm5zIHdoZXRoZXIgYW4gaW5zdHJ1bWVudCBpcyB0aW1lZCBieSBkZWZhdWx0IGluIHRoaXMgdmVyc2lvbiBvZiBNeVNRTC4KIAogUGFyYW1ldGVycwogCiBpbl9pbnN0cnVtZW50IFZBUkNIQVIoMTI4KTogCiBUaGUgaW5zdHJ1bWVudCB0byBjaGVjay4KIAogUmV0dXJucwogCiBFTlVNKCdZRVMnLCAnTk8nKQogCiBFeGFtcGxlCiAKIG15c3FsPiBTRUxFQ1Qgc3lzLnBzX2lzX2luc3RydW1lbnRfZGVmYXVsdF90aW1lZCgnc3RhdGVtZW50L3NxbC9zZWxlY3QnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN5cy5wc19pc19pbnN0cnVtZW50X2RlZmF1bHRfdGltZWQoJ3N0YXRlbWVudC9zcWwvc2VsZWN0JykgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgWUVTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIA=="/>
+    <procedure name="ps_is_thread_instrumented" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBDaGVja3Mgd2hldGhlciB0aGUgcHJvdmlkZWQgY29ubmVjdGlvbiBpZCBpcyBpbnN0cnVtZW50ZWQgd2l0aGluIFBlcmZvcm1hbmNlIFNjaGVtYS4KIAogUGFyYW1ldGVycwogCiBpbl9jb25uZWN0aW9uX2lkIChCSUdJTlQgVU5TSUdORUQpOgogVGhlIGlkIG9mIHRoZSBjb25uZWN0aW9uIHRvIGNoZWNrLgogCiBSZXR1cm5zCiAKIEVOVU0oJ1lFUycsICdOTycsICdVTktOT1dOJykKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5wc19pc190aHJlYWRfaW5zdHJ1bWVudGVkKENPTk5FQ1RJT05fSUQoKSk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzeXMucHNfaXNfdGhyZWFkX2luc3RydW1lbnRlZChDT05ORUNUSU9OX0lEKCkpIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IFlFUyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIA=="/>
+    <procedure name="ps_setup_disable_background_threads" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBEaXNhYmxlIGFsbCBiYWNrZ3JvdW5kIHRocmVhZCBpbnN0cnVtZW50YXRpb24gd2l0aGluIFBlcmZvcm1hbmNlIFNjaGVtYS4KIAogUGFyYW1ldGVycwogCiBOb25lLgogCiBFeGFtcGxlCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9kaXNhYmxlX2JhY2tncm91bmRfdGhyZWFkcygpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEaXNhYmxlZCAxOCBiYWNrZ3JvdW5kIHRocmVhZHMgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIA=="/>
+    <procedure name="ps_setup_disable_consumer" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBEaXNhYmxlcyBjb25zdW1lcnMgd2l0aGluIFBlcmZvcm1hbmNlIFNjaGVtYSAKIG1hdGNoaW5nIHRoZSBpbnB1dCBwYXR0ZXJuLgogCiBQYXJhbWV0ZXJzCiAKIGNvbnN1bWVyIChWQVJDSEFSKDEyOCkpOgogQSBMSUtFIHBhdHRlcm4gbWF0Y2ggKHVzaW5nICIlY29uc3VtZXIlIikgb2YgY29uc3VtZXJzIHRvIGRpc2FibGUKIAogRXhhbXBsZQogCiBUbyBkaXNhYmxlIGFsbCBjb25zdW1lcnM6CiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9kaXNhYmxlX2NvbnN1bWVyKCcnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRGlzYWJsZWQgMTUgY29uc3VtZXJzICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMiBzZWMpCiAKIFRvIGRpc2FibGUganVzdCB0aGUgZXZlbnRfc3RhZ2UgY29uc3VtZXJzOgogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfZGlzYWJsZV9jb21zdW1lcnMoJ3N0YWdlJyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IERpc2FibGVkIDMgY29uc3VtZXJzICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiA="/>
+    <procedure name="ps_setup_disable_instrument" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBEaXNhYmxlcyBpbnN0cnVtZW50cyB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hIAogbWF0Y2hpbmcgdGhlIGlucHV0IHBhdHRlcm4uCiAKIFBhcmFtZXRlcnMKIAogaW5fcGF0dGVybiAoVkFSQ0hBUigxMjgpKToKIEEgTElLRSBwYXR0ZXJuIG1hdGNoICh1c2luZyAiJWluX3BhdHRlcm4lIikgb2YgZXZlbnRzIHRvIGRpc2FibGUKIAogRXhhbXBsZQogCiBUbyBkaXNhYmxlIGFsbCBtdXRleCBpbnN0cnVtZW50czoKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2Rpc2FibGVfaW5zdHJ1bWVudCgnd2FpdC9zeW5jaC9tdXRleCcpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEaXNhYmxlZCAxNTUgaW5zdHJ1bWVudHMgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAyIHNlYykKIAogVG8gZGlzYWJsZSBqdXN0IGEgdGhlIHNjcGVjaWZpYyBUQ1AvSVAgYmFzZWQgbmV0d29yayBJTyBpbnN0cnVtZW50OgogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfZGlzYWJsZV9pbnN0cnVtZW50KCd3YWl0L2lvL3NvY2tldC9zcWwvc2VydmVyX3RjcGlwX3NvY2tldCcpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEaXNhYmxlZCAxIGluc3RydW1lbnRzIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQogCiBUbyBlbmFibGUgYWxsIGluc3RydW1lbnRzOgogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfZGlzYWJsZV9pbnN0cnVtZW50KCcnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRGlzYWJsZWQgNTQ3IGluc3RydW1lbnRzIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMSBzZWMpCiA="/>
+    <procedure name="ps_setup_disable_thread" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBEaXNhYmxlIHRoZSBnaXZlbiBjb25uZWN0aW9uL3RocmVhZCBpbiBQZXJmb3JtYW5jZSBTY2hlbWEuCiAKIFBhcmFtZXRlcnMKIAogaW5fY29ubmVjdGlvbl9pZCAoQklHSU5UKToKIFRoZSBjb25uZWN0aW9uIElEIChQUk9DRVNTTElTVF9JRCBmcm9tIHBlcmZvcm1hbmNlX3NjaGVtYS50aHJlYWRzCiBvciB0aGUgSUQgc2hvd24gd2l0aGluIFNIT1cgUFJPQ0VTU0xJU1QpCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2Rpc2FibGVfdGhyZWFkKDMpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEaXNhYmxlZCAxIHRocmVhZCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMSBzZWMpCiAKIFRvIGRpc2FibGUgdGhlIGN1cnJlbnQgY29ubmVjdGlvbjoKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2Rpc2FibGVfdGhyZWFkKENPTk5FQ1RJT05fSUQoKSk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IERpc2FibGVkIDEgdGhyZWFkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIA=="/>
+    <procedure name="ps_setup_enable_background_threads" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBFbmFibGUgYWxsIGJhY2tncm91bmQgdGhyZWFkIGluc3RydW1lbnRhdGlvbiB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hLgogCiBQYXJhbWV0ZXJzCiAKIE5vbmUuCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2VuYWJsZV9iYWNrZ3JvdW5kX3RocmVhZHMoKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRW5hYmxlZCAxOCBiYWNrZ3JvdW5kIHRocmVhZHMgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQog"/>
+    <procedure name="ps_setup_enable_consumer" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBFbmFibGVzIGNvbnN1bWVycyB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hIAogbWF0Y2hpbmcgdGhlIGlucHV0IHBhdHRlcm4uCiAKIFBhcmFtZXRlcnMKIAogY29uc3VtZXIgKFZBUkNIQVIoMTI4KSk6CiBBIExJS0UgcGF0dGVybiBtYXRjaCAodXNpbmcgIiVjb25zdW1lciUiKSBvZiBjb25zdW1lcnMgdG8gZW5hYmxlCiAKIEV4YW1wbGUKIAogVG8gZW5hYmxlIGFsbCBjb25zdW1lcnM6CiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9lbmFibGVfY29uc3VtZXIoJycpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBFbmFibGVkIDEwIGNvbnN1bWVycyAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMiBzZWMpCiAKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMDIgc2VjKQogCiBUbyBlbmFibGUganVzdCAid2FpdHMiIGNvbnN1bWVyczoKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2VuYWJsZV9jb25zdW1lcignd2FpdHMnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRW5hYmxlZCAzIGNvbnN1bWVycyAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMDAgc2VjKQog"/>
+    <procedure name="ps_setup_enable_instrument" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBFbmFibGVzIGluc3RydW1lbnRzIHdpdGhpbiBQZXJmb3JtYW5jZSBTY2hlbWEgCiBtYXRjaGluZyB0aGUgaW5wdXQgcGF0dGVybi4KIAogUGFyYW1ldGVycwogCiBpbl9wYXR0ZXJuIChWQVJDSEFSKDEyOCkpOgogQSBMSUtFIHBhdHRlcm4gbWF0Y2ggKHVzaW5nICIlaW5fcGF0dGVybiUiKSBvZiBldmVudHMgdG8gZW5hYmxlCiAKIEV4YW1wbGUKIAogVG8gZW5hYmxlIGFsbCBtdXRleCBpbnN0cnVtZW50czoKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2VuYWJsZV9pbnN0cnVtZW50KCd3YWl0L3N5bmNoL211dGV4Jyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IEVuYWJsZWQgMTU1IGluc3RydW1lbnRzIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAyIHNlYykKIAogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoMC4wMiBzZWMpCiAKIFRvIGVuYWJsZSBqdXN0IGEgdGhlIHNjcGVjaWZpYyBUQ1AvSVAgYmFzZWQgbmV0d29yayBJTyBpbnN0cnVtZW50OgogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfZW5hYmxlX2luc3RydW1lbnQoJ3dhaXQvaW8vc29ja2V0L3NxbC9zZXJ2ZXJfdGNwaXBfc29ja2V0Jyk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IEVuYWJsZWQgMSBpbnN0cnVtZW50cyB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQogCiBRdWVyeSBPSywgMCByb3dzIGFmZmVjdGVkICgwLjAwIHNlYykKIAogVG8gZW5hYmxlIGFsbCBpbnN0cnVtZW50czoKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX2VuYWJsZV9pbnN0cnVtZW50KCcnKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRW5hYmxlZCA1NDcgaW5zdHJ1bWVudHMgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDEgc2VjKQogCiBRdWVyeSBPSywgMCByb3dzIGFmZmVjdGVkICgwLjAxIHNlYykKIA=="/>
+    <procedure name="ps_setup_enable_thread" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBFbmFibGUgdGhlIGdpdmVuIGNvbm5lY3Rpb24vdGhyZWFkIGluIFBlcmZvcm1hbmNlIFNjaGVtYS4KIAogUGFyYW1ldGVycwogCiBpbl9jb25uZWN0aW9uX2lkIChCSUdJTlQpOgogVGhlIGNvbm5lY3Rpb24gSUQgKFBST0NFU1NMSVNUX0lEIGZyb20gcGVyZm9ybWFuY2Vfc2NoZW1hLnRocmVhZHMKIG9yIHRoZSBJRCBzaG93biB3aXRoaW4gU0hPVyBQUk9DRVNTTElTVCkKIAogRXhhbXBsZQogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfZW5hYmxlX3RocmVhZCgzKTsKICstLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRW5hYmxlZCAxIHRocmVhZCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAxIHNlYykKIAogVG8gZW5hYmxlIHRoZSBjdXJyZW50IGNvbm5lY3Rpb246CiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9lbmFibGVfdGhyZWFkKENPTk5FQ1RJT05fSUQoKSk7CiArLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzdW1tYXJ5ICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0rCiB8IEVuYWJsZWQgMSB0aHJlYWQgfAogKy0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiA="/>
+    <procedure name="ps_setup_reload_saved" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBSZWxvYWRzIGEgc2F2ZWQgUGVyZm9ybWFuY2UgU2NoZW1hIGNvbmZpZ3VyYXRpb24sCiBzbyB0aGF0IHlvdSBjYW4gYWx0ZXIgdGhlIHNldHVwIGZvciBkZWJ1Z2dpbmcgcHVycG9zZXMsIAogYnV0IHJlc3RvcmUgaXQgdG8gYSBwcmV2aW91cyBzdGF0ZS4KIAogVXNlIHRoZSBjb21wYW5pb24gcHJvY2VkdXJlIC0gcHNfc2V0dXBfc2F2ZSgpLCB0byAKIHNhdmUgYSBjb25maWd1cmF0aW9uLgogCiBSZXF1aXJlcyB0aGUgU1VQRVIgcHJpdmlsZWdlIGZvciAiU0VUIHNxbF9sb2dfYmluID0gMDsiLgogCiBQYXJhbWV0ZXJzCiAKIE5vbmUuCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX3NhdmUoKTsKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMDggc2VjKQogCiBteXNxbD4gVVBEQVRFIHBlcmZvcm1hbmNlX3NjaGVtYS5zZXR1cF9pbnN0cnVtZW50cyBTRVQgZW5hYmxlZCA9ICdZRVMnLCB0aW1lZCA9ICdZRVMnOwogUXVlcnkgT0ssIDU0NyByb3dzIGFmZmVjdGVkICgwLjQwIHNlYykKIFJvd3MgbWF0Y2hlZDogNzg0ICBDaGFuZ2VkOiA1NDcgIFdhcm5pbmdzOiAwCiAKIC8qIFJ1biBzb21lIHRlc3RzIHRoYXQgbmVlZCBtb3JlIGRldGFpbGVkIGluc3RydW1lbnRhdGlvbiBoZXJlICovCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9yZWxvYWRfc2F2ZWQoKTsKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMzIgc2VjKQog"/>
+    <procedure name="ps_setup_reset_to_default" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBSZXNldHMgdGhlIFBlcmZvcm1hbmNlIFNjaGVtYSBzZXR1cCB0byB0aGUgZGVmYXVsdCBzZXR0aW5ncy4KIAogUGFyYW1ldGVycwogCiBpbl92ZXJib3NlIChCT09MRUFOKToKIFdoZXRoZXIgdG8gcHJpbnQgZWFjaCBzZXR1cCBzdGFnZSAoaW5jbHVkaW5nIHRoZSBTUUwpIHdoaWxzdCBydW5uaW5nLgogCiBFeGFtcGxlCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9yZXNldF90b19kZWZhdWx0KHRydWUpXEcKICoqKioqKioqKioqKioqKioqKioqKioqKioqKiAxLiByb3cgKioqKioqKioqKioqKioqKioqKioqKioqKioqCiBzdGF0dXM6IFJlc2V0dGluZzogc2V0dXBfYWN0b3JzCiBERUxFVEUKIEZST00gcGVyZm9ybWFuY2Vfc2NoZW1hLnNldHVwX2FjdG9ycwogV0hFUkUgTk9UIChIT1NUID0gJyUnIEFORCBVU0VSID0gJyUnIEFORCBST0xFID0gJyUnKQogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIAogKioqKioqKioqKioqKioqKioqKioqKioqKioqIDEuIHJvdyAqKioqKioqKioqKioqKioqKioqKioqKioqKioKIHN0YXR1czogUmVzZXR0aW5nOiBzZXR1cF9hY3RvcnMKIElOU0VSVCBJR05PUkUgSU5UTyBwZXJmb3JtYW5jZV9zY2hlbWEuc2V0dXBfYWN0b3JzCiBWQUxVRVMgKCclJywgJyUnLCAnJScpCiAxIHJvdyBpbiBzZXQgKDAuMDAgc2VjKQogLi4uCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9yZXNldF90b19kZWZhdWx0KGZhbHNlKUcKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMDAgc2VjKQog"/>
+    <procedure name="ps_setup_save" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTYXZlcyB0aGUgY3VycmVudCBjb25maWd1cmF0aW9uIG9mIFBlcmZvcm1hbmNlIFNjaGVtYSwgCiBzbyB0aGF0IHlvdSBjYW4gYWx0ZXIgdGhlIHNldHVwIGZvciBkZWJ1Z2dpbmcgcHVycG9zZXMsIAogYnV0IHJlc3RvcmUgaXQgdG8gYSBwcmV2aW91cyBzdGF0ZS4KIAogVXNlIHRoZSBjb21wYW5pb24gcHJvY2VkdXJlIC0gcHNfc2V0dXBfcmVsb2FkX3NhdmVkKCksIHRvIAogcmVzdG9yZSB0aGUgc2F2ZWQgY29uZmlnLgogCiBSZXF1aXJlcyB0aGUgU1VQRVIgcHJpdmlsZWdlIGZvciAiU0VUIHNxbF9sb2dfYmluID0gMDsiLgogCiBQYXJhbWV0ZXJzCiAKIE5vbmUuCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX3NhdmUoKTsKIFF1ZXJ5IE9LLCAwIHJvd3MgYWZmZWN0ZWQgKDAuMDggc2VjKQogCiBteXNxbD4gVVBEQVRFIHBlcmZvcm1hbmNlX3NjaGVtYS5zZXR1cF9pbnN0cnVtZW50cyAKIC0+ICAgIFNFVCBlbmFibGVkID0gJ1lFUycsIHRpbWVkID0gJ1lFUyc7CiBRdWVyeSBPSywgNTQ3IHJvd3MgYWZmZWN0ZWQgKDAuNDAgc2VjKQogUm93cyBtYXRjaGVkOiA3ODQgIENoYW5nZWQ6IDU0NyAgV2FybmluZ3M6IDAKIAogLyogUnVuIHNvbWUgdGVzdHMgdGhhdCBuZWVkIG1vcmUgZGV0YWlsZWQgaW5zdHJ1bWVudGF0aW9uIGhlcmUgKi8KIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX3JlbG9hZF9zYXZlZCgpOwogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoMC4zMiBzZWMpCiA="/>
+    <procedure name="ps_setup_show_disabled" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGRpc2FibGUgUGVyZm9ybWFuY2UgU2NoZW1hIGNvbmZpZ3VyYXRpb24uCiAKIFBhcmFtZXRlcnMKIAogaW5faW5fc2hvd19pbnN0cnVtZW50cyAoQk9PTEVBTik6CiBXaGV0aGVyIHRvIHByaW50IGRpc2FibGVkIGluc3RydW1lbnRzIChjYW4gcHJpbnQgbWFueSBpdGVtcykKIAogaW5faW5fc2hvd190aHJlYWRzIChCT09MRUFOKToKIFdoZXRoZXIgdG8gcHJpbnQgZGlzYWJsZWQgdGhyZWFkcwogCiBFeGFtcGxlCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9zaG93X2Rpc2FibGVkKFRSVUUsIFRSVUUpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHBlcmZvcm1hbmNlX3NjaGVtYV9lbmFibGVkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCAgICAgICAgICAgICAgICAgICAgICAgICAgMSB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgZW5hYmxlZF91c2VycyAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgJ21hcmsnQCdsb2NhbGhvc3QnIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKICstLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0rCiB8IG9iamVjdF90eXBlIHwgb2JqZWN0cyAgICAgICAgICAgICAgfCBlbmFibGVkIHwgdGltZWQgfAogKy0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0rLS0tLS0tLSsKIHwgRVZFTlQgICAgICAgfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IEVWRU5UICAgICAgIHwgcGVyZm9ybWFuY2Vfc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCBFVkVOVCAgICAgICB8IGluZm9ybWF0aW9uX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKIHwgRlVOQ1RJT04gICAgfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IEZVTkNUSU9OICAgIHwgcGVyZm9ybWFuY2Vfc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCBGVU5DVElPTiAgICB8IGluZm9ybWF0aW9uX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKIHwgUFJPQ0VEVVJFICAgfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IFBST0NFRFVSRSAgIHwgcGVyZm9ybWFuY2Vfc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCBQUk9DRURVUkUgICB8IGluZm9ybWF0aW9uX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKIHwgVEFCTEUgICAgICAgfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IFRBQkxFICAgICAgIHwgcGVyZm9ybWFuY2Vfc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCBUQUJMRSAgICAgICB8IGluZm9ybWF0aW9uX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKIHwgVFJJR0dFUiAgICAgfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IFRSSUdHRVIgICAgIHwgcGVyZm9ybWFuY2Vfc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCBUUklHR0VSICAgICB8IGluZm9ybWF0aW9uX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKICstLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0rCiAxNSByb3dzIGluIHNldCAoMC4wMCBzZWMpCiAKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBkaXNhYmxlZF9jb25zdW1lcnMgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgZXZlbnRzX3N0YWdlc19jdXJyZW50ICAgICAgICAgICAgfAogfCBldmVudHNfc3RhZ2VzX2hpc3RvcnkgICAgICAgICAgICB8CiB8IGV2ZW50c19zdGFnZXNfaGlzdG9yeV9sb25nICAgICAgIHwKIHwgZXZlbnRzX3N0YXRlbWVudHNfaGlzdG9yeSAgICAgICAgfAogfCBldmVudHNfc3RhdGVtZW50c19oaXN0b3J5X2xvbmcgICB8CiB8IGV2ZW50c190cmFuc2FjdGlvbnNfaGlzdG9yeSAgICAgIHwKIHwgZXZlbnRzX3RyYW5zYWN0aW9uc19oaXN0b3J5X2xvbmcgfAogfCBldmVudHNfd2FpdHNfY3VycmVudCAgICAgICAgICAgICB8CiB8IGV2ZW50c193YWl0c19oaXN0b3J5ICAgICAgICAgICAgIHwKIHwgZXZlbnRzX3dhaXRzX2hpc3RvcnlfbG9uZyAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxMCByb3dzIGluIHNldCAoMC4wMCBzZWMpCiAKIEVtcHR5IHNldCAoMC4wMCBzZWMpCiAKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLSsKIHwgZGlzYWJsZWRfaW5zdHJ1bWVudHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IHRpbWVkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLSsKIHwgd2FpdC9zeW5jaC9tdXRleC9zcWwvVENfTE9HX01NQVA6OkxPQ0tfdGMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IE5PICAgIHwKIHwgd2FpdC9zeW5jaC9tdXRleC9zcWwvTE9DS19kZXNfa2V5X2ZpbGUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IE5PICAgIHwKIHwgd2FpdC9zeW5jaC9tdXRleC9zcWwvTVlTUUxfQklOX0xPRzo6TE9DS19jb21taXQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IE5PICAgIHwKIC4uLgogfCBtZW1vcnkvc3FsL3NlcnZlcnNfY2FjaGUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgTk8gICAgfAogfCBtZW1vcnkvc3FsL3VkZl9tZW0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgTk8gICAgfAogfCB3YWl0L2xvY2svbWV0YWRhdGEvc3FsL21kbCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgTk8gICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tKwogNTQ3IHJvd3MgaW4gc2V0ICgwLjAwIHNlYykKIAogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoMC4wMSBzZWMpCiA="/>
+    <procedure name="ps_setup_show_disabled_consumers" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGRpc2FibGVkIGNvbnN1bWVycy4KIAogUGFyYW1ldGVycwogCiBOb25lCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3NldHVwX3Nob3dfZGlzYWJsZWRfY29uc3VtZXJzKCk7CiAKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGRpc2FibGVkX2NvbnN1bWVycyAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgZXZlbnRzX3N0YXRlbWVudHNfY3VycmVudCB8CiB8IGdsb2JhbF9pbnN0cnVtZW50YXRpb24gICAgfAogfCB0aHJlYWRfaW5zdHJ1bWVudGF0aW9uICAgIHwKIHwgc3RhdGVtZW50c19kaWdlc3QgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogNCByb3dzIGluIHNldCAoMC4wNSBzZWMpCiA="/>
+    <procedure name="ps_setup_show_disabled_instruments" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGRpc2FibGVkIGluc3RydW1lbnRzLgogCiBQYXJhbWV0ZXJzCiAKIE5vbmUKIAogRXhhbXBsZQogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfc2hvd19kaXNhYmxlZF9pbnN0cnVtZW50cygpOwog"/>
+    <procedure name="ps_setup_show_enabled" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGVuYWJsZWQgUGVyZm9ybWFuY2UgU2NoZW1hIGNvbmZpZ3VyYXRpb24uCiAKIFBhcmFtZXRlcnMKIAogaW5fc2hvd19pbnN0cnVtZW50cyAoQk9PTEVBTik6CiBXaGV0aGVyIHRvIHByaW50IGVuYWJsZWQgaW5zdHJ1bWVudHMgKGNhbiBwcmludCBtYW55IGl0ZW1zKQogCiBpbl9zaG93X3RocmVhZHMgKEJPT0xFQU4pOgogV2hldGhlciB0byBwcmludCBlbmFibGVkIHRocmVhZHMKIAogRXhhbXBsZQogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfc2hvd19lbmFibGVkKFRSVUUsIFRSVUUpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHBlcmZvcm1hbmNlX3NjaGVtYV9lbmFibGVkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCAgICAgICAgICAgICAgICAgICAgICAgICAgMSB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKICstLS0tLS0tLS0tLS0tLS0rCiB8IGVuYWJsZWRfdXNlcnMgfAogKy0tLS0tLS0tLS0tLS0tLSsKIHwgJyUnQCclJyAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAxIHNlYykKIAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0rCiB8IG9iamVjdHMgICAgICAgICAgICAgIHwgZW5hYmxlZCB8IHRpbWVkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tKwogfCBteXNxbC4lICAgICAgICAgICAgICB8IE5PICAgICAgfCBOTyAgICB8CiB8IHBlcmZvcm1hbmNlX3NjaGVtYS4lIHwgTk8gICAgICB8IE5PICAgIHwKIHwgaW5mb3JtYXRpb25fc2NoZW1hLiUgfCBOTyAgICAgIHwgTk8gICAgfAogfCAlLiUgICAgICAgICAgICAgICAgICB8IFlFUyAgICAgfCBZRVMgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0rLS0tLS0tLSsKIDQgcm93cyBpbiBzZXQgKDAuMDEgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBlbmFibGVkX2NvbnN1bWVycyAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGV2ZW50c19zdGF0ZW1lbnRzX2N1cnJlbnQgfAogfCBnbG9iYWxfaW5zdHJ1bWVudGF0aW9uICAgIHwKIHwgdGhyZWFkX2luc3RydW1lbnRhdGlvbiAgICB8CiB8IHN0YXRlbWVudHNfZGlnZXN0ICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDQgcm93cyBpbiBzZXQgKDAuMDUgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLSsKIHwgZW5hYmxlZF90aHJlYWRzICAgICAgICAgIHwgdGhyZWFkX3R5cGUgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0rCiB8IGlubm9kYi9zcnZfbWFzdGVyX3RocmVhZCB8IEJBQ0tHUk9VTkQgIHwKIHwgcm9vdEBsb2NhbGhvc3QgICAgICAgICAgIHwgRk9SRUdST1VORCAgfAogfCByb290QGxvY2FsaG9zdCAgICAgICAgICAgfCBGT1JFR1JPVU5EICB8CiB8IHJvb3RAbG9jYWxob3N0ICAgICAgICAgICB8IEZPUkVHUk9VTkQgIHwKIHwgcm9vdEBsb2NhbGhvc3QgICAgICAgICAgIHwgRk9SRUdST1VORCAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0rCiA1IHJvd3MgaW4gc2V0ICgwLjAzIHNlYykKIAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLSsKIHwgZW5hYmxlZF9pbnN0cnVtZW50cyAgICAgICAgICAgICAgICAgfCB0aW1lZCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tKwogfCB3YWl0L2lvL2ZpbGUvc3FsL21hcCAgICAgICAgICAgICAgICB8IFlFUyAgIHwKIHwgd2FpdC9pby9maWxlL3NxbC9iaW5sb2cgICAgICAgICAgICAgfCBZRVMgICB8CiAuLi4KIHwgc3RhdGVtZW50L2NvbS9FcnJvciAgICAgICAgICAgICAgICAgfCBZRVMgICB8CiB8IHN0YXRlbWVudC9jb20vICAgICAgICAgICAgICAgICAgICAgIHwgWUVTICAgfAogfCBpZGxlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IFlFUyAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0rCiAyMTAgcm93cyBpbiBzZXQgKDAuMDggc2VjKQogCiBRdWVyeSBPSywgMCByb3dzIGFmZmVjdGVkICgwLjg5IHNlYykKIA=="/>
+    <procedure name="ps_setup_show_enabled_consumers" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGVuYWJsZWQgY29uc3VtZXJzLgogCiBQYXJhbWV0ZXJzCiAKIE5vbmUKIAogRXhhbXBsZQogCiBteXNxbD4gQ0FMTCBzeXMucHNfc2V0dXBfc2hvd19lbmFibGVkX2NvbnN1bWVycygpOwogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBlbmFibGVkX2NvbnN1bWVycyAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGV2ZW50c19zdGF0ZW1lbnRzX2N1cnJlbnQgfAogfCBnbG9iYWxfaW5zdHJ1bWVudGF0aW9uICAgIHwKIHwgdGhyZWFkX2luc3RydW1lbnRhdGlvbiAgICB8CiB8IHN0YXRlbWVudHNfZGlnZXN0ICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDQgcm93cyBpbiBzZXQgKDAuMDUgc2VjKQog"/>
+    <procedure name="ps_setup_show_enabled_instruments" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBTaG93cyBhbGwgY3VycmVudGx5IGVuYWJsZWQgaW5zdHJ1bWVudHMuCiAKIFBhcmFtZXRlcnMKIAogTm9uZQogCiBFeGFtcGxlCiAKIG15c3FsPiBDQUxMIHN5cy5wc19zZXR1cF9zaG93X2VuYWJsZWRfaW5zdHJ1bWVudHMoKTsKIA=="/>
+    <procedure name="ps_statement_avg_latency_histogram" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBPdXRwdXRzIGEgdGV4dHVhbCBoaXN0b2dyYW0gZ3JhcGggb2YgdGhlIGF2ZXJhZ2UgbGF0ZW5jeSB2YWx1ZXMKIGFjcm9zcyBhbGwgbm9ybWFsaXplZCBxdWVyaWVzIHRyYWNrZWQgd2l0aGluIHRoZSBQZXJmb3JtYW5jZSBTY2hlbWEKIGV2ZW50c19zdGF0ZW1lbnRzX3N1bW1hcnlfYnlfZGlnZXN0IHRhYmxlLgogCiBDYW4gYmUgdXNlZCB0byBzaG93IGEgdmVyeSBoaWdoIGxldmVsIHBpY3R1cmUgb2Ygd2hhdCBraW5kIG9mIAogbGF0ZW5jeSBkaXN0cmlidXRpb24gc3RhdGVtZW50cyBydW5uaW5nIHdpdGhpbiB0aGlzIGluc3RhbmNlIGhhdmUuCiAKIFBhcmFtZXRlcnMKIAogTm9uZS4KIAogRXhhbXBsZQogCiBteXNxbD4gQ0FMTCBzeXMucHNfc3RhdGVtZW50X2F2Z19sYXRlbmN5X2hpc3RvZ3JhbSgpRwogKioqKioqKioqKioqKioqKioqKioqKioqKioqIDEuIHJvdyAqKioqKioqKioqKioqKioqKioqKioqKioqKioKIFBlcmZvcm1hbmNlIFNjaGVtYSBTdGF0ZW1lbnQgRGlnZXN0IEF2ZXJhZ2UgTGF0ZW5jeSBIaXN0b2dyYW06CiAKIC4gPSAxIHVuaXQKICogPSAyIHVuaXRzCiAjID0gMyB1bml0cwogCiAoMCAtIDM4bXMpICAgICAyNDAgfCAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwogKDM4IC0gNzdtcykgICAgMzggIHwgLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4KICg3NyAtIDExNW1zKSAgIDMgICB8IC4uLgogKDExNSAtIDE1NG1zKSAgNjIgIHwgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKgogKDE1NCAtIDE5Mm1zKSAgMyAgIHwgLi4uCiAoMTkyIC0gMjMxbXMpICAwICAgfAogKDIzMSAtIDI2OW1zKSAgMCAgIHwKICgyNjkgLSAzMDdtcykgIDAgICB8CiAoMzA3IC0gMzQ2bXMpICAwICAgfAogKDM0NiAtIDM4NG1zKSAgMSAgIHwgLgogKDM4NCAtIDQyM21zKSAgMSAgIHwgLgogKDQyMyAtIDQ2MW1zKSAgMCAgIHwKICg0NjEgLSA0OTltcykgIDAgICB8CiAoNDk5IC0gNTM4bXMpICAwICAgfAogKDUzOCAtIDU3Nm1zKSAgMCAgIHwKICg1NzYgLSA2MTVtcykgIDEgICB8IC4KIAogVG90YWwgU3RhdGVtZW50czogMzUwOyBCdWNrZXRzOiAxNjsgQnVja2V0IFNpemU6IDM4IG1zOwog"/>
+    <procedure name="ps_thread_id" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBSZXR1cm4gdGhlIFBlcmZvcm1hbmNlIFNjaGVtYSBUSFJFQURfSUQgZm9yIHRoZSBzcGVjaWZpZWQgY29ubmVjdGlvbiBJRC4KIAogUGFyYW1ldGVycwogCiBpbl9jb25uZWN0aW9uX2lkIChCSUdJTlQgVU5TSUdORUQpOgogVGhlIGlkIG9mIHRoZSBjb25uZWN0aW9uIHRvIHJldHVybiB0aGUgdGhyZWFkIGlkIGZvci4KIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5wc190aHJlYWRfaWQoNzkpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN5cy5wc190aHJlYWRfaWQoNzkpIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCAgICAgICAgICAgICAgICAgICA5OCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoMC4wMCBzZWMpCiAKIG15c3FsPiBTRUxFQ1Qgc3lzLnBzX3RocmVhZF9pZChDT05ORUNUSU9OX0lEKCkpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBzeXMucHNfdGhyZWFkX2lkKENPTk5FQ1RJT05fSUQoKSkgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOTggfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIA=="/>
+    <procedure name="ps_thread_stack" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBPdXRwdXRzIGEgSlNPTiBmb3JtYXR0ZWQgc3RhY2sgb2YgYWxsIHN0YXRlbWVudHMsIHN0YWdlcyBhbmQgZXZlbnRzCiB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hIGZvciB0aGUgc3BlY2lmaWVkIHRocmVhZC4KIAogUGFyYW1ldGVycwogCiB0aGRfaWQgKEJJR0lOVCBVTlNJR05FRCk6CiBUaGUgaWQgb2YgdGhlIHRocmVhZCB0byB0cmFjZS4gVGhpcyBzaG91bGQgbWF0Y2ggdGhlIHRocmVhZF9pZAogY29sdW1uIGZyb20gdGhlIHBlcmZvcm1hbmNlX3NjaGVtYS50aHJlYWRzIHRhYmxlLgogaW5fdmVyYm9zZSAoQk9PTEVBTik6CiBJbmNsdWRlIGZpbGU6bGluZW5vIGluZm9ybWF0aW9uIGluIHRoZSBldmVudHMuCiAKIEV4YW1wbGUKIAogKGxpbmUgc2VwYXJhdGlvbiBhZGRlZCBmb3Igb3V0cHV0KQogCiBteXNxbD4gU0VMRUNUIHN5cy5wc190aHJlYWRfc3RhY2soMzcsIEZBTFNFKSBBUyB0aHJlYWRfc3RhY2tcRwogKioqKioqKioqKioqKioqKioqKioqKioqKioqIDEuIHJvdyAqKioqKioqKioqKioqKioqKioqKioqKioqKioKIHRocmVhZF9zdGFjazogeyJyYW5rZGlyIjogIkxSIiwibm9kZXNlcCI6ICIwLjEwIiwic3RhY2tfY3JlYXRlZCI6ICIyMDE0LTAyLTE5IDEzOjM5OjAzIiwKICJteXNxbF92ZXJzaW9uIjogIjUuNy4zLW0xMyIsIm15c3FsX3VzZXIiOiAicm9vdEBsb2NhbGhvc3QiLCJldmVudHMiOiAKIFt7Im5lc3RpbmdfZXZlbnRfaWQiOiAiMCIsICJldmVudF9pZCI6ICIxMCIsICJ0aW1lcl93YWl0IjogMjU2LjM1LCAiZXZlbnRfaW5mbyI6IAogInNxbC9zZWxlY3QiLCAid2FpdF9pbmZvIjogInNlbGVjdCBAQHZlcnNpb25fY29tbWVudCBsaW1pdCAxXG5lcnJvcnM6IDBcbndhcm5pbmdzOiAwXG5sb2NrIHRpbWU6CiAuLi4KIA=="/>
+    <procedure name="ps_trace_statement_digest" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBUcmFjZXMgYWxsIGluc3RydW1lbnRhdGlvbiB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hIGZvciBhIHNwZWNpZmljCiBTdGF0ZW1lbnQgRGlnZXN0LiAKIAogV2hlbiBmaW5kaW5nIGEgc3RhdGVtZW50IG9mIGludGVyZXN0IHdpdGhpbiB0aGUgCiBwZXJmb3JtYW5jZV9zY2hlbWEuZXZlbnRzX3N0YXRlbWVudHNfc3VtbWFyeV9ieV9kaWdlc3QgdGFibGUsIGZlZWQKIHRoZSBESUdFU1QgTUQ1IHZhbHVlIGluIHRvIHRoaXMgcHJvY2VkdXJlLCBzZXQgaG93IGxvbmcgdG8gcG9sbCBmb3IsIAogYW5kIGF0IHdoYXQgaW50ZXJ2YWwgdG8gcG9sbCwgYW5kIGl0IHdpbGwgZ2VuZXJhdGUgYSByZXBvcnQgb2YgYWxsIAogc3RhdGlzdGljcyB0cmFja2VkIHdpdGhpbiBQZXJmb3JtYW5jZSBTY2hlbWEgZm9yIHRoYXQgZGlnZXN0IGZvciB0aGUKIGludGVydmFsLgogCiBJdCB3aWxsIGFsc28gYXR0ZW1wdCB0byBnZW5lcmF0ZSBhbiBFWFBMQUlOIGZvciB0aGUgbG9uZ2VzdCBydW5uaW5nIAogZXhhbXBsZSBvZiB0aGUgZGlnZXN0IGR1cmluZyB0aGUgaW50ZXJ2YWwuIE5vdGUgdGhpcyBtYXkgZmFpbCwgYXMKIFBlcmZvcm1hbmNlIFNjaGVtYSB0cnVuY2F0ZXMgbG9uZyBTUUxfVEVYVCB2YWx1ZXMgKGFuZCBoZW5jZSB0aGUgCiBFWFBMQUlOIHdpbGwgZmFpbCBkdWUgdG8gcGFyc2UgZXJyb3JzKS4KIAogUmVxdWlyZXMgdGhlIFNVUEVSIHByaXZpbGVnZSBmb3IgIlNFVCBzcWxfbG9nX2JpbiA9IDA7Ii4KIAogUGFyYW1ldGVycwogCiBpbl9kaWdlc3QgKFZBUkNIQVIoMzIpKToKIFRoZSBzdGF0ZW1lbnQgZGlnZXN0IGlkZW50aWZpZXIgeW91IHdvdWxkIGxpa2UgdG8gYW5hbHl6ZQogaW5fcnVudGltZSAoSU5UKToKIFRoZSBudW1iZXIgb2Ygc2Vjb25kcyB0byBydW4gYW5hbHlzaXMgZm9yIChkZWZhdWx0cyB0byBhIG1pbnV0ZSkKIGluX2ludGVydmFsIChERUNJTUFMKDIsMikpOgogVGhlIGludGVydmFsIChpbiBzZWNvbmRzLCBtYXkgYmUgZnJhY3Rpb25hbCkgYXQgd2hpY2ggdG8gdHJ5CiBhbmQgdGFrZSBzbmFwc2hvdHMgKGRlZmF1bHRzIHRvIGEgc2Vjb25kKQogaW5fc3RhcnRfZnJlc2ggKEJPT0xFQU4pOgogV2hldGhlciB0byBUUlVOQ0FURSB0aGUgZXZlbnRzX3N0YXRlbWVudHNfaGlzdG9yeV9sb25nIGFuZAogZXZlbnRzX3N0YWdlc19oaXN0b3J5X2xvbmcgdGFibGVzIGJlZm9yZSBzdGFydGluZyAoZGVmYXVsdCBmYWxzZSkKIGluX2F1dG9fZW5hYmxlIChCT09MRUFOKToKIFdoZXRoZXIgdG8gYXV0b21hdGljYWxseSB0dXJuIG9uIHJlcXVpcmVkIGNvbnN1bWVycyAoZGVmYXVsdCBmYWxzZSkKIAogRXhhbXBsZQogCiBteXNxbD4gY2FsbCBwc190cmFjZV9zdGF0ZW1lbnRfZGlnZXN0KCc4OTFlYzY4NjBmOThiYTQ2ZDg5ZGQyMGIwYzAzNjUyYycsIDEwLCAwLjEsIHRydWUsIHRydWUpOwogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBTVU1NQVJZIFNUQVRJU1RJQ1MgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBTVU1NQVJZIFNUQVRJU1RJQ1MgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICg5LjExIHNlYykKIAogKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSsKIHwgZXhlY3V0aW9ucyB8IGV4ZWNfdGltZSB8IGxvY2tfdGltZSB8IHJvd3Nfc2VudCB8IHJvd3NfZXhhbWluZWQgfCB0bXBfdGFibGVzIHwgZnVsbF9zY2FucyB8CiArLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKwogfCAgICAgICAgIDIxIHwgNC4xMSBtcyAgIHwgMi4wMCBtcyAgIHwgICAgICAgICAwIHwgICAgICAgICAgICAyMSB8ICAgICAgICAgIDAgfCAgICAgICAgICAwIHwKICstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDkuMTEgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0rLS0tLS0tLS0tLS0rCiB8IGV2ZW50X25hbWUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBjb3VudCB8IGxhdGVuY3kgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0rLS0tLS0tLS0tLS0rCiB8IHN0YWdlL3NxbC9jaGVja2luZyBxdWVyeSBjYWNoZSBmb3IgcXVlcnkgfCAgICAxNiB8IDcyNC4zNyB1cyB8CiB8IHN0YWdlL3NxbC9zdGF0aXN0aWNzICAgICAgICAgICAgICAgICAgICAgfCAgICAxNiB8IDU0Ni45MiB1cyB8CiB8IHN0YWdlL3NxbC9mcmVlaW5nIGl0ZW1zICAgICAgICAgICAgICAgICAgfCAgICAxOCB8IDUyMC4xMSB1cyB8CiB8IHN0YWdlL3NxbC9pbml0ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICA1MSB8IDQ2Ni44MCB1cyB8CiAuLi4KIHwgc3RhZ2Uvc3FsL2NsZWFuaW5nIHVwICAgICAgICAgICAgICAgICAgICB8ICAgIDE4IHwgMTEuOTIgdXMgIHwKIHwgc3RhZ2Uvc3FsL2V4ZWN1dGluZyAgICAgICAgICAgICAgICAgICAgICB8ICAgIDE2IHwgNi45NSB1cyAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLSstLS0tLS0tLS0tLSsKIDE3IHJvd3MgaW4gc2V0ICg5LjEyIHNlYykKIAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgTE9OR0VTVCBSVU5OSU5HIFNUQVRFTUVOVCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBMT05HRVNUIFJVTk5JTkcgU1RBVEVNRU5UIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDkuMTYgc2VjKQogCiArLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLSsKIHwgdGhyZWFkX2lkIHwgZXhlY190aW1lIHwgbG9ja190aW1lIHwgcm93c19zZW50IHwgcm93c19leGFtaW5lZCB8IHRtcF90YWJsZXMgfCBmdWxsX3NjYW4gfAogKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rCiB8ICAgIDE2NjY0NiB8IDYxOC40MyB1cyB8IDEuMDAgbXMgICB8ICAgICAgICAgMCB8ICAgICAgICAgICAgIDEgfCAgICAgICAgICAwIHwgICAgICAgICAwIHwKICstLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICg5LjE2IHNlYykKIAogLy8gVHJ1bmNhdGVkIGZvciBjbGFyaXR5Li4uCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHNxbF90ZXh0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHNlbGVjdCBoaWJldmVudGhlMF8uaWQgYXMgaWQxMzgyXywgaGliZXZlbnRoZTBfLmNyZWF0ZWRUaW1lIC4uLiB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDkuMTcgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKwogfCBldmVudF9uYW1lICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgbGF0ZW5jeSAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rCiB8IHN0YWdlL3NxbC9pbml0ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCA4LjYxIHVzICAgfAogfCBzdGFnZS9zcWwvV2FpdGluZyBmb3IgcXVlcnkgY2FjaGUgbG9jayAgIHwgNDUzLjIzIHVzIHwKIHwgc3RhZ2Uvc3FsL2luaXQgICAgICAgICAgICAgICAgICAgICAgICAgICB8IDMzMS4wNyBucyB8CiB8IHN0YWdlL3NxbC9jaGVja2luZyBxdWVyeSBjYWNoZSBmb3IgcXVlcnkgfCA0My4wNCB1cyAgfAogLi4uCiB8IHN0YWdlL3NxbC9mcmVlaW5nIGl0ZW1zICAgICAgICAgICAgICAgICAgfCAzMC40NiB1cyAgfAogfCBzdGFnZS9zcWwvY2xlYW5pbmcgdXAgICAgICAgICAgICAgICAgICAgIHwgNjYyLjEzIG5zIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rCiAxOCByb3dzIGluIHNldCAoOS4yMyBzZWMpCiAKICstLS0tKy0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0rLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0rLS0tLS0tKy0tLS0tLS0rCiB8IGlkIHwgc2VsZWN0X3R5cGUgfCB0YWJsZSAgICAgICAgfCB0eXBlICB8IHBvc3NpYmxlX2tleXMgfCBrZXkgICAgICAgfCBrZXlfbGVuIHwgcmVmICAgICAgICAgfCByb3dzIHwgRXh0cmEgfAogKy0tLS0rLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLSstLS0tLS0tKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0rLS0tLS0tLS0tLS0tLSstLS0tLS0rLS0tLS0tLSsKIHwgIDEgfCBTSU1QTEUgICAgICB8IGhpYmV2ZW50aGUwXyB8IGNvbnN0IHwgZml4ZWRUaW1lICAgICB8IGZpeGVkVGltZSB8IDc3NSAgICAgfCBjb25zdCxjb25zdCB8ICAgIDEgfCBOVUxMICB8CiArLS0tLSstLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tKy0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tLS0tLS0tKy0tLS0tLSstLS0tLS0tKwogMSByb3cgaW4gc2V0ICg5LjI3IHNlYykKIAogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoOS4yOCBzZWMpCiA="/>
+    <procedure name="ps_trace_thread" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBEdW1wcyBhbGwgZGF0YSB3aXRoaW4gUGVyZm9ybWFuY2UgU2NoZW1hIGZvciBhbiBpbnN0cnVtZW50ZWQgdGhyZWFkLAogdG8gY3JlYXRlIGEgRE9UIGZvcm1hdHRlZCBncmFwaCBmaWxlLiAKIAogRWFjaCByZXN1bHRzZXQgcmV0dXJuZWQgZnJvbSB0aGUgcHJvY2VkdXJlIHNob3VsZCBiZSB1c2VkIGZvciBhIGNvbXBsZXRlIGdyYXBoCiAKIFJlcXVpcmVzIHRoZSBTVVBFUiBwcml2aWxlZ2UgZm9yICJTRVQgc3FsX2xvZ19iaW4gPSAwOyIuCiAKIFBhcmFtZXRlcnMKIAogaW5fdGhyZWFkX2lkIChCSUdJTlQgVU5TSUdORUQpOgogVGhlIHRocmVhZCB0aGF0IHlvdSB3b3VsZCBsaWtlIGEgc3RhY2sgdHJhY2UgZm9yCiBpbl9vdXRmaWxlICAoVkFSQ0hBUigyNTUpKToKIFRoZSBmaWxlbmFtZSB0aGUgZG90IGZpbGUgd2lsbCBiZSB3cml0dGVuIHRvCiBpbl9tYXhfcnVudGltZSAoREVDSU1BTCgyMCwyKSk6CiBUaGUgbWF4aW11bSB0aW1lIHRvIGtlZXAgY29sbGVjdGluZyBkYXRhLgogVXNlIE5VTEwgdG8gZ2V0IHRoZSBkZWZhdWx0IHdoaWNoIGlzIDYwIHNlY29uZHMuCiBpbl9pbnRlcnZhbCAoREVDSU1BTCgyMCwyKSk6IAogSG93IGxvbmcgdG8gc2xlZXAgYmV0d2VlbiBkYXRhIGNvbGxlY3Rpb25zLiAKIFVzZSBOVUxMIHRvIGdldCB0aGUgZGVmYXVsdCB3aGljaCBpcyAxIHNlY29uZC4KIGluX3N0YXJ0X2ZyZXNoIChCT09MRUFOKToKIFdoZXRoZXIgdG8gcmVzZXQgYWxsIFBlcmZvcm1hbmNlIFNjaGVtYSBkYXRhIGJlZm9yZSB0cmFjaW5nLgogaW5fYXV0b19zZXR1cCAoQk9PTEVBTik6CiBXaGV0aGVyIHRvIGRpc2FibGUgYWxsIG90aGVyIHRocmVhZHMgYW5kIGVuYWJsZSBhbGwgY29uc3VtZXJzL2luc3RydW1lbnRzLiAKIFRoaXMgd2lsbCBhbHNvIHJlc2V0IHRoZSBzZXR0aW5ncyBhdCB0aGUgZW5kIG9mIHRoZSBydW4uCiBpbl9kZWJ1ZyAoQk9PTEVBTik6CiBXaGV0aGVyIHlvdSB3b3VsZCBsaWtlIHRvIGluY2x1ZGUgZmlsZTpsaW5lbm8gaW4gdGhlIGdyYXBoCiAKIEV4YW1wbGUKIAogbXlzcWw+IENBTEwgc3lzLnBzX3RyYWNlX3RocmVhZCgyNSwgQ09OQ0FUKCcvdG1wL3N0YWNrLScsIFJFUExBQ0UoTk9XKCksICcgJywgJy0nKSwgJy5kb3QnKSwgTlVMTCwgTlVMTCwgVFJVRSwgVFJVRSwgVFJVRSk7CiArLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgc3VtbWFyeSAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IERpc2FibGVkIDEgdGhyZWFkIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgSW5mbyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBEYXRhIGNvbGxlY3Rpb24gc3RhcnRpbmcgZm9yIFRIUkVBRF9JRCA9IDI1IHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDAuMDMgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IEluZm8gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IFN0YWNrIHRyYWNlIHdyaXR0ZW4gdG8gL3RtcC9zdGFjay0yMDE0LTAyLTE2LTIxOjE4OjQxLmRvdCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiAxIHJvdyBpbiBzZXQgKDYwLjA3IHNlYykKIAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IENvbnZlcnQgdG8gUERGICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogfCBkb3QgLVRwZGYgLW8gL3RtcC9zdGFja18yNS5wZGYgL3RtcC9zdGFjay0yMDE0LTAyLTE2LTIxOjE4OjQxLmRvdCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIDEgcm93IGluIHNldCAoNjAuMDcgc2VjKQogCiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgQ29udmVydCB0byBQTkcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IGRvdCAtVHBuZyAtbyAvdG1wL3N0YWNrXzI1LnBuZyAvdG1wL3N0YWNrLTIwMTQtMDItMTYtMjE6MTg6NDEuZG90IHwKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICg2MC4wNyBzZWMpCiAKICstLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgRW5hYmxlZCAxIHRocmVhZCB8CiArLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICg2MC4zMiBzZWMpCiA="/>
+    <procedure name="ps_truncate_all_tables" schema="" catalog="sys" type="1" remarks="CiBEZXNjcmlwdGlvbgogCiBUcnVuY2F0ZXMgYWxsIHN1bW1hcnkgdGFibGVzIHdpdGhpbiBQZXJmb3JtYW5jZSBTY2hlbWEsIAogcmVzZXR0aW5nIGFsbCBhZ2dyZWdhdGVkIGluc3RydW1lbnRhdGlvbiBhcyBhIHNuYXBzaG90LgogCiBQYXJhbWV0ZXJzCiAKIGluX3ZlcmJvc2UgKEJPT0xFQU4pOgogV2hldGhlciB0byBwcmludCBlYWNoIFRSVU5DQVRFIHN0YXRlbWVudCBiZWZvcmUgcnVubmluZwogCiBFeGFtcGxlCiAKIG15c3FsPiBDQUxMIHN5cy5wc190cnVuY2F0ZV9hbGxfdGFibGVzKGZhbHNlKTsKICstLS0tLS0tLS0tLS0tLS0tLS0tLS0rCiB8IHN1bW1hcnkgICAgICAgICAgICAgfAogKy0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKIHwgVHJ1bmNhdGVkIDQ0IHRhYmxlcyB8CiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjEwIHNlYykKIAogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoMC4xMCBzZWMpCiA="/>
+    <procedure name="sys_get_config" schema="" catalog="sys" type="2" remarks="CiBEZXNjcmlwdGlvbgogCiBSZXR1cm5zIHRoZSB2YWx1ZSBmb3IgdGhlIHJlcXVlc3RlZCB2YXJpYWJsZSB1c2luZyB0aGUgZm9sbG93aW5nIGxvZ2ljOgogCiAxLiBJZiB0aGUgb3B0aW9uIGV4aXN0cyBpbiBzeXMuc3lzX2NvbmZpZyByZXR1cm4gdGhlIHZhbHVlIGZyb20gdGhlcmUuCiAyLiBFbHNlIGZhbGwgYmFjayBvbiB0aGUgcHJvdmlkZWQgZGVmYXVsdCB2YWx1ZS4KIAogTm90ZXMgZm9yIHVzaW5nIHN5c19nZXRfY29uZmlnKCk6CiAKICogSWYgdGhlIGRlZmF1bHQgdmFsdWUgYXJndW1lbnQgdG8gc3lzX2dldF9jb25maWcoKSBpcyBOVUxMIGFuZCBjYXNlIDIuIGlzIHJlYWNoZWQsIE5VTEwgaXMgcmV0dXJuZWQuCiBJdCBpcyB0aGVuIGV4cGVjdGVkIHRoYXQgdGhlIGNhbGxlciBpcyBhYmxlIHRvIGhhbmRsZSBOVUxMIGZvciB0aGUgZ2l2ZW4gY29uZmlndXJhdGlvbiBvcHRpb24uCiAqIFRoZSBjb252ZW50aW9uIGlzIHRvIG5hbWUgdGhlIHVzZXIgdmFyaWFibGVzIEBzeXMuPG5hbWUgb2YgdmFyaWFibGU+LiBJdCBpcyA8bmFtZSBvZiB2YXJpYWJsZT4gdGhhdAogaXMgc3RvcmVkIGluIHRoZSBzeXNfY29uZmlnIHRhYmxlIGFuZCBpcyB3aGF0IGlzIGV4cGVjdGVkIGFzIHRoZSBhcmd1bWVudCB0byBzeXNfZ2V0X2NvbmZpZygpLgogKiBJZiB5b3Ugd2FudCB0byBjaGVjayB3aGV0aGVyIHRoZSBjb25maWd1cmF0aW9uIG9wdGlvbiBoYXMgYWxyZWFkeSBiZWVuIHNldCBhbmQgaWYgbm90IGFzc2lnbiB3aXRoCiB0aGUgcmV0dXJuIHZhbHVlIG9mIHN5c19nZXRfY29uZmlnKCkgeW91IGNhbiB1c2UgSUZOVUxMKC4uLikgKHNlZSBleGFtcGxlIGJlbG93KS4gSG93ZXZlciB0aGlzIHNob3VsZAogbm90IGJlIGRvbmUgaW5zaWRlIGEgbG9vcCAoZS5nLiBmb3IgZWFjaCByb3cgaW4gYSByZXN1bHQgc2V0KSBhcyBmb3IgcmVwZWF0ZWQgY2FsbHMgd2hlcmUgYXNzaWdubWVudAogaXMgb25seSBuZWVkZWQgaW4gdGhlIGZpcnN0IGl0ZXJhdGlvbiB1c2luZyBJRk5VTEwoLi4uKSBpcyBleHBlY3RlZCB0byBiZSBzaWduaWZpY2FudGx5IHNsb3dlciB0aGFuCiB1c2luZyBhbiBJRiAoLi4uKSBUSEVOIC4uLiBFTkQgSUY7IGJsb2NrIChzZWUgZXhhbXBsZSBiZWxvdykuCiAKIFBhcmFtZXRlcnMKIAogaW5fdmFyaWFibGVfbmFtZSAoVkFSQ0hBUigxMjgpKToKIFRoZSBuYW1lIG9mIHRoZSBjb25maWcgb3B0aW9uIHRvIHJldHVybiB0aGUgdmFsdWUgZm9yLgogCiBpbl9kZWZhdWx0X3ZhbHVlIChWQVJDSEFSKDEyOCkpOgogVGhlIGRlZmF1bHQgdmFsdWUgdG8gcmV0dXJuIGlmIG5laXRoZXIgYSB1c2UgdmFyaWFibGUgZXhpc3RzIG5vciB0aGUgdmFyaWFibGUgZXhpc3RzCiBpbiBzeXMuc3lzX2NvbmZpZy4KIAogUmV0dXJucwogCiBWQVJDSEFSKDEyOCkKIAogRXhhbXBsZQogCiBteXNxbD4gU0VMRUNUIHN5cy5zeXNfZ2V0X2NvbmZpZygnc3RhdGVtZW50X3RydW5jYXRlX2xlbicsIDEyOCkgQVMgVmFsdWU7CiArLS0tLS0tLSsKIHwgVmFsdWUgfAogKy0tLS0tLS0rCiB8IDY0ICAgIHwKICstLS0tLS0tKwogMSByb3cgaW4gc2V0ICgwLjAwIHNlYykKIAogbXlzcWw+IFNFVCBAc3lzLnN0YXRlbWVudF90cnVuY2F0ZV9sZW4gPSBJRk5VTEwoQHN5cy5zdGF0ZW1lbnRfdHJ1bmNhdGVfbGVuLCBzeXMuc3lzX2dldF9jb25maWcoJ3N0YXRlbWVudF90cnVuY2F0ZV9sZW4nLCA2NCkpOwogUXVlcnkgT0ssIDAgcm93cyBhZmZlY3RlZCAoMC4wMCBzZWMpCiAKIElGIChAc3lzLnN0YXRlbWVudF90cnVuY2F0ZV9sZW4gSVMgTlVMTCkgVEhFTgogU0VUIEBzeXMuc3RhdGVtZW50X3RydW5jYXRlX2xlbiA9IHN5cy5zeXNfZ2V0X2NvbmZpZygnc3RhdGVtZW50X3RydW5jYXRlX2xlbicsIDY0KTsKIEVORCBJRjsKIA=="/>
+  </data-source>
+</component>
