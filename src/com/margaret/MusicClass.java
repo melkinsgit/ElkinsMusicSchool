@@ -28,7 +28,7 @@ public class MusicClass {
             return returnRS;
         }
         catch (SQLException sqle){
-            System.out.println("in All Data Query call to select all " + sqle);
+            System.out.println("in Music class All Data Query call to select all " + sqle);
             return returnRS;  // TODO how do I handle this problem
         }
     }

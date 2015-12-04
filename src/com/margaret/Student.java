@@ -31,6 +31,20 @@ public class Student {
         }
     }
 
+    public ResultSet AllDataQuery(){
+        ResultSet returnRS = null;
+
+        try {
+
+            String allDataQuery = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME;
+            returnRS = ConnectDB.statement.executeQuery(allDataQuery);
+            return returnRS;
+        }
+        catch (SQLException sqle){
+            System.out.println("in Student All Data Query call to select all " + sqle);
+            return returnRS;  // TODO how do I handle this problem?
+        }
+    }
 
     // GETTERS & SETTERS _______________________________________________________________________________________
     public String getFirstName() {

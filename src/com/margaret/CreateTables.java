@@ -83,73 +83,6 @@ public class CreateTables {
         catch (SQLException sqle){
             System.out.println(sqle);
         }
-
-//
-//                String addColumnSQL = "ALTER TABLE " + HARVESTS_TABLE_NAME + " ADD COLUMN " + STUDENT_PK_COL + " INT;";
-//                System.out.println(addColumnSQL);
-//                statement.executeUpdate(addColumnSQL);
-//
-//                System.out.println("Added hiveID column to harvests");
-//
-//
-//                // Add some test data - change to some movies you like, if desired
-//                //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
-//                //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-//                //But, since we are only adding 3 pieces of data for 4 columns, we have to specify which columns each data item is for.
-//
-//
-//                String addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date1', 100)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//                addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date2', 200)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//                addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date3', 300)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//            }
-//
-//            if (!classTableExists()) {
-//
-//                //Create a table in the database with 3 columns: Movie title, year and rating
-//                String createTableSQL2 = "CREATE TABLE " + HARVESTS_TABLE_NAME + " (" + HARVESTS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + DATE_COLUMN + " varchar(50), \n" + WEIGHT_COLUMN + " int)";
-//                System.out.println(createTableSQL2);
-//                statement.executeUpdate(createTableSQL2);
-//
-//                System.out.println("Created harvests table");
-//
-//                String addColumnSQL = "ALTER TABLE " + HARVESTS_TABLE_NAME + " ADD COLUMN " + STUDENT_PK_COL + " INT;";
-//                System.out.println(addColumnSQL);
-//                statement.executeUpdate(addColumnSQL);
-//
-//                System.out.println("Added hiveID column to harvests");
-//
-//
-//                // Add some test data - change to some movies you like, if desired
-//                //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
-//                //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-//                //But, since we are only adding 3 pieces of data for 4 columns, we have to specify which columns each data item is for.
-//
-//
-//                String addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date1', 100)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//                addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date2', 200)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//                addDataSQL2 = "INSERT INTO " + HARVESTS_TABLE_NAME + "(" + DATE_COLUMN + ", " + WEIGHT_COLUMN + ")" + " VALUES ('date3', 300)";
-//                System.out.println(addDataSQL2);
-//                statement.executeUpdate(addDataSQL2);
-//            }
-//
-//            if (!studentClassTableExists()){
-//                //Create a table in the database with 3 columns: Movie title, year and rating
-//                String createTableSQL = "CREATE TABLE " + STUDENT_CLASS_TABLE_NAME + " (" + STUD_FK_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + DATE_COLUMN + " varchar(50), \n" + WEIGHT_COLUMN + " int)";
-//                System.out.println(createTableSQL);
-//                statement.executeUpdate(createTableSQL);
-//
-//                System.out.println("Created harvests table");
-//            }
     }
 
 
@@ -194,6 +127,9 @@ public class CreateTables {
 
     public void AddToStudent(){
 
+        // Add some test data
+        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
+
         // TODO do I want to add instantiations?
 
         try {
@@ -218,29 +154,19 @@ public class CreateTables {
 
     public void AddToTeacher(){
 
+        // Add some test data
+        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
+
         try {
-/*
-                String addColumnSQL = "ALTER TABLE " + NOTSURE_TABLE_NAME + " ADD COLUMN " + TEACHER_PK_COL + " INT;";
-                System.out.println(addColumnSQL);
-                ConnectDB.statement.executeUpdate(addColumnSQL);
 
-                System.out.println("Added hiveID column to ??");
-*/
-
-                // Add some test data - change to some movies you like, if desired
-                //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
-                //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-                //But, since we are only adding 3 pieces of data for 4 columns, we have to specify which columns each data item is for.
-
-
-                String addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
-                System.out.println(addDataSQL2);
-                ConnectDB.statement.executeUpdate(addDataSQL2);
-            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";System.out.println(addDataSQL2);
-                ConnectDB.statement.executeUpdate(addDataSQL2);
-                addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
-                System.out.println(addDataSQL2);
-                ConnectDB.statement.executeUpdate(addDataSQL2);
+            String addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
+            System.out.println(addDataSQL2);
+            ConnectDB.statement.executeUpdate(addDataSQL2);
+        addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";System.out.println(addDataSQL2);
+            ConnectDB.statement.executeUpdate(addDataSQL2);
+            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
+            System.out.println(addDataSQL2);
+            ConnectDB.statement.executeUpdate(addDataSQL2);
         }
         catch (SQLException sqle){
             System.out.println(sqle);
@@ -249,9 +175,8 @@ public class CreateTables {
 
     public void AddToClass(){
 
-        // Add some test data - change to some movies you like, if desired
-        //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
-        //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
+        // Add some test data
+        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
 
         try {
 
@@ -279,7 +204,6 @@ public class CreateTables {
         System.out.println(checkTablePresentQuery);
         ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
         return (tablesRS.next());
-
     }
 
     private boolean teacherTableExists() throws SQLException {
@@ -287,7 +211,6 @@ public class CreateTables {
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + TEACHER_TABLE_NAME + "'";   //Can query the database schema
         ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
         return tablesRS.next();
-
     }
 
     private boolean classTableExists() throws SQLException {
@@ -305,7 +228,6 @@ public class CreateTables {
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_CLASS_TABLE_NAME + "'";   //Can query the database schema
         ResultSet tablesRS = statement.executeQuery(checkTablePresentQuery);
         return tablesRS.next();
-
     }
 
 }
