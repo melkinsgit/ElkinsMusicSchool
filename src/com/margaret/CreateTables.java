@@ -34,12 +34,13 @@ public class CreateTables {
     public final static String CLASS_FK_PK_COL = "";
     public final static String DD_PK_COLUMN = "";
 
-    public void CreateTables(){
+    public CreateTables(){
         StartTables();
         AddToStudent();
     }
 
     public void StartTables() {
+        System.out.println("in start tables");
 
         try {
             if (!studentTableExists()) {
@@ -51,7 +52,7 @@ public class CreateTables {
                 System.out.println(createTableSQL);
                 statement.executeUpdate(createTableSQL);
 
-                System.out.println("Created hives table");
+                System.out.println("Created student table");
 
                 AddToStudent();
             }
@@ -200,14 +201,24 @@ public class CreateTables {
         }
     }
 
-    private boolean studentTableExists() throws SQLException {
+    private boolean studentTableExists() {
 
         Statement statement = null;
 
-        String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
-        ResultSet tablesRS = statement.executeQuery(checkTablePresentQuery);
-        return (tablesRS.next());
+        try {
 
+            String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
+            System.out.println(checkTablePresentQuery);
+            ResultSet tablesRS = statement.executeQuery(checkTablePresentQuery);
+            return (tablesRS.next());
+        }
+        catch (SQLException sqle){
+            System.out.println("in student table exists " + sqle);
+        }
+        catch (Exception e){
+            System.out.println("in student table exists not sql error " + e);
+        }
+        return false;
     }
 
     private boolean teacherTableExists() throws SQLException {

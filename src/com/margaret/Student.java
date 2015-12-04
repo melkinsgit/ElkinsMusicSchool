@@ -1,5 +1,6 @@
 package com.margaret;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -15,6 +16,12 @@ public class Student {
     private String firstName;
     private String lastName;
     private String phone;
+
+    public Student (String first, String last, String phone){
+        this.firstName = first;
+        this.lastName = last;
+        this.phone = phone;
+    }
 
     public void CreateTable(){
 
@@ -45,16 +52,24 @@ public class Student {
 //        }
     }
 
-    public void AddStudent (String First, ){
+    public void AddStudent (String First, String Last, String Phone){
 
-        Statement statement;
-        statement = null;
+        try {
+            Statement statement;
+            statement = null;
 
-        String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES (First, Last, Phone)";
-        System.out.println(addDataSQL);
-        statement.executeUpdate(addDataSQL);
+            String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES (" + First + ", " + Last+ ", " + Phone + ")";
+            System.out.println(addDataSQL);
+            statement.executeUpdate(addDataSQL);
+        }
+        catch (SQLException se) {
+            System.out.println(se);
+            se.printStackTrace();
+        }
     }
 
+
+    // GETTERS & SETTERS _______________________________________________________________________________________
     public String getFirstName() {
         return firstName;
     }

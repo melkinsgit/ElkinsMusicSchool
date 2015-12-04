@@ -27,7 +27,10 @@ public class MenuOne {
                 String StLast = s.nextLine();
                 System.out.println("Enter Phone:");
                 String StPhone = s.nextLine();
+                System.out.println("About to creatae tables");
                 CreateTables createTables = new CreateTables();
+                Student student = new Student (StFirst, StLast, StPhone);
+                student.AddStudent(StFirst, StLast, StPhone);
                 break;
             }
             case 2:{
