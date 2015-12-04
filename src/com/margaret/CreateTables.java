@@ -24,11 +24,11 @@ public class CreateTables {
     public final static String TEACHER_PHONE_COLUMN = "Phone";
 
     // Class table name, pk and columns
-    public final static String CLASS_TABLE_NAME = "Clases";
+    public final static String CLASS_TABLE_NAME = "Classes";
     public final static String CLASS_PK_COL = "ClassID";
     public final static String CLASS_NAME_COLUMN = "ClassName";
-    public final static String CLASS_DAY_COLUMN = "Day";
-    public final static String CLASS_TIME_COLUMN = "Time";
+    public final static String CLASS_DAY_COLUMN = "DayOfWeek";
+    public final static String CLASS_TIME_COLUMN = "TimeOfDay";
     public final static String CLASS_PRICE_COLUMN = "Price";
 
     // Student class table name, pks and columns
@@ -71,13 +71,14 @@ public class CreateTables {
             if (!classTableExists()) {
 
                 //Create a table in the database with TODO columns and name fields
-                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " varchar(50))";
+                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " DECIMAL (5,2))";
                 System.out.println(createTableSQL2);
                 ConnectDB.statement.executeUpdate(createTableSQL2);
 
-                System.out.println("Created harvests table");
-            }
+                System.out.println("Created class table");
 
+                AddToClass();
+            }
         }
         catch (SQLException sqle){
             System.out.println(sqle);
@@ -246,22 +247,24 @@ public class CreateTables {
 
     public void AddToClass(){
 
+        // Add some test data - change to some movies you like, if desired
+        //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
+        //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
+
         try {
 
-            // Add some test data - change to some movies you like, if desired
-            //Example SQL: INSERT INTO movie_reviews ( title, year_released, rating ) VALUES ( 'Back to the future', 1985, 5)
-            //Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-            //But, since we are only adding 3 pieces of data for 4 columns, we have to specify which columns each data item is for.
-
-
-            String addDataSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
-            System.out.println(addDataSQL2);
-            ConnectDB.statement.executeUpdate(addDataSQL2);
-            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";System.out.println(addDataSQL2);
-            ConnectDB.statement.executeUpdate(addDataSQL2);
-            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
-            System.out.println(addDataSQL2);
-            ConnectDB.statement.executeUpdate(addDataSQL2);
+            String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00')";
+            System.out.println(createTableSQL2);
+            ConnectDB.statement.executeUpdate(createTableSQL2);
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Violin', 'Tuesday', '9:00am', '25.00')";
+            System.out.println(createTableSQL2);
+            ConnectDB.statement.executeUpdate(createTableSQL2);
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Cello', 'Wednesday', '4:00pm', '15.00')";
+            System.out.println(createTableSQL2);
+            ConnectDB.statement.executeUpdate(createTableSQL2);
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Advanced Cello', 'Monday', '8:00am', '35.00')";
+            System.out.println(createTableSQL2);
+            ConnectDB.statement.executeUpdate(createTableSQL2);
         }
         catch (SQLException sqle){
             System.out.println(sqle);
@@ -270,10 +273,10 @@ public class CreateTables {
 
     private boolean studentTableExists() throws SQLException{
 
-            String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
-            System.out.println(checkTablePresentQuery);
-            ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
-            return (tablesRS.next());
+        String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
+        System.out.println(checkTablePresentQuery);
+        ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
+        return (tablesRS.next());
 
     }
 
@@ -289,6 +292,7 @@ public class CreateTables {
 
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + CLASS_TABLE_NAME + "'";   //Can query the database schema
         ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
+        System.out.println("true false in class table is " + tablesRS.next());
         return tablesRS.next();
     }
 

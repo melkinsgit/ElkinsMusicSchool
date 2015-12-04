@@ -1,5 +1,7 @@
 package com.margaret;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -34,6 +36,8 @@ public class MenuOne {
                 break;
             }
             case 2:{
+                // TODO make GUI
+                // TODO validate user input
                 System.out.println("TEACHER\nEnter First Name:");
                 String TFirst = s.nextLine();
                 System.out.println("Enter Last name:");
@@ -45,14 +49,7 @@ public class MenuOne {
                 break;
             }
             case 3:{
-                System.out.println("TEACHER\nEnter First Name:");
-                String StFirst = s.nextLine();
-                System.out.println("Enter Last name:");
-                String StLast = s.nextLine();
-                System.out.println("Enter Phone:");
-                String StPhone = s.nextLine();
-                Student student = new Student (StFirst, StLast, StPhone);
-                student.AddStudent(StFirst, StLast, StPhone);
+
                 break;
             }
             case 4:{
