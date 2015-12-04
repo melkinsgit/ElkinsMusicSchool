@@ -194,6 +194,8 @@ public class CreateTables {
 
     public void AddToStudent(){
 
+        // TODO do I want to add instantiations?
+
         try {
 
             String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Margaret', 'Elkins', '555-555-1212')";

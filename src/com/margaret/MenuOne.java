@@ -31,7 +31,7 @@ public class MenuOne {
                 String StLast = s.nextLine();
                 System.out.println("Enter Phone:");
                 String StPhone = s.nextLine();
-                Student student = new Student (StFirst, StLast, StPhone);
+                Student student = new Student (StFirst, StLast, StPhone);  // TODO do I want to add instantiations?
                 student.AddStudent(StFirst, StLast, StPhone);
                 break;
             }
@@ -44,11 +44,14 @@ public class MenuOne {
                 String TLast = s.nextLine();
                 System.out.println("Enter Phone:");
                 String TPhone = s.nextLine();
-                Teacher teacher = new Teacher (TFirst, TLast, TPhone);
+                Teacher teacher = new Teacher (TFirst, TLast, TPhone);  // TODO do I want to add instantiations?
                 teacher.AddTeacher(TFirst, TLast, TPhone);
                 break;
             }
             case 3:{
+                MusicClass musicClass = new MusicClass();
+                ResultSet classesRS = musicClass.AllDataQuery();
+                musicClass.DisplayAllClasses(classesRS);
 
                 break;
             }

@@ -18,35 +18,6 @@ public class Student {
         this.phone = phone;
     }
 
-    public void CreateTable(){
-
-
-//        try {
-//            if (!studentTableExists()) {
-//
-//                //Create a student table in the database with TODO columns and name fields
-//                String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + _PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + _COLUMN + " varchar(50)" + ")";
-//                System.out.println(createTableSQL);
-//                statement.executeUpdate(createTableSQL);
-//
-//                System.out.println("Created hives table");
-//
-//                String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + LOCATION_COLUMN + ")" + " VALUES ('Location1')";
-//                System.out.println(addDataSQL);
-//                statement.executeUpdate(addDataSQL);
-//                addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + LOCATION_COLUMN + ")" + " VALUES ('Location2')";
-//                System.out.println(addDataSQL);
-//                statement.executeUpdate(addDataSQL);
-//                addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + LOCATION_COLUMN + ")" + " VALUES ('Location3')";
-//                System.out.println(addDataSQL);
-//                statement.executeUpdate(addDataSQL);
-//            }
-//        } catch (SQLException se) {
-//            System.out.println(se);
-//            se.printStackTrace();
-//        }
-    }
-
     public void AddStudent (String First, String Last, String Phone){
 
         try {
