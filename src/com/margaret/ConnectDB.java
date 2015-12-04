@@ -15,6 +15,7 @@ public class ConnectDB {
     static final String PASS = "itecitec"; // cello for home, itecitec for school
 
     static Connection conn = null;
+    static Statement statement = null;
 
     public ConnectDB() {
         try {
@@ -28,6 +29,8 @@ public class ConnectDB {
             }
 
             conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
+            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
+
         } catch (SQLException se) {
             System.out.println(se);
             se.printStackTrace();

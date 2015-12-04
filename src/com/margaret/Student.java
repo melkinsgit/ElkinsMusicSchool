@@ -55,12 +55,10 @@ public class Student {
     public void AddStudent (String First, String Last, String Phone){
 
         try {
-            Statement statement;
-            statement = null;
 
-            String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES (" + First + ", " + Last+ ", " + Phone + ")";
+            String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES ('" + First + "', '" + Last+ "', '" + Phone + "')";
             System.out.println(addDataSQL);
-            statement.executeUpdate(addDataSQL);
+            ConnectDB.statement.executeUpdate(addDataSQL);
         }
         catch (SQLException se) {
             System.out.println(se);

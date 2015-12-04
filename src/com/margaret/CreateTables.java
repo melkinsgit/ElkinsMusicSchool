@@ -43,19 +43,22 @@ public class CreateTables {
         System.out.println("in start tables");
 
         try {
+
             if (!studentTableExists()) {
 
-                Statement statement = null;
-
                 //Create a student table in the database with TODO columns and name fields
-                String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + STUDENT_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + STUDENT_FIRST_COLUMN + " varchar(50), " + STUDENT_LAST_COLUMN + " varchar(50), " + STUDENT_PHONE_COLUMN+ " varchar(12)" + ")";
+                String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + STUDENT_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + STUDENT_FIRST_COLUMN + " varchar(50), " + STUDENT_LAST_COLUMN + " varchar(50), " + STUDENT_PHONE_COLUMN + " varchar(12)" + ")";
                 System.out.println(createTableSQL);
-                statement.executeUpdate(createTableSQL);
+                ConnectDB.statement.executeUpdate(createTableSQL);
 
                 System.out.println("Created student table");
 
                 AddToStudent();
             }
+        }
+        catch (SQLException sqle){
+            System.out.println(sqle);
+        }
 
 
 //            if (!teacherTableExists()) {
@@ -132,10 +135,6 @@ public class CreateTables {
 //
 //                System.out.println("Created harvests table");
 //            }
-        } catch(SQLException se){
-            System.out.println(se);
-            se.printStackTrace();
-        }
     }
 
 
@@ -181,19 +180,18 @@ public class CreateTables {
     public void AddToStudent(){
 
         try {
-            Statement statement = null;
 
             String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Margaret', 'Elkins', '555-555-1212')";
             System.out.println(addDataSQL);
-            statement.executeUpdate(addDataSQL);
+            ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Scott', 'Sivad', '555-555-1313')";
             System.out.println(addDataSQL);
-            statement.executeUpdate(addDataSQL);
+            ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Sarah', 'Kwabi', '555-555-1414')";
-            statement.executeUpdate(addDataSQL);
+            ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Caleb', 'Mohammad', '555-555-1515')";
             System.out.println(addDataSQL);
-            statement.executeUpdate(addDataSQL);
+            ConnectDB.statement.executeUpdate(addDataSQL);
         }
         catch (SQLException se){
             System.out.println(se);
@@ -201,24 +199,13 @@ public class CreateTables {
         }
     }
 
-    private boolean studentTableExists() {
-
-        Statement statement = null;
-
-        try {
+    private boolean studentTableExists() throws SQLException{
 
             String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
             System.out.println(checkTablePresentQuery);
-            ResultSet tablesRS = statement.executeQuery(checkTablePresentQuery);
+            ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
             return (tablesRS.next());
-        }
-        catch (SQLException sqle){
-            System.out.println("in student table exists " + sqle);
-        }
-        catch (Exception e){
-            System.out.println("in student table exists not sql error " + e);
-        }
-        return false;
+
     }
 
     private boolean teacherTableExists() throws SQLException {
