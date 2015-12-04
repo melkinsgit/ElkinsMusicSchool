@@ -48,7 +48,7 @@ public class CreateTables {
                 Statement statement = null;
 
                 //Create a student table in the database with TODO columns and name fields
-                String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + STUDENT_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + STUDENT_FIRST_COLUMN + " varchar(50)" + STUDENT_LAST_COLUMN + " varchar(50)" + STUDENT_PHONE_COLUMN+ " varchar(12)" + ")";
+                String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + STUDENT_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + STUDENT_FIRST_COLUMN + " varchar(50), " + STUDENT_LAST_COLUMN + " varchar(50), " + STUDENT_PHONE_COLUMN+ " varchar(12)" + ")";
                 System.out.println(createTableSQL);
                 statement.executeUpdate(createTableSQL);
 

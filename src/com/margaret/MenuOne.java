@@ -28,6 +28,7 @@ public class MenuOne {
                 System.out.println("Enter Phone:");
                 String StPhone = s.nextLine();
                 System.out.println("About to creatae tables");
+                ConnectDB connectDB = new ConnectDB();  // JUST ADDED THIS LINE
                 CreateTables createTables = new CreateTables();
                 Student student = new Student (StFirst, StLast, StPhone);
                 student.AddStudent(StFirst, StLast, StPhone);
