@@ -13,7 +13,6 @@ public class ConnectDB {
     // database created using command line for my sql
     static final String USER = "root";  // fixed current user name
     static final String PASS = "itecitec"; // cello for home, itecitec for school
-
     static Connection conn = null;
     static Statement statement = null;
 
@@ -30,6 +29,8 @@ public class ConnectDB {
 
             conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
             statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
+
+            CreateTables createTables = new CreateTables(); // set up the database
 
         } catch (SQLException se) {
             System.out.println(se);

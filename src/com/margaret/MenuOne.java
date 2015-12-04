@@ -21,23 +21,38 @@ public class MenuOne {
         switch (choice1){
 
             case 1:{
+                // TODO make GUI
+                // TODO validate user input
                 System.out.println("STUDENT\nEnter First Name:");
                 String StFirst = s.nextLine();
                 System.out.println("Enter Last name:");
                 String StLast = s.nextLine();
                 System.out.println("Enter Phone:");
                 String StPhone = s.nextLine();
-                System.out.println("About to creatae tables");
-                ConnectDB connectDB = new ConnectDB();  // JUST ADDED THIS LINE
-                CreateTables createTables = new CreateTables();
                 Student student = new Student (StFirst, StLast, StPhone);
                 student.AddStudent(StFirst, StLast, StPhone);
                 break;
             }
             case 2:{
+                System.out.println("TEACHER\nEnter First Name:");
+                String TFirst = s.nextLine();
+                System.out.println("Enter Last name:");
+                String TLast = s.nextLine();
+                System.out.println("Enter Phone:");
+                String TPhone = s.nextLine();
+                Teacher teacher = new Teacher (TFirst, TLast, TPhone);
+                teacher.AddTeacher(TFirst, TLast, TPhone);
                 break;
             }
             case 3:{
+                System.out.println("TEACHER\nEnter First Name:");
+                String StFirst = s.nextLine();
+                System.out.println("Enter Last name:");
+                String StLast = s.nextLine();
+                System.out.println("Enter Phone:");
+                String StPhone = s.nextLine();
+                Student student = new Student (StFirst, StLast, StPhone);
+                student.AddStudent(StFirst, StLast, StPhone);
                 break;
             }
             case 4:{

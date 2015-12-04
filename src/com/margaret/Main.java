@@ -6,6 +6,7 @@ public class Main {
 	// write your code here
 
 //        FirstMenuGUI firstMenuGUI = new FirstMenuGUI();
+        ConnectDB connectDB = new ConnectDB();  // JUST ADDED THIS LINE
         MenuOne menuOne = new MenuOne();
 
     }
