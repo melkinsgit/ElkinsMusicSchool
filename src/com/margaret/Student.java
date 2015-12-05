@@ -11,11 +11,13 @@ public class Student {
     private String firstName;
     private String lastName;
     private String phone;
+    private StudentTableModel studentTableModel;
 
     public Student (String first, String last, String phone){
         this.firstName = first;
         this.lastName = last;
         this.phone = phone;
+        StudentGUI studentTableGUI = new StudentGUI(studentTableModel);
     }
 
     public void AddStudent (String First, String Last, String Phone){
@@ -38,6 +40,14 @@ public class Student {
 
             String allDataQuery = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME;
             returnRS = ConnectDB.statement.executeQuery(allDataQuery);
+
+            if (studentTableModel == null) {
+                //If no current movieDataModel, then make one
+                studentTableModel = new StudentTableModel(returnRS);
+            } else {
+                //Or, if one already exists, update its ResultSet
+                studentTableModel.updateResultSet(returnRS);
+            }
             return returnRS;
         }
         catch (SQLException sqle){
@@ -59,6 +69,10 @@ public class Student {
         return phone;
     }
 
+    public StudentTableModel getStudentTableModel() {
+        return studentTableModel;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -69,5 +83,9 @@ public class Student {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void setStudentTableModel(StudentTableModel studentTableModel) {
+        this.studentTableModel = studentTableModel;
     }
 }

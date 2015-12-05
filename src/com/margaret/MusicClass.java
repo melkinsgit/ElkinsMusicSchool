@@ -3,6 +3,7 @@ package com.margaret;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by sn0173nd on 12/4/2015.
@@ -34,6 +35,8 @@ public class MusicClass {
     }
 
     public void DisplayAllClasses (ResultSet rs){
+        Scanner s = new Scanner(System.in);
+
         ArrayList<String> classNamesARL = new ArrayList<String>();
         ArrayList<String> classDaysARL = new ArrayList<>();
         ArrayList<String> classTimesARL = new ArrayList<String>();
@@ -52,11 +55,13 @@ public class MusicClass {
                 System.out.println("Nothing matches that solver entry.");
             } else { // then output the results once you know there is a result set
                 int loopCount = 0;  // have to count again
-                System.out.println("Choose one of the solver(s):");
+                System.out.println("Enter the number class you wish to take:");
                 for (int i = 0; i < rowCount; i++) {
                     loopCount++;
                     System.out.println(loopCount + ". " + classNamesARL.get(i) + ", " + classDaysARL.get(i) + " at " + classTimesARL.get(i));
                 }
+                String classToJoinStr = s.nextLine();
+                int classToJoin = Integer.parseInt(classToJoinStr);
             }
         }
         catch (SQLException sqle){
@@ -83,6 +88,5 @@ public class MusicClass {
         System.out.println("About to return " + rowCount + " as the number of rows in Classes table.");
         return rowCount;
     }
-
 }
 
