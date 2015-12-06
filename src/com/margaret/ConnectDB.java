@@ -12,7 +12,7 @@ public class ConnectDB {
     static final String DB_NAME = "musicschool";  // fixed
     // database created using command line for my sql
     static final String USER = "root";  // fixed current user name
-    static final String PASS = "itecitec"; // cello for home, itecitec for school
+    static final String PASS = "cello"; // cello for home, itecitec for school
     static Connection conn = null;
     static Statement statement = null;
 

@@ -30,6 +30,7 @@ public class CreateTables {
     public final static String CLASS_DAY_COLUMN = "DayOfWeek";
     public final static String CLASS_TIME_COLUMN = "TimeOfDay";
     public final static String CLASS_PRICE_COLUMN = "Price";
+    public final static String TEACHER_PK_FK = "TeacherID";
 
     // Student class table name, pks and columns
     public final static String STUDENT_CLASS_TABLE_NAME = "";
@@ -54,7 +55,7 @@ public class CreateTables {
 
                 System.out.println("Created student table");
 
-                //AddToStudent();
+                AddToStudent();
             }
 
             if (!teacherTableExists()) {
@@ -71,13 +72,14 @@ public class CreateTables {
             if (!classTableExists()) {
 
                 //Create a table in the database with TODO columns and name fields
-                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " DECIMAL (5,2))";
+                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " DECIMAL (5,2), " + TEACHER_PK_FK + " INT)";
                 System.out.println(createTableSQL2);
                 ConnectDB.statement.executeUpdate(createTableSQL2);
 
                 System.out.println("Created class table");
 
                 AddToClass();
+                MakeTeacherFKinClass();
             }
         }
         catch (SQLException sqle){
@@ -87,16 +89,8 @@ public class CreateTables {
 
 
     public void MakeTeacherFKinClass () {
-//        try {
-//
-//            Statement statement = null;
-//
-//            String addColumnSQL = "ALTER TABLE " + HARVESTS_TABLE_NAME + " ADD COLUMN " + STUDENT_PK_COL + " INT;";
-//            System.out.println(addColumnSQL);
-//            statement.executeUpdate(addColumnSQL);
-//
-//            System.out.println("Added hiveID column to harvests");
-//
+        try {
+
 //            String addFKData = "UPDATE " + HARVESTS_TABLE_NAME + " SET " + STUDENT_PK_COL + " = 2 WHERE " + HARVESTS_PK_COL + " = 1;";
 //            System.out.println(addFKData);
 //            statement.executeUpdate(addFKData);
@@ -104,25 +98,27 @@ public class CreateTables {
 //            statement.executeUpdate(addFKData);
 //            addFKData = "UPDATE " + HARVESTS_TABLE_NAME + " SET " + STUDENT_PK_COL + " = 1 WHERE " + HARVESTS_PK_COL + " = 3;";
 //            statement.executeUpdate(addFKData);
-//
-//            System.out.println("Added foreign key data to harvests");
-//
-//            String constraintName = "hiveFKConst";
-//            String fkConstraint = "ALTER TABLE " + HARVESTS_TABLE_NAME + " MODIFY COLUMN " + STUDENT_PK_COL + " INT NOT NULL, ADD CONSTRAINT " + constraintName + " FOREIGN KEY(" + STUDENT_PK_COL + ") REFERENCES " + STUDENT_TABLE_NAME + "(" + STUDENT_PK_COL + ");";
-//            System.out.println(fkConstraint);
-//            statement.executeUpdate(fkConstraint);
-//
-//    //                ALTER TABLE harvests MODIFY COLUMN hiveID INT NOT NULL,
-//    //                        ADD CONSTRAINT hiveFKConst
-//    //                FOREIGN KEY(hiveID)
-//    //                        REFERENCES hives(hiveID);
-//
-//            System.out.println("Foreign key constraint added");
-//
-//        } catch(SQLException se){
-//            System.out.println(se);  // TODO add more info to exception message
-//            se.printStackTrace();
-//        }
+
+
+
+            System.out.println("Added foreign key data to harvests");
+
+            String constraintName = "hiveFKConst";
+            String fkConstraint = "ALTER TABLE " + CLASS_TABLE_NAME + " MODIFY COLUMN " + TEACHER_PK_COL + " INT NOT NULL, ADD CONSTRAINT " + constraintName + " FOREIGN KEY(" + TEACHER_PK_FK + ") REFERENCES " + TEACHER_TABLE_NAME + "(" + TEACHER_PK_COL + ");";
+            System.out.println(fkConstraint);
+            ConnectDB.statement.executeUpdate(fkConstraint);
+
+    //                ALTER TABLE harvests MODIFY COLUMN hiveID INT NOT NULL,
+    //                        ADD CONSTRAINT hiveFKConst
+    //                FOREIGN KEY(hiveID)
+    //                        REFERENCES hives(hiveID);
+
+            System.out.println("Foreign key constraint added");
+
+        } catch(SQLException se){
+            System.out.println(se);  // TODO add more info to exception message
+            se.printStackTrace();
+        }
     }
 
     public void AddToStudent(){
@@ -134,7 +130,7 @@ public class CreateTables {
 
         try {
 
-            String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Margaret', 'Elkins', '555-555-1212')";
+            String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN + ", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Margaret', 'Elkins', '555-555-1212')";
             System.out.println(addDataSQL);
             ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Scott', 'Sivad', '555-555-1313')";
@@ -162,9 +158,9 @@ public class CreateTables {
             String addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
             System.out.println(addDataSQL2);
             ConnectDB.statement.executeUpdate(addDataSQL2);
-        addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";System.out.println(addDataSQL2);
+        addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Wolfgang', 'Mozart', '321-321-3214')";System.out.println(addDataSQL2);
             ConnectDB.statement.executeUpdate(addDataSQL2);
-            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
+            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Samuel', 'Barber', '987-987-9874')";
             System.out.println(addDataSQL2);
             ConnectDB.statement.executeUpdate(addDataSQL2);
         }
@@ -180,16 +176,16 @@ public class CreateTables {
 
         try {
 
-            String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00')";
+            String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00', 1)";
             System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
-            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Violin', 'Tuesday', '9:00am', '25.00')";
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Violin', 'Tuesday', '9:00am', '25.00', 2)";
             System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
-            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Beginning Cello', 'Wednesday', '4:00pm', '15.00')";
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Wednesday', '4:00pm', '15.00', 2)";
             System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
-            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN + ") VALUES ('Advanced Cello', 'Monday', '8:00am', '35.00')";
+            createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Advanced Cello', 'Monday', '8:00am', '35.00', 3)";
             System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
         }

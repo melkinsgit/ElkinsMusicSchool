@@ -1,5 +1,6 @@
 package com.margaret;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,9 +35,10 @@ public class MusicClass {
         }
     }
 
-    public void DisplayAllClasses (ResultSet rs){
+    public int DisplayAllClasses (ResultSet rs){
         Scanner s = new Scanner(System.in);
 
+        ArrayList<Integer> classIDsARL = new ArrayList<>();
         ArrayList<String> classNamesARL = new ArrayList<String>();
         ArrayList<String> classDaysARL = new ArrayList<>();
         ArrayList<String> classTimesARL = new ArrayList<String>();
@@ -45,6 +47,7 @@ public class MusicClass {
         try {
             while (rs.next()) {
                 System.out.println("record in result set is " + rs.getString(CreateTables.CLASS_NAME_COLUMN) + " " + rs.getString(CreateTables.CLASS_DAY_COLUMN) + " " + rs.getString(CreateTables.CLASS_PRICE_COLUMN));
+                classIDsARL.add(rs.getInt(CreateTables.CLASS_PK_COL));
                 classNamesARL.add(rs.getString(CreateTables.CLASS_NAME_COLUMN));
                 classTimesARL.add(rs.getString(CreateTables.CLASS_TIME_COLUMN));
                 classDaysARL.add(rs.getString(CreateTables.CLASS_DAY_COLUMN));
@@ -52,21 +55,24 @@ public class MusicClass {
             }
             rs.beforeFirst();
             if (rs.next() == false) {
-                System.out.println("Nothing matches that solver entry.");
+                System.out.println("There are no classes in the Database.");
             } else { // then output the results once you know there is a result set
                 int loopCount = 0;  // have to count again
                 System.out.println("Enter the number class you wish to take:");
                 for (int i = 0; i < rowCount; i++) {
                     loopCount++;
-                    System.out.println(loopCount + ". " + classNamesARL.get(i) + ", " + classDaysARL.get(i) + " at " + classTimesARL.get(i));
+                    System.out.println(classIDsARL.get(i) + ". " + classNamesARL.get(i) + ", " + classDaysARL.get(i) + " at " + classTimesARL.get(i));
                 }
                 String classToJoinStr = s.nextLine();
                 int classToJoin = Integer.parseInt(classToJoinStr);
+                rs.beforeFirst();
+                return classToJoin;
             }
         }
         catch (SQLException sqle){
             System.out.println("In music class Display all Classes " + sqle);
         }
+        return -1;
     }
 
     private int GetRowCount(ResultSet resultSet){
@@ -87,6 +93,28 @@ public class MusicClass {
         }
         System.out.println("About to return " + rowCount + " as the number of rows in Classes table.");
         return rowCount;
+    }
+
+    public void EnrollInClass(int classToJoin) {
+        System.out.println( "The parameter sent to Class to Join is " + classToJoin);
+        ResultSet rs1;
+        try {
+            String findClassData = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " WHERE " + CreateTables.CLASS_PK_COL + " = ? ";
+            PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
+            selectRowByID.setInt(1, classToJoin);
+            rs1 = selectRowByID.executeQuery();
+            while (rs1.next()){
+                String foundClassID = rs1.getString(CreateTables.CLASS_PK_COL);
+                String foundClassName = rs1.getString(CreateTables.CLASS_NAME_COLUMN);
+                String foundClassTeacherID = rs1.getString(CreateTables.TEACHER_PK_FK);
+                System.out.println("In Class to Enroll In the data is " + foundClassID + " " + foundClassName + " " + foundClassTeacherID);
+            }
+
+        }
+        catch (SQLException sqle){
+            System.out.println("In Enroll In Class " + sqle);
+        }
+
     }
 }
 

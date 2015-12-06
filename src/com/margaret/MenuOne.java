@@ -10,7 +10,9 @@ import java.util.Scanner;
 public class MenuOne {
 
     public MenuOne () {
-        //FirstFourChoices();
+        while (true) {
+            FirstFourChoices();
+        }
     }
 
     Scanner s = new Scanner(System.in);
@@ -34,7 +36,7 @@ public class MenuOne {
                 Student student = new Student (StFirst, StLast, StPhone);  // TODO do I want to add instantiations?
                 student.AddStudent(StFirst, StLast, StPhone);
                 ResultSet studentsRS = student.AllDataQuery();
-
+                student.DisplayAllStudents(studentsRS);
                 break;
             }
             case 2:{
@@ -48,19 +50,20 @@ public class MenuOne {
                 String TPhone = s.nextLine();
                 Teacher teacher = new Teacher (TFirst, TLast, TPhone);  // TODO do I want to add instantiations?
                 teacher.AddTeacher(TFirst, TLast, TPhone);
+                ResultSet teacherRS = teacher.AllDataQuery();
+                teacher.DisplayAllTeachers(teacherRS);
                 break;
             }
             case 3:{
                 MusicClass musicClass = new MusicClass();
                 ResultSet classesRS = musicClass.AllDataQuery();
-                musicClass.DisplayAllClasses(classesRS);
-
+                int classToTake = musicClass.DisplayAllClasses(classesRS);
+                musicClass.EnrollInClass(classToTake);
                 break;
             }
             case 4:{
                 break;
             }
-
         }
     }
 }
