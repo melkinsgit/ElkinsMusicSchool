@@ -130,7 +130,19 @@ public class Student {
             rs1.next();
             System.out.println("student sked to show is " + rs1.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + " " + rs1.getInt(CreateTables.STUDENT_PK_COL));
 
+            // TODO make this beast a global
+//            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
+            System.out.println(Queries.joinQuery);
 
+//            select students.FirstName as StudentFirstName, students.LastName as StudentLastName, classes.ClassName as MusicClass, classes.DayOfWeek as DayofClass, classes.TimeOfDay as MeetingTime
+//            from students
+//            join studentclass on students.StudentID = studentclass.StudentID
+//            join classes on studentclass.ClassID = classes.ClassID
+//            order by StudentLastName;
+
+            //  TODO then use this query
+//            select MusicClass, DayofClass, MeetingTime from (BIG HUGE QUERY) as Skeds
+//            where StudentLastName like 'Elkins';
 
             return rs1;
         }

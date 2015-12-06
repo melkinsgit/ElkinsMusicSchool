@@ -114,8 +114,8 @@ public class MusicClass {
             String studentClassInsert = "INSERT " + CreateTables.STUDENT_CLASS_TABLE_NAME + "(" + CreateTables.STUD_FK_PK_COL + ", " + CreateTables.CLASS_FK_PK_COL + ") VALUES ( ?, ? )";
             System.out.println(studentClassInsert);
             PreparedStatement insertToStCl = ConnectDB.conn.prepareStatement(studentClassInsert);
-            insertToStCl.setInt(1, classToJoin);
-            insertToStCl.setInt(2, studentPicked);
+            insertToStCl.setInt(1, studentPicked);
+            insertToStCl.setInt(2, classToJoin);
             insertToStCl.executeUpdate();
         }
         catch (SQLException sqle){
