@@ -18,7 +18,7 @@ public class MenuOne {
     Scanner s = new Scanner(System.in);
 
     public void FirstFourChoices(){
-        System.out.println("Choose one:\n\t1. Add Student\n\t2. Add Teacher\n\t3. Enroll in a Class\n\t4. Finance");
+        System.out.println("Choose one:\n\t1. Add Student\n\t2. Add Teacher\n\t3. Enroll in a Class\n\t4. Finance\n\t5. Show Student Schedule\n\t6. Show Teacher Schedule");
         String choice1Str = s.nextLine();
         int choice1 = Integer.parseInt(choice1Str);
 
@@ -36,7 +36,7 @@ public class MenuOne {
                 Student student = new Student (StFirst, StLast, StPhone);  // TODO do I want to add instantiations?
                 student.AddStudent(StFirst, StLast, StPhone);
                 ResultSet studentsRS = student.AllDataQuery();
-                student.DisplayAllStudents(studentsRS);
+                int studentPicked = student.DisplayAllStudents(studentsRS);
                 break;
             }
             case 2:{
@@ -56,12 +56,31 @@ public class MenuOne {
             }
             case 3:{
                 MusicClass musicClass = new MusicClass();
+                Student student = new Student();
+                ResultSet studentsRS = student.AllDataQuery();
+                int studentPicked = student.DisplayAllStudents(studentsRS);
                 ResultSet classesRS = musicClass.AllDataQuery();
                 int classToTake = musicClass.DisplayAllClasses(classesRS);
-                musicClass.EnrollInClass(classToTake);
+                musicClass.EnrollInClass(classToTake, studentPicked);
                 break;
             }
             case 4:{
+                break;
+            }
+            case 5:{
+                Student student = new Student();
+                ResultSet studentsRS = student.AllDataQuery();
+                int studentPicked = student.DisplayAllStudents(studentsRS);
+                ResultSet studSkedRS = student.ShowSchedule(studentPicked);
+                student.DisplayAllStudents(studSkedRS);
+                break;
+            }
+            case 6:{
+                Teacher teacher = new Teacher();
+                ResultSet teachersRS = teacher.AllDataQuery();
+                int teacherPicked = teacher.DisplayAllTeachers(teachersRS);
+                ResultSet teacherSkedRS = teacher.ShowSchedule(teacherPicked);
+                teacher.DisplayAllTeachers(teacherSkedRS);
                 break;
             }
         }

@@ -1,5 +1,6 @@
 package com.margaret;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class Student {
     private String firstName;
     private String lastName;
     private String phone;
+
+    public Student () {}
 
     public Student (String first, String last, String phone){
         this.firstName = first;
@@ -56,7 +59,7 @@ public class Student {
         }
     }
 
-    public void DisplayAllStudents (ResultSet rs){
+    public int DisplayAllStudents (ResultSet rs){
         Scanner s = new Scanner(System.in);
 
         ArrayList<String> StudentFirstARL = new ArrayList<String>();
@@ -86,11 +89,13 @@ public class Student {
                 String studentPickedStr = s.nextLine();
                 int studentPicked = Integer.parseInt(studentPickedStr);
                 rs.beforeFirst();
+                return studentPicked;
             }
         }
         catch (SQLException sqle){
             System.out.println("In music class Display all Classes " + sqle);
         }
+        return -1;
     }
 
     private int GetRowCount(ResultSet resultSet){
@@ -111,6 +116,28 @@ public class Student {
         }
         System.out.println("About to return " + rowCount + " as the number of rows in Classes table.");
         return rowCount;
+    }
+
+    public ResultSet ShowSchedule(int studentPicked) {
+
+        System.out.println( "The parameter sent to Class to Join is " + studentPicked);
+        ResultSet rs1;
+        try {
+            String findClassData = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_PK_COL + " = ? ";
+            PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
+            selectRowByID.setInt(1, studentPicked);
+            rs1 = selectRowByID.executeQuery();
+            rs1.next();
+            System.out.println("student sked to show is " + rs1.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + " " + rs1.getInt(CreateTables.STUDENT_PK_COL));
+
+
+
+            return rs1;
+        }
+        catch (SQLException sqle){
+            System.out.println("In Show Schedule for Student " + sqle);
+        }
+        return null;
     }
 
     // GETTERS & SETTERS _______________________________________________________________________________________

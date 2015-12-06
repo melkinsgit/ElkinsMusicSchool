@@ -1,5 +1,6 @@
 package com.margaret;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class Teacher {
     private String firstName;
     private String lastName;
     private String phone;
+
+    public Teacher () {}
 
     public Teacher (String first, String last, String phone){
         this.firstName = first;
@@ -49,7 +52,7 @@ public class Teacher {
         }
     }
 
-    public void DisplayAllTeachers (ResultSet rs){
+    public int DisplayAllTeachers (ResultSet rs){
         Scanner s = new Scanner(System.in);
 
         ArrayList<String> TeacherFirstARL = new ArrayList<String>();
@@ -75,14 +78,16 @@ public class Teacher {
                     loopCount++;
                     System.out.println(TeacherIDARL.get(i) + ". " + TeacherFirstARL.get(i) + " " + TeacherLastARL.get(i));
                 }
-                String studentPickedStr = s.nextLine();
-                int studentPicked = Integer.parseInt(studentPickedStr);
+                String teacherPickedStr = s.nextLine();
+                int teacherPicked = Integer.parseInt(teacherPickedStr);
                 rs.beforeFirst();
+                return teacherPicked;
             }
         }
         catch (SQLException sqle){
             System.out.println("In music class Display all Classes " + sqle);
         }
+        return -1;
     }
 
     private int GetRowCount(ResultSet resultSet){
@@ -105,28 +110,54 @@ public class Teacher {
         return rowCount;
     }
 
-        // GETTERS & SETTERS _______________________________________________________________________________________
-        public String getFirstName() {
-            return firstName;
-        }
+    public ResultSet ShowSchedule(int teacherPicked) {
 
-        public String getLastName() {
-            return lastName;
-        }
+        System.out.println( "The parameter sent to Class to Join is " + teacherPicked);
+        ResultSet rs1;
+        try {
+            String findClassData = "SELECT * FROM " + CreateTables.TEACHER_TABLE_NAME + " WHERE " + CreateTables.TEACHER_PK_COL + " = ? ";
+            PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
+            selectRowByID.setInt(1, teacherPicked);
+            rs1 = selectRowByID.executeQuery();
+            return rs1;
 
-        public String getPhone() {
-            return phone;
+//            while (rs1.next()) {
+//                String foundClassID = rs1.getString(CreateTables.CLASS_PK_COL);
+//                String foundClassName = rs1.getString(CreateTables.CLASS_NAME_COLUMN);
+//                String foundClassTeacherID = rs1.getString(CreateTables.TEACHER_PK_FK);
+//                System.out.println("In Class to Enroll In the data is " + foundClassID + " " + foundClassName + " " + foundClassTeacherID);
+//            }
         }
-
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
+        catch (SQLException sqle){
+            System.out.println("In Show Schedule for Teacher " + sqle);
         }
+        return null;
 
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
+    }
 
-        public void setPhone(String phone) {
+    // GETTERS & SETTERS _______________________________________________________________________________________
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhone(String phone) {
             this.phone = phone;
         }
-    }
+
+}

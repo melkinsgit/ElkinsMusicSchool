@@ -95,7 +95,7 @@ public class MusicClass {
         return rowCount;
     }
 
-    public void EnrollInClass(int classToJoin) {
+    public void EnrollInClass(int classToJoin, int studentPicked) {
         System.out.println( "The parameter sent to Class to Join is " + classToJoin);
         ResultSet rs1;
         try {
@@ -103,6 +103,7 @@ public class MusicClass {
             PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
             selectRowByID.setInt(1, classToJoin);
             rs1 = selectRowByID.executeQuery();
+
             while (rs1.next()){
                 String foundClassID = rs1.getString(CreateTables.CLASS_PK_COL);
                 String foundClassName = rs1.getString(CreateTables.CLASS_NAME_COLUMN);
@@ -110,6 +111,12 @@ public class MusicClass {
                 System.out.println("In Class to Enroll In the data is " + foundClassID + " " + foundClassName + " " + foundClassTeacherID);
             }
 
+            String studentClassInsert = "INSERT " + CreateTables.STUDENT_CLASS_TABLE_NAME + "(" + CreateTables.STUD_FK_PK_COL + ", " + CreateTables.CLASS_FK_PK_COL + ") VALUES ( ?, ? )";
+            System.out.println(studentClassInsert);
+            PreparedStatement insertToStCl = ConnectDB.conn.prepareStatement(studentClassInsert);
+            insertToStCl.setInt(1, classToJoin);
+            insertToStCl.setInt(2, studentPicked);
+            insertToStCl.executeUpdate();
         }
         catch (SQLException sqle){
             System.out.println("In Enroll In Class " + sqle);

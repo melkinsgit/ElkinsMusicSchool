@@ -33,10 +33,10 @@ public class CreateTables {
     public final static String TEACHER_PK_FK = "TeacherID";
 
     // Student class table name, pks and columns
-    public final static String STUDENT_CLASS_TABLE_NAME = "";
-    public final static String STUD_FK_PK_COL = "";
-    public final static String CLASS_FK_PK_COL = "";
-    public final static String DD_PK_COLUMN = "";
+    public final static String STUDENT_CLASS_TABLE_NAME = "StudentClass";
+    public final static String STUDENT_CLASS_ID = "StudClassID";
+    public final static String STUD_FK_PK_COL = "StudentID";
+    public final static String CLASS_FK_PK_COL = "ClassID";
 
     public CreateTables(){
         StartTables();
@@ -80,6 +80,15 @@ public class CreateTables {
 
                 AddToClass();
                 MakeTeacherFKinClass();
+            }
+
+            if (!studentClassTableExists()){
+                System.out.println("Student Class Table does not exist");
+                String createTableSQL2 = "CREATE TABLE " + STUDENT_CLASS_TABLE_NAME + " (" + STUD_FK_PK_COL + " int NOT NULL, " + CLASS_FK_PK_COL + " int NOT NULL, PRIMARY KEY (" + STUD_FK_PK_COL + ", " + CLASS_FK_PK_COL + "))";
+                System.out.println(createTableSQL2);
+                ConnectDB.statement.executeUpdate(createTableSQL2);
+
+                System.out.println("Created  student class table");
             }
         }
         catch (SQLException sqle){
@@ -213,16 +222,13 @@ public class CreateTables {
 
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + CLASS_TABLE_NAME + "'";   //Can query the database schema
         ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
-        System.out.println("true false in class table is " + tablesRS.next());
         return tablesRS.next();
     }
 
     private boolean studentClassTableExists() throws SQLException {
 
-        Statement statement = null;
-
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_CLASS_TABLE_NAME + "'";   //Can query the database schema
-        ResultSet tablesRS = statement.executeQuery(checkTablePresentQuery);
+        ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
         return tablesRS.next();
     }
 
