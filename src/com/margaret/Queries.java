@@ -9,5 +9,9 @@ public class Queries {
 
     public final static String simpleJoin = "Select * FROM Students INNER JOIN StudentClass ON Students.StudentID = StudentClass.StudentID INNER JOIN Classes ON StudentClass.ClassID = Classes.ClassID where Students.LastName like 'Elkins'";
 
-    public final static String simplerJoin = "Select * from " + CreateTables.STUDENT_TABLE_NAME + " inner join " + CreateTables.STUDENT_CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_TABLE_NAME + "." +
+    public final static String simplerJoin = CreateTables.STUDENT_TABLE_NAME + " inner join " + CreateTables.STUDENT_CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " inner join " + CreateTables.CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
+
+    /*
+    Select ClassName, DayOfWeek, TimeOfDay from Students inner join StudentClass on Students.StudentID = StudentClass.StudentID inner join Classes on StudentClass.ClassID = Classes.ClassID where LastName like 'Elkins'
+     */
 }

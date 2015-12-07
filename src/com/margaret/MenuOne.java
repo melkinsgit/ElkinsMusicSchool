@@ -72,7 +72,7 @@ public class MenuOne {
                 ResultSet studentsRS = student.AllDataQuery();
                 int studentPicked = student.DisplayAllStudents(studentsRS);
                 ResultSet studSkedRS = student.ShowSchedule(studentPicked);
-                student.DisplayAllStudents(studSkedRS);
+                student.DisplayStudentSked(studSkedRS);
                 break;
             }
             case 6:{

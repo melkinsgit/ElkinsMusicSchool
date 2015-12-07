@@ -1,5 +1,8 @@
 package com.margaret;
 
+import org.omg.CORBA.TIMEOUT;
+
+import javax.xml.transform.Result;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,10 +72,10 @@ public class Student {
         ArrayList<Double> classPriceARL = new ArrayList<Double>();
         int rowCount = GetRowCount(rs);
         try {
-            if (!rs.next()){
-                System.out.println("Displaying empty!");
-            }
-            rs.beforeFirst();
+//            if (!rs.next()){
+//                System.out.println("Displaying empty!");
+//            }
+//            rs.beforeFirst();
 
             while (rs.next()) {
                 System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
@@ -138,8 +141,8 @@ public class Student {
 //            rs1.beforeFirst();
 
             // TODO make this beast a global
-            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
-            System.out.println(selectSked);
+//            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
+//            System.out.println(selectSked);
 
 //            select students.FirstName as StudentFirstName, students.LastName as StudentLastName, classes.ClassName as MusicClass, classes.DayOfWeek as DayofClass, classes.TimeOfDay as MeetingTime
 //            from students
@@ -150,8 +153,8 @@ public class Student {
             //  TODO then use this query
 //            select MusicClass, DayofClass, MeetingTime from (BIG HUGE QUERY) as Skeds
 //            where StudentLastName like 'Elkins';
-            System.out.println(Queries.joinQuery);
-            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from (" + Queries.joinQuery + ") as studSked where " + CreateTables.STUDENT_LAST_COLUMN + " like " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN);
+//            System.out.println(Queries.joinQuery);
+            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + "'";
             System.out.println(studentSked);
             rs1 = ConnectDB.statement.executeQuery(studentSked);
 
@@ -161,6 +164,43 @@ public class Student {
             System.out.println("In Show Schedule for Student " + sqle);
         }
         return null;
+    }
+
+    public void DisplayStudentSked (ResultSet rs){
+        ArrayList<String> ClassNameARL = new ArrayList<String>();
+        ArrayList<String> DayOfWeekARL = new ArrayList<>();
+        ArrayList<String> TimeOfDayARL = new ArrayList<String>();
+        ArrayList<Double> classPriceARL = new ArrayList<Double>();
+        int rowCount = GetRowCount(rs);
+        try {
+//            if (!rs.next()) {
+//                System.out.println("Displaying empty!");
+//            }
+//            rs.beforeFirst();
+
+            while (rs.next()) {
+//                System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
+                ClassNameARL.add(rs.getString(CreateTables.CLASS_NAME_COLUMN));
+                DayOfWeekARL.add(rs.getString(CreateTables.CLASS_DAY_COLUMN));
+                TimeOfDayARL.add(rs.getString(CreateTables.CLASS_TIME_COLUMN));
+            }
+            rs.beforeFirst();
+
+
+            if (rs.next() == false) {
+                System.out.println("There are no students in the Database.");
+            } else { // then output the results once you know there is a result set
+                int loopCount = 0;  // have to count again
+                System.out.println("These are the students in the school:");
+                for (int i = 0; i < rowCount; i++) {
+                    loopCount++;
+                    System.out.println(ClassNameARL.get(i) + ". " + DayOfWeekARL.get(i) + " " + TimeOfDayARL.get(i));
+                }
+            }
+        }
+        catch (SQLException sqle){
+            System.out.println("In display student sked " + sqle);
+        }
     }
 
     // GETTERS & SETTERS _______________________________________________________________________________________
