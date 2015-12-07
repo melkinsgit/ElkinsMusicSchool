@@ -30,4 +30,8 @@ public class MainGUI extends JFrame{
         pack();
 
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
