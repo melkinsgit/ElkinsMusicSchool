@@ -7,6 +7,8 @@ import javax.swing.*;
  */
 public class ClassGUI extends JPanel {
     private JPanel ClassTabGUI;
+    private JButton button1;
+    private JTextArea textArea1;
 
     public JPanel getPanel() { return ClassTabGUI; }
 }
