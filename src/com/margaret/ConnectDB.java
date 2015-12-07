@@ -12,7 +12,7 @@ public class ConnectDB {
     static final String DB_NAME = "musicschool";  // fixed
     // database created using command line for my sql
     static final String USER = "root";  // fixed current user name
-    static final String PASS = "cello"; // cello for home, itecitec for school
+    static final String PASS = "itecitec"; // cello for home, itecitec for school
     static Connection conn = null;
     static Statement statement = null;
 
@@ -27,14 +27,28 @@ public class ConnectDB {
                 System.out.println(cnfe);
             }
 
-            conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
+//            conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
+            conn = DriverManager.getConnection(DB_CONNECTION_URL, USER, PASS);
             statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
 
+            CreateDatabase();
+            conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
+            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
             CreateTables createTables = new CreateTables(); // set up the database
 
         } catch (SQLException se) {
             System.out.println(se);
             se.printStackTrace();
+        }
+    }
+
+    public void CreateDatabase(){
+        String createDBStr = "CREATE DATABASE "  + DB_NAME + ";";
+        try {
+            statement.executeUpdate(createDBStr);
+        }
+        catch (SQLException sqle){
+            System.out.println("Cannot create database MusicSchool " + sqle);
         }
     }
 

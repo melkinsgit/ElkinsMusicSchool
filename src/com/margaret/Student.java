@@ -55,11 +55,12 @@ public class Student {
         }
         catch (SQLException sqle){
             System.out.println("in Student All Data Query call to select all " + sqle);
-            return returnRS;  // TODO how do I handle this problem?
         }
+        return returnRS;
     }
 
     public int DisplayAllStudents (ResultSet rs){
+
         Scanner s = new Scanner(System.in);
 
         ArrayList<String> StudentFirstARL = new ArrayList<String>();
@@ -68,6 +69,11 @@ public class Student {
         ArrayList<Double> classPriceARL = new ArrayList<Double>();
         int rowCount = GetRowCount(rs);
         try {
+            if (!rs.next()){
+                System.out.println("Displaying empty!");
+            }
+            rs.beforeFirst();
+
             while (rs.next()) {
                 System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
                 StudentFirstARL.add(rs.getString(CreateTables.STUDENT_FIRST_COLUMN));
@@ -129,10 +135,11 @@ public class Student {
             rs1 = selectRowByID.executeQuery();
             rs1.next();
             System.out.println("student sked to show is " + rs1.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + " " + rs1.getInt(CreateTables.STUDENT_PK_COL));
+//            rs1.beforeFirst();
 
             // TODO make this beast a global
-//            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
-            System.out.println(Queries.joinQuery);
+            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
+            System.out.println(selectSked);
 
 //            select students.FirstName as StudentFirstName, students.LastName as StudentLastName, classes.ClassName as MusicClass, classes.DayOfWeek as DayofClass, classes.TimeOfDay as MeetingTime
 //            from students
@@ -143,6 +150,10 @@ public class Student {
             //  TODO then use this query
 //            select MusicClass, DayofClass, MeetingTime from (BIG HUGE QUERY) as Skeds
 //            where StudentLastName like 'Elkins';
+            System.out.println(Queries.joinQuery);
+            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from (" + Queries.joinQuery + ") as studSked where " + CreateTables.STUDENT_LAST_COLUMN + " like " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN);
+            System.out.println(studentSked);
+            rs1 = ConnectDB.statement.executeQuery(studentSked);
 
             return rs1;
         }

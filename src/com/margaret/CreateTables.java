@@ -88,7 +88,7 @@ public class CreateTables {
                 System.out.println(createTableSQL2);
                 ConnectDB.statement.executeUpdate(createTableSQL2);
 
-                System.out.println("Created  student class table");
+                System.out.println("Created student class table");
             }
         }
         catch (SQLException sqle){
@@ -203,6 +203,17 @@ public class CreateTables {
         }
     }
 
+    public void AddToStudentClass () {
+        try {
+            String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00', 1)";
+            System.out.println(createTableSQL2);
+            ConnectDB.statement.executeUpdate(createTableSQL2);
+        }
+        catch (SQLException sqle){
+            System.out.println("In add to student " + sqle);
+        }
+    }
+    // from Clara
     private boolean studentTableExists() throws SQLException{
 
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
