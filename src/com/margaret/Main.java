@@ -7,7 +7,8 @@ public class Main {
         ConnectDB connectDB = new ConnectDB();
 //        FirstMenuGUI firstMenuGUI = new FirstMenuGUI();
 //        StudentGUI  studentGUI = new StudentGUI();
-        MenuOne menuOne = new MenuOne();
+//        MenuOne menuOne = new MenuOne();
+        MainGUI mainGUI = new MainGUI();
 
     }
 }
