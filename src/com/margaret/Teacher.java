@@ -58,7 +58,7 @@ public class Teacher {
         ArrayList<String> TeacherFirstARL = new ArrayList<String>();
         ArrayList<String> TeacherLastARL = new ArrayList<>();
         ArrayList<Integer> TeacherIDARL = new ArrayList<Integer>();
-        int rowCount = GetRowCount(rs);
+        int rowCount = Queries.GetRowCount(rs);
         try {
             while (rs.next()) {
                 System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
@@ -90,26 +90,6 @@ public class Teacher {
         return -1;
     }
 
-    private int GetRowCount(ResultSet resultSet){
-
-        int rowCount = 0;
-        System.out.println("in row count");
-        try {
-            //Move cursor to the start...
-            resultSet.beforeFirst();
-            // next() method moves the cursor forward one row and returns true if there is another row ahead
-            while (resultSet.next()) {
-                rowCount++;
-            }
-            resultSet.beforeFirst();
-
-        } catch (SQLException se) {
-            System.out.println("Error counting rows " + se);
-        }
-        System.out.println("About to return " + rowCount + " as the number of rows in Classes table.");
-        return rowCount;
-    }
-
     public ResultSet ShowSchedule(int teacherPicked) {
 
         System.out.println( "The parameter sent to Class to Join is " + teacherPicked);
@@ -120,13 +100,6 @@ public class Teacher {
             selectRowByID.setInt(1, teacherPicked);
             rs1 = selectRowByID.executeQuery();
             return rs1;
-
-//            while (rs1.next()) {
-//                String foundClassID = rs1.getString(CreateTables.CLASS_PK_COL);
-//                String foundClassName = rs1.getString(CreateTables.CLASS_NAME_COLUMN);
-//                String foundClassTeacherID = rs1.getString(CreateTables.TEACHER_PK_FK);
-//                System.out.println("In Class to Enroll In the data is " + foundClassID + " " + foundClassName + " " + foundClassTeacherID);
-//            }
         }
         catch (SQLException sqle){
             System.out.println("In Show Schedule for Teacher " + sqle);

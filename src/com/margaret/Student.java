@@ -70,13 +70,8 @@ public class Student {
         ArrayList<String> StudentLastARL = new ArrayList<>();
         ArrayList<Integer> StudentIDARL = new ArrayList<Integer>();
         ArrayList<Double> classPriceARL = new ArrayList<Double>();
-        int rowCount = GetRowCount(rs);
+        int rowCount = Queries.GetRowCount(rs);
         try {
-//            if (!rs.next()){
-//                System.out.println("Displaying empty!");
-//            }
-//            rs.beforeFirst();
-
             while (rs.next()) {
                 System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
                 StudentFirstARL.add(rs.getString(CreateTables.STUDENT_FIRST_COLUMN));
@@ -84,7 +79,6 @@ public class Student {
                 StudentIDARL.add(rs.getInt(CreateTables.STUDENT_PK_COL));
             }
             rs.beforeFirst();
-
 
             if (rs.next() == false) {
                 System.out.println("There are no students in the Database.");
@@ -105,26 +99,6 @@ public class Student {
             System.out.println("In music class Display all Classes " + sqle);
         }
         return -1;
-    }
-
-    private int GetRowCount(ResultSet resultSet){
-
-        int rowCount = 0;
-        System.out.println("in row count");
-        try {
-            //Move cursor to the start...
-            resultSet.beforeFirst();
-            // next() method moves the cursor forward one row and returns true if there is another row ahead
-            while (resultSet.next()) {
-                rowCount++;
-            }
-            resultSet.beforeFirst();
-
-        } catch (SQLException se) {
-            System.out.println("Error counting rows " + se);
-        }
-        System.out.println("About to return " + rowCount + " as the number of rows in Classes table.");
-        return rowCount;
     }
 
     public ResultSet ShowSchedule(String studentPicked) {
@@ -175,7 +149,7 @@ public class Student {
         ArrayList<String> DayOfWeekARL = new ArrayList<>();
         ArrayList<String> TimeOfDayARL = new ArrayList<String>();
         ArrayList<Double> classPriceARL = new ArrayList<Double>();
-        int rowCount = GetRowCount(rs);
+        int rowCount = Queries.GetRowCount(rs);
         try {
 //            if (!rs.next()) {
 //                System.out.println("Displaying empty!");
