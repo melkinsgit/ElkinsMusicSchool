@@ -1,5 +1,6 @@
 package com.margaret;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -89,6 +90,8 @@ public class CreateTables {
                 ConnectDB.statement.executeUpdate(createTableSQL2);
 
                 System.out.println("Created student class table");
+
+                AddToStudentClass();
             }
         }
         catch (SQLException sqle){
@@ -112,7 +115,7 @@ public class CreateTables {
 
             System.out.println("Added foreign key data to harvests");
 
-            String constraintName = "hiveFKConst";
+            String constraintName = "teacherFKConst";
             String fkConstraint = "ALTER TABLE " + CLASS_TABLE_NAME + " MODIFY COLUMN " + TEACHER_PK_COL + " INT NOT NULL, ADD CONSTRAINT " + constraintName + " FOREIGN KEY(" + TEACHER_PK_FK + ") REFERENCES " + TEACHER_TABLE_NAME + "(" + TEACHER_PK_COL + ");";
             System.out.println(fkConstraint);
             ConnectDB.statement.executeUpdate(fkConstraint);
@@ -205,9 +208,22 @@ public class CreateTables {
 
     public void AddToStudentClass () {
         try {
-            String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00', 1)";
-            System.out.println(createTableSQL2);
-            ConnectDB.statement.executeUpdate(createTableSQL2);
+            String addToStudClassTableSQL = "INSERT INTO " + STUDENT_CLASS_TABLE_NAME + " (" + STUD_FK_PK_COL + ", " + CLASS_FK_PK_COL + ") VALUES ( ?, ? )";
+            PreparedStatement insertToStCl = ConnectDB.conn.prepareStatement(addToStudClassTableSQL);
+            insertToStCl.setInt(1, 1);
+            insertToStCl.setInt(2, 2);
+            insertToStCl.executeUpdate();
+            insertToStCl.setInt(1, 1);
+            insertToStCl.setInt(2, 3);
+            insertToStCl.executeUpdate();
+            insertToStCl.setInt(1, 3);
+            insertToStCl.setInt(2, 4);
+            System.out.println("about to update student class table with three records");
+            insertToStCl.executeUpdate();
+
+
+//            System.out.println(createTableSQL2);
+//            ConnectDB.statement.executeUpdate(createTableSQL2);
         }
         catch (SQLException sqle){
             System.out.println("In add to student " + sqle);

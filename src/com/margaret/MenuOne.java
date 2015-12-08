@@ -27,16 +27,16 @@ public class MenuOne {
             case 1:{
                 // TODO make GUI
                 // TODO validate user input
-                System.out.println("STUDENT\nEnter First Name:");
-                String StFirst = s.nextLine();
-                System.out.println("Enter Last name:");
-                String StLast = s.nextLine();
-                System.out.println("Enter Phone:");
-                String StPhone = s.nextLine();
-                Student student = new Student (StFirst, StLast, StPhone);  // TODO do I want to add instantiations?
-                student.AddStudent(StFirst, StLast, StPhone);
-                ResultSet studentsRS = student.AllDataQuery();
-                int studentPicked = student.DisplayAllStudents(studentsRS);
+//                System.out.println("STUDENT\nEnter First Name:");
+//                String StFirst = s.nextLine();
+//                System.out.println("Enter Last name:");
+//                String StLast = s.nextLine();
+//                System.out.println("Enter Phone:");
+//                String StPhone = s.nextLine();
+//                Student student = new Student (StFirst, StLast, StPhone);  // TODO do I want to add instantiations?
+//                student.AddStudent(StFirst, StLast, StPhone);
+//                ResultSet studentsRS = student.AllDataQuery();
+//                int studentPicked = student.DisplayAllStudents(studentsRS);
                 break;
             }
             case 2:{
@@ -70,9 +70,9 @@ public class MenuOne {
             case 5:{
                 Student student = new Student();
                 ResultSet studentsRS = student.AllDataQuery();
-                int studentPicked = student.DisplayAllStudents(studentsRS);
-                ResultSet studSkedRS = student.ShowSchedule(studentPicked);
-                student.DisplayStudentSked(studSkedRS);
+//                String studentPicked = student.DisplayAllStudents(studentsRS);
+//                ResultSet studSkedRS = student.ShowSchedule(studentPicked);
+//                student.DisplayStudentSked(studSkedRS);
                 break;
             }
             case 6:{

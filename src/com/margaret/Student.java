@@ -127,18 +127,18 @@ public class Student {
         return rowCount;
     }
 
-    public ResultSet ShowSchedule(int studentPicked) {
+    public ResultSet ShowSchedule(String studentPicked) {
 
         System.out.println( "The parameter sent to Class to Join is " + studentPicked);
         ResultSet rs1;
         try {
-            String findClassData = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_PK_COL + " = ? ";
-            PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
-            selectRowByID.setInt(1, studentPicked);
-            rs1 = selectRowByID.executeQuery();
-            rs1.next();
-            System.out.println("student sked to show is " + rs1.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + " " + rs1.getInt(CreateTables.STUDENT_PK_COL));
-//            rs1.beforeFirst();
+//            String findClassData = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_PK_COL + " = ? ";
+//            PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
+//            selectRowByID.setInt(1, studentPicked);
+//            rs1 = selectRowByID.executeQuery();
+//            rs1.next();
+//            System.out.println("student sked to show is " + rs1.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + " " + rs1.getInt(CreateTables.STUDENT_PK_COL));
+////            rs1.beforeFirst();
 
             // TODO make this beast a global
 //            String selectSked = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
@@ -154,7 +154,11 @@ public class Student {
 //            select MusicClass, DayofClass, MeetingTime from (BIG HUGE QUERY) as Skeds
 //            where StudentLastName like 'Elkins';
 //            System.out.println(Queries.joinQuery);
-            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + rs1.getString(CreateTables.STUDENT_LAST_COLUMN) + "'";
+            String studentPickedFirst = studentPicked.substring(0, studentPicked.indexOf(" "));
+            String studentPickedLast = studentPicked.substring(studentPicked.indexOf(" ")+1);
+            System.out.println("First and last name are " + studentPickedFirst + " and " + studentPickedLast);
+
+            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
             System.out.println(studentSked);
             rs1 = ConnectDB.statement.executeQuery(studentSked);
 
