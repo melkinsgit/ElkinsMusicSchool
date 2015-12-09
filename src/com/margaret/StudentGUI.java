@@ -31,7 +31,6 @@ public class StudentGUI extends JPanel{
     private JLabel enterStudentPhoneLabel;
     private JLabel addStudentLabel;
 
-
     protected String studentFirstToAdd;
     protected String studentLastToAdd;
     protected String studentPhoneToAdd;
@@ -42,7 +41,9 @@ public class StudentGUI extends JPanel{
     public StudentGUI () {
 
         studErrorTextArea.setLineWrap(true);
+        studErrorTextArea.setEditable(false);
         studResultsTextArea.setLineWrap(true);
+        studResultsTextArea.setEditable(false);
 
         // put all student names in the combo box
         String start = "";
@@ -73,6 +74,7 @@ public class StudentGUI extends JPanel{
         addStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                studResultsTextArea.setText("");
                 AddStudent();
             }
         });
@@ -92,6 +94,7 @@ public class StudentGUI extends JPanel{
                 }
                 else {
                     studErrorTextArea.setText("That is not a valid choice. Please choose a student name from the drop down menu.");
+                    studResultsTextArea.setText("");
                 }
                 if (OKToShow) {
                     DisplaySked(studentToSkedStr);
@@ -104,6 +107,7 @@ public class StudentGUI extends JPanel{
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
                 studErrorTextArea.setText("");
+                allStudentsComboBox.setSelectedIndex(0);
             }
         });
         studentLastNameTextField.addKeyListener(new KeyAdapter() {
@@ -186,5 +190,45 @@ public class StudentGUI extends JPanel{
         catch (SQLException sqle){
             System.out.println("In display search results " + sqle);
         }
+    }
+
+    public void setStudResultsTextArea(String studResultsTextArea) {
+        this.studResultsTextArea.setText(studResultsTextArea);
+    }
+
+    public void setStudErrorTextArea(String studErrorTextArea) {
+        this.studErrorTextArea.setText(studErrorTextArea);
+    }
+
+    public void setAllStudentsComboBox(JComboBox allStudentsComboBox) {
+        this.allStudentsComboBox = allStudentsComboBox;
+    }
+
+    public void setStudentFirstNameTextField(String studentFirstNameTextField) {
+        this.studentFirstNameTextField.setText(studentFirstNameTextField);
+    }
+
+    public void setStudentLastNameTextField(String studentLastNameTextField) {
+        this.studentLastNameTextField.setText(studentLastNameTextField);
+    }
+
+    public void setTextInputError(String textInputError) {
+        this.textInputError = textInputError;
+    }
+
+    public JComboBox getAllStudentsComboBox() {
+        return allStudentsComboBox;
+    }
+
+    public String getStudentFirstNameTextField() {
+        return studentFirstNameTextField.getText();
+    }
+
+    public String getStudentLastNameTextField() {
+        return studentLastNameTextField.getText();
+    }
+
+    public String getStudentPhoneTextField() {
+        return studentPhoneTextField.getText();
     }
 }
