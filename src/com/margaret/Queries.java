@@ -18,6 +18,8 @@ public class Queries {
 
     public final static String simplerJoin = CreateTables.STUDENT_TABLE_NAME + " inner join " + CreateTables.STUDENT_CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " inner join " + CreateTables.CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
 
+    public static boolean duplicateFlag = false;
+
     // From Clara's Movie Rating project
     public static int GetRowCount(ResultSet resultSet){
 

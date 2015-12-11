@@ -30,6 +30,8 @@ public class TeacherGUI extends JPanel {
     private JTextArea studResultsTextArea;
     private JTextArea studErrorTextArea;
     private JButton quitButton;
+    private JLabel teachErrorLabel;
+    private JLabel teachResultLabel;
     private JComboBox allStudentsComboBox;
     private JTextField studentFirstNameTextField;
     private JTextField studentLastNameTextField;
@@ -52,6 +54,12 @@ public class TeacherGUI extends JPanel {
     Student student = new Student();
 
     public TeacherGUI () {
+
+        teachErrorTextArea.setLineWrap(true);
+        teachErrorTextArea.setEditable(false);
+        teachResultTextArea.setLineWrap(true);
+        teachResultTextArea.setEditable(false);
+
 
     }
 

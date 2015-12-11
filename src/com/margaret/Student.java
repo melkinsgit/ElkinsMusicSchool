@@ -26,15 +26,16 @@ public class Student {
         this.phone = phone;
     }
 
-    public void AddStudent (Student studentToAdd){
+//    public void AddStudent (Student studentToAdd){
+    public void AddStudent (){
 
         try {
 
             String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES ( ?, ?, ?)";
             PreparedStatement addToSt = ConnectDB.conn.prepareStatement(addDataSQL);
-            addToSt.setString(1, studentToAdd.firstName);
-            addToSt.setString(2, studentToAdd.lastName);
-            addToSt.setString(3, studentToAdd.phone);
+            addToSt.setString(1, this.firstName);
+            addToSt.setString(2, this.lastName);
+            addToSt.setString(3, this.phone);
             addToSt.executeUpdate();
         }
         catch (SQLException se) {
@@ -62,11 +63,13 @@ public class Student {
         ResultSet rs1;
         try {
 
-            String studentPickedFirst = studentPicked.substring(0, studentPicked.indexOf(" "));
-            String studentPickedLast = studentPicked.substring(studentPicked.indexOf(" ")+1);
+            String studentPickedID = studentPicked.substring(0, studentPicked.indexOf(" "));
 
-            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
-            rs1 = ConnectDB.statement.executeQuery(studentSked);
+//            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
+
+            String studentSkedQuery = "Select * from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " like '" + studentPickedID + "'";
+            System.out.println("The get sked rs query is " + studentSkedQuery);
+            rs1= ConnectDB.statement.executeQuery(studentSkedQuery);
             return rs1;
         }
         catch (SQLException sqle){

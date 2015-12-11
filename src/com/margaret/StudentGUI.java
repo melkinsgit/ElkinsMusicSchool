@@ -29,6 +29,7 @@ public class StudentGUI extends JPanel{
     private JLabel enterStudentLastNameLabel;
     private JLabel enterStudentPhoneLabel;
     private JLabel addStudentLabel;
+    private JComboBox allClassesComboBox;
 
     protected String studentFirstToAdd;
     protected String studentLastToAdd;
@@ -36,6 +37,11 @@ public class StudentGUI extends JPanel{
 
     private String textInputError;
     Student student = new Student();
+    String classToEnrollStr;
+    String studentToSkedStr;
+
+    boolean OKToShow = false;
+    boolean OKToEnroll = false;
 
     public StudentGUI () {
 
@@ -79,7 +85,7 @@ public class StudentGUI extends JPanel{
             }
         });
 
-        //
+        // this is for use in StudentGUI
         allStudentsComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,6 +107,57 @@ public class StudentGUI extends JPanel{
             }
         });
 
+//        // this is for use in Class GUI
+//        allStudentsComboBox.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                studErrorTextArea.setText("");
+//                Object studentToSked = allStudentsComboBox.getSelectedItem();
+//                studentToSkedStr = (String) studentToSked;
+//                Student student = new Student();
+//                if (!studentToSkedStr.equals("")){
+//                    OKToShow = true;
+//                }
+//                else {
+//                    studErrorTextArea.setText("That is not a valid choice. Please choose a student name from the drop down menu.");
+//                    studResultsTextArea.setText("");
+//                }
+//                if (OKToShow) {
+//                    ;
+//                }
+//            }
+//        });
+
+        // this will be moved to Class GUI when I get it working
+//        allClassesComboBox.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                studErrorTextArea.setText("");
+//                Object classToEnroll = allClassesComboBox.getSelectedItem();
+//                classToEnrollStr = (String) classToEnroll;
+//                MusicClass musicClass = new MusicClass();
+//                if (!classToEnrollStr.equals("")){
+//                    OKToEnroll = true;
+//                }
+//                else {
+//                    studErrorTextArea.setText("That is not a valid choice. Please choose a class from the drop down menu.");
+//                    studResultsTextArea.setText("");
+//                }
+//                if (OKToEnroll) {
+////                    SkedInputOutput(classToEnrollStr);
+////                    musicClass.EnrollInClass(studentFromCombo, musicClassFromCombo);
+//                }
+//            }
+//        });
+
+//        if (OKToShow && OKToEnroll)
+//            enrollStudentInClassButton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    MusicClass musicClass = new MusicClass();
+//                    musicClass.EnrollInClass(classToEnrollStr, studentToSkedStr);
+//                }
+//            });
         studentFirstNameTextField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -123,13 +180,20 @@ public class StudentGUI extends JPanel{
                 studErrorTextArea.setText("");
             }
         });
+
+//        enrollStudentInClassButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//            }
+//        });
     }
 
     public JPanel getPanel() { return StudentGUITab;}
 
     private void AddStudent () {
         boolean OKToAdd = false;
-        Student studentToAdd= new Student();
+        Student studentToAdd = new Student();
         studentFirstToAdd = studentFirstNameTextField.getText();
         studentLastToAdd = studentLastNameTextField.getText();
         studentPhoneToAdd = studentPhoneTextField.getText();
@@ -148,7 +212,8 @@ public class StudentGUI extends JPanel{
             studentToAdd.setFirstName(studentFirstToAdd);
             studentToAdd.setLastName(studentLastToAdd);
             studentToAdd.setPhone(studentPhoneToAdd);
-            studentToAdd.AddStudent(studentToAdd);
+//            studentToAdd.AddStudent(studentToAdd);
+            studentToAdd.AddStudent();
             studResultsTextArea.setText(studentFirstToAdd + " " + studentLastToAdd + " has been added.");
             studentFirstNameTextField.setText("");
             studentLastNameTextField.setText("");
@@ -159,6 +224,7 @@ public class StudentGUI extends JPanel{
     private void SkedInputOutput (String studentToSkedStr){
         Student studentforSked = new Student();
         try {
+            System.out.println("getting sked for " + studentToSkedStr);
             ResultSet studSkedRS = studentforSked.GetSchedule(studentToSkedStr);
             String stringToDisplay = "";
             if (Queries.GetRowCount(studSkedRS) == 0){
@@ -166,17 +232,21 @@ public class StudentGUI extends JPanel{
                 studResultsTextArea.setText(stringToDisplay);
             }
             else if (Queries.GetRowCount(studSkedRS) == 1) {
+                System.out.println("there are " + Queries.GetRowCount(studSkedRS) + " rows to display");
                 studSkedRS.next();
-                stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
+                stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
                 studSkedRS.beforeFirst();
                 studResultsTextArea.setText(stringToDisplay);
             }
             else {
+                System.out.println("there are " + Queries.GetRowCount(studSkedRS) + " rows to display");
                 studSkedRS.next();
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
+                System.out.println("First line of sked is " + stringToDisplay);
                 studResultsTextArea.setText(stringToDisplay);
                 while (studSkedRS.next()) {
                     stringToDisplay = ("\n" + (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN)));
+                    System.out.println("next line of sked is " + stringToDisplay);
                     studResultsTextArea.append(stringToDisplay);
                 }
                 studSkedRS.beforeFirst();
@@ -193,13 +263,22 @@ public class StudentGUI extends JPanel{
         String start = "";
         allStudentsComboBox.addItem(start);
         String studentInComboBox;
+        String classInComboBox;
         try {
+//            MusicClass musicClass = new MusicClass();
             ResultSet comboBoxRS = student.AllDataQuery();
             while (comboBoxRS.next()) {
-                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN)) + " " + (comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
+                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_PK_COL) + " " + comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
                 allStudentsComboBox.addItem(studentInComboBox);
             }
             comboBoxRS.beforeFirst();
+
+//            ResultSet classComboBoxRS = musicClass.AllDataQuery();
+//            while (classComboBoxRS.next()) {
+//                classInComboBox = (classComboBoxRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (classComboBoxRS.getString(CreateTables.CLASS_DAY_COLUMN)) + " " + (classComboBoxRS.getString(CreateTables.CLASS_TIME_COLUMN));
+//                allClassesComboBox.addItem(classInComboBox);
+//            }
+//            classComboBoxRS.beforeFirst();
         }
         catch (SQLException sqle){
             System.out.println("Adding text to combo box in Student GUI " + sqle);
