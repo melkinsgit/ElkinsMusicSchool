@@ -17,10 +17,10 @@ public class MusicClass {
     ArrayList<MusicClass> musicClasses;
 
     public MusicClass(){
-        musicClasses = new ArrayList<>();
+//        /musicClasses = new ArrayList<>();
     }
 
-    public ResultSet AllDataQuery(){
+    public static ResultSet AllDataQuery(){
         ResultSet returnRS = null;
 
         try {

@@ -9,6 +9,8 @@ import java.sql.SQLException;
 public class Queries {
 
     public final static int PHONE_LENGTH = 12;
+//    public static ResultSet studentComboBox = Student.AllDataQuery();
+//    public static ResultSet classComboBox = MusicClass.AllDataQuery();
 
 //    public final static String joinQuery = "Select " + CreateTables.STUDENT_FIRST_COLUMN + " as StudentFirstName, " + CreateTables.STUDENT_LAST_COLUMN + " as StudentLastName, " + CreateTables.CLASS_NAME_COLUMN + " as MusicClass, " + CreateTables.CLASS_DAY_COLUMN + " as DayofClass, "+ CreateTables.CLASS_TIME_COLUMN + " as MeetingTime FROM " + CreateTables.STUDENT_TABLE_NAME + " JOIN " + CreateTables.STUDENT_CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUDENT_CLASS_ID + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " JOIN " + CreateTables.CLASS_TABLE_NAME + " ON " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
 
@@ -20,7 +22,6 @@ public class Queries {
     public static int GetRowCount(ResultSet resultSet){
 
         int rowCount = 0;
-        System.out.println("in row count");
         try {
             //Move cursor to the start...
             resultSet.beforeFirst();
@@ -33,7 +34,6 @@ public class Queries {
         } catch (SQLException se) {
             System.out.println("Error counting rows " + se);
         }
-        System.out.println("About to return " + rowCount + " as the number of rows in result set.");
         return rowCount;
     }
 

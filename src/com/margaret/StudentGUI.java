@@ -45,20 +45,21 @@ public class StudentGUI extends JPanel{
         studResultsTextArea.setEditable(false);
 
         // put all student names in the combo box
-        String start = "";
-        allStudentsComboBox.addItem(start);
-        String studentInComboBox;
-        try {
-            ResultSet comboBoxRS = student.AllDataQuery();
-            while (comboBoxRS.next()) {
-                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN)) + " " + (comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
-                allStudentsComboBox.addItem(studentInComboBox);
-            }
-            comboBoxRS.beforeFirst();
-        }
-        catch (SQLException sqle){
-            System.out.println("Adding text to combo box " + sqle);
-        }
+        setStudentComboBox();
+//        String start = "";
+//        allStudentsComboBox.addItem(start);
+//        String studentInComboBox;
+//        try {
+//            ResultSet comboBoxRS = student.AllDataQuery();
+//            while (comboBoxRS.next()) {
+//                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN)) + " " + (comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
+//                allStudentsComboBox.addItem(studentInComboBox);
+//            }
+//            comboBoxRS.beforeFirst();
+//        }
+//        catch (SQLException sqle){
+//            System.out.println("Adding text to combo box in Student GUI " + sqle);
+//        }
 
         // quit code - taken from Clara's Movie Ratings project
         quitButton.addActionListener(new ActionListener() {
@@ -184,6 +185,24 @@ public class StudentGUI extends JPanel{
         }
         catch (SQLException sqle){
             System.out.println("In display search results " + sqle);
+        }
+    }
+
+    public void setStudentComboBox (){
+        // put all student names in the combo box
+        String start = "";
+        allStudentsComboBox.addItem(start);
+        String studentInComboBox;
+        try {
+            ResultSet comboBoxRS = student.AllDataQuery();
+            while (comboBoxRS.next()) {
+                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN)) + " " + (comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
+                allStudentsComboBox.addItem(studentInComboBox);
+            }
+            comboBoxRS.beforeFirst();
+        }
+        catch (SQLException sqle){
+            System.out.println("Adding text to combo box in Student GUI " + sqle);
         }
     }
 

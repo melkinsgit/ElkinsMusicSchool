@@ -59,8 +59,6 @@ public class Student {
     }
 
     public ResultSet GetSchedule(String studentPicked) {
-
-        System.out.println( "The parameter sent to Class to Join is " + studentPicked);
         ResultSet rs1;
         try {
 
@@ -68,7 +66,6 @@ public class Student {
             String studentPickedLast = studentPicked.substring(studentPicked.indexOf(" ")+1);
 
             String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
-            System.out.println(studentSked);
             rs1 = ConnectDB.statement.executeQuery(studentSked);
             return rs1;
         }
