@@ -26,15 +26,22 @@ public class Student {
         this.phone = phone;
     }
 
-    public void AddStudent (String First, String Last, String Phone){
+    public void AddStudent (Student studentToAdd){
 
         try {
 
-            String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES ('" + First + "', '" + Last+ "', '" + Phone + "')";
-            ConnectDB.statement.executeUpdate(addDataSQL);
+            String addDataSQL = "INSERT INTO " + CreateTables.STUDENT_TABLE_NAME + "(" + CreateTables.STUDENT_FIRST_COLUMN + ", " + CreateTables.STUDENT_LAST_COLUMN + ", " + CreateTables.STUDENT_PHONE_COLUMN + ")" + " VALUES ( ?, ?, ?)";
+//            ConnectDB.statement.executeUpdate(addDataSQL);
+            System.out.println(addDataSQL);
+            PreparedStatement addToSt = ConnectDB.conn.prepareStatement(addDataSQL);
+            addToSt.setString(1, studentToAdd.firstName);
+            addToSt.setString(2, studentToAdd.lastName);
+            addToSt.setString(3, studentToAdd.phone);
+            System.out.println(addToSt);
+            addToSt.executeUpdate();
         }
         catch (SQLException se) {
-            System.out.println(se);
+            System.out.println("In Student Class Add Student Method " + se);
             se.printStackTrace();
         }
     }
@@ -62,46 +69,46 @@ public class Student {
         return returnRS;
     }
 
-    public int DisplayAllStudents (ResultSet rs){
+//    public int DisplayAllStudents (ResultSet rs){
+//
+//        Scanner s = new Scanner(System.in);
+//
+//        ArrayList<String> StudentFirstARL = new ArrayList<String>();
+//        ArrayList<String> StudentLastARL = new ArrayList<>();
+//        ArrayList<Integer> StudentIDARL = new ArrayList<Integer>();
+//        ArrayList<Double> classPriceARL = new ArrayList<Double>();
+//        int rowCount = Queries.GetRowCount(rs);
+//        try {
+//            while (rs.next()) {
+//                System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
+//                StudentFirstARL.add(rs.getString(CreateTables.STUDENT_FIRST_COLUMN));
+//                StudentLastARL.add(rs.getString(CreateTables.STUDENT_LAST_COLUMN));
+//                StudentIDARL.add(rs.getInt(CreateTables.STUDENT_PK_COL));
+//            }
+//            rs.beforeFirst();
+//
+//            if (rs.next() == false) {
+//                System.out.println("There are no students in the Database.");
+//            } else { // then output the results once you know there is a result set
+//                int loopCount = 0;  // have to count again
+//                System.out.println("These are the students in the school:");
+//                for (int i = 0; i < rowCount; i++) {
+//                    loopCount++;
+//                    System.out.println(StudentIDARL.get(i) + ". " + StudentFirstARL.get(i) + " " + StudentLastARL.get(i));
+//                }
+//                String studentPickedStr = s.nextLine();
+//                int studentPicked = Integer.parseInt(studentPickedStr);
+//                rs.beforeFirst();
+//                return studentPicked;
+//            }
+//        }
+//        catch (SQLException sqle){
+//            System.out.println("In music class Display all Classes " + sqle);
+//        }
+//        return -1;
+//    }
 
-        Scanner s = new Scanner(System.in);
-
-        ArrayList<String> StudentFirstARL = new ArrayList<String>();
-        ArrayList<String> StudentLastARL = new ArrayList<>();
-        ArrayList<Integer> StudentIDARL = new ArrayList<Integer>();
-        ArrayList<Double> classPriceARL = new ArrayList<Double>();
-        int rowCount = Queries.GetRowCount(rs);
-        try {
-            while (rs.next()) {
-                System.out.println("record in result set is " + rs.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + rs.getString(CreateTables.STUDENT_LAST_COLUMN));
-                StudentFirstARL.add(rs.getString(CreateTables.STUDENT_FIRST_COLUMN));
-                StudentLastARL.add(rs.getString(CreateTables.STUDENT_LAST_COLUMN));
-                StudentIDARL.add(rs.getInt(CreateTables.STUDENT_PK_COL));
-            }
-            rs.beforeFirst();
-
-            if (rs.next() == false) {
-                System.out.println("There are no students in the Database.");
-            } else { // then output the results once you know there is a result set
-                int loopCount = 0;  // have to count again
-                System.out.println("These are the students in the school:");
-                for (int i = 0; i < rowCount; i++) {
-                    loopCount++;
-                    System.out.println(StudentIDARL.get(i) + ". " + StudentFirstARL.get(i) + " " + StudentLastARL.get(i));
-                }
-                String studentPickedStr = s.nextLine();
-                int studentPicked = Integer.parseInt(studentPickedStr);
-                rs.beforeFirst();
-                return studentPicked;
-            }
-        }
-        catch (SQLException sqle){
-            System.out.println("In music class Display all Classes " + sqle);
-        }
-        return -1;
-    }
-
-    public ResultSet ShowSchedule(String studentPicked) {
+    public ResultSet GetSchedule(String studentPicked) {
 
         System.out.println( "The parameter sent to Class to Join is " + studentPicked);
         ResultSet rs1;

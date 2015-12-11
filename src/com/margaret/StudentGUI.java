@@ -97,7 +97,7 @@ public class StudentGUI extends JPanel{
                     studResultsTextArea.setText("");
                 }
                 if (OKToShow) {
-                    DisplaySked(studentToSkedStr);
+                    SkedInputOutput(studentToSkedStr);
                 }
             }
         });
@@ -130,6 +130,7 @@ public class StudentGUI extends JPanel{
 
     private void AddStudent () {
         boolean OKToAdd = false;
+        Student studentToAdd= new Student();
         studentFirstToAdd = studentFirstNameTextField.getText();
         studentLastToAdd = studentLastNameTextField.getText();
         studentPhoneToAdd = studentPhoneTextField.getText();
@@ -150,7 +151,10 @@ public class StudentGUI extends JPanel{
             studErrorTextArea.setText(textInputError + " " + Queries.phoneInputMsg(studentPhoneToAdd));
         }
         if (OKToAdd) {
-            student.AddStudent(studentFirstToAdd, studentLastToAdd, studentPhoneToAdd);
+            studentToAdd.setFirstName(studentFirstToAdd);
+            studentToAdd.setLastName(studentLastToAdd);
+            studentToAdd.setPhone(studentPhoneToAdd);
+            studentToAdd.AddStudent(studentToAdd);
             studResultsTextArea.setText(studentFirstToAdd + " " + studentLastToAdd + " has been added.");
             studentFirstNameTextField.setText("");
             studentLastNameTextField.setText("");
@@ -158,33 +162,36 @@ public class StudentGUI extends JPanel{
         }
     }
 
-    private void DisplaySked (String studentToSkedStr){
+    private void SkedInputOutput (String studentToSkedStr){
         System.out.println("the student chosen for schedule is " + studentToSkedStr);
-        Student student = new Student();
+        Student studentforSked = new Student();
         try {
-            ResultSet studSkedRS = student.ShowSchedule(studentToSkedStr);
+            ResultSet studSkedRS = studentforSked.GetSchedule(studentToSkedStr);
             String stringToDisplay = "";
             if (Queries.GetRowCount(studSkedRS) == 0){
                 System.out.println("Got 0 as true");
                 stringToDisplay = "That student is not enrolled in any classes.";
+                studResultsTextArea.setText(stringToDisplay);
             }
             else if (Queries.GetRowCount(studSkedRS) == 1) {
                 studSkedRS.next();
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
                 studSkedRS.beforeFirst();
+                studResultsTextArea.setText(stringToDisplay);
             }
             else {
                 studSkedRS.next();
                 System.out.println("In the else");
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
                 System.out.println("about to go into while loop and the string is " + stringToDisplay);
+                studResultsTextArea.setText(stringToDisplay);
                 while (studSkedRS.next()) {
-                    stringToDisplay = stringToDisplay + "\n" + ((studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN)));
+                    stringToDisplay = ("\n" + (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN)));
                     System.out.println("the result sked is " + stringToDisplay);
+                    studResultsTextArea.append(stringToDisplay);
                 }
                 studSkedRS.beforeFirst();
             }
-            studResultsTextArea.setText(stringToDisplay);
             studSkedRS.beforeFirst();
         }
         catch (SQLException sqle){
