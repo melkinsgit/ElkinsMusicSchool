@@ -22,7 +22,6 @@ public class StudentGUI extends JPanel{
     private JTextField studentLastNameTextField;
     private JTextField studentPhoneTextField;
 
-
     private JLabel errorMessagesLabel;
     private JLabel showStudentSkedLabel;
     private JLabel outputLabel;
@@ -65,8 +64,8 @@ public class StudentGUI extends JPanel{
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                MovieDatabase.shutdown();
-                System.exit(0);   //Should probably be a call back to Main class so all the System.exit(0) calls are in one place.
+//                MovieDatabase.shutdown();  // TODO shut down proper database
+                System.exit(0);   // TODO Should probably be a call back to Main class so all the System.exit(0) calls are in one place.
             }
         });
 
@@ -87,7 +86,6 @@ public class StudentGUI extends JPanel{
                 Object studentToSked = allStudentsComboBox.getSelectedItem();
                 String studentToSkedStr = (String) studentToSked;
                 boolean OKToShow = false;
-                System.out.println("the student chosen for schedule is " + studentToSkedStr);
                 Student student = new Student();
                 if (!studentToSkedStr.equals("")){
                     OKToShow = true;
@@ -134,20 +132,15 @@ public class StudentGUI extends JPanel{
         studentFirstToAdd = studentFirstNameTextField.getText();
         studentLastToAdd = studentLastNameTextField.getText();
         studentPhoneToAdd = studentPhoneTextField.getText();
-        System.out.println("The student to add is " + studentFirstToAdd + " " + studentLastToAdd + " " + studentPhoneToAdd);
         if (Queries.IsValidDBString(studentFirstToAdd) && Queries.IsValidDBString(studentLastToAdd)) {
-            System.out.println("passed first and last name string tests");
             if (Queries.phoneInputMsg(studentPhoneToAdd).equals("")) {
-                System.out.println("Passed phone test");
                 OKToAdd = true;
             }
             else {
                 studErrorTextArea.setText(Queries.phoneInputMsg(studentPhoneToAdd));
             }
         } else {
-            System.out.println("didn't pass first and last name string tests");
             textInputError = "You must enter a value for first and last name. Please re-enter try again and click Add This Student.";
-            System.out.println("the error message will be " + textInputError + " " + Queries.phoneInputMsg(studentPhoneToAdd));
             studErrorTextArea.setText(textInputError + " " + Queries.phoneInputMsg(studentPhoneToAdd));
         }
         if (OKToAdd) {
@@ -163,13 +156,11 @@ public class StudentGUI extends JPanel{
     }
 
     private void SkedInputOutput (String studentToSkedStr){
-        System.out.println("the student chosen for schedule is " + studentToSkedStr);
         Student studentforSked = new Student();
         try {
             ResultSet studSkedRS = studentforSked.GetSchedule(studentToSkedStr);
             String stringToDisplay = "";
             if (Queries.GetRowCount(studSkedRS) == 0){
-                System.out.println("Got 0 as true");
                 stringToDisplay = "That student is not enrolled in any classes.";
                 studResultsTextArea.setText(stringToDisplay);
             }
@@ -181,13 +172,10 @@ public class StudentGUI extends JPanel{
             }
             else {
                 studSkedRS.next();
-                System.out.println("In the else");
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
-                System.out.println("about to go into while loop and the string is " + stringToDisplay);
                 studResultsTextArea.setText(stringToDisplay);
                 while (studSkedRS.next()) {
                     stringToDisplay = ("\n" + (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN)));
-                    System.out.println("the result sked is " + stringToDisplay);
                     studResultsTextArea.append(stringToDisplay);
                 }
                 studSkedRS.beforeFirst();

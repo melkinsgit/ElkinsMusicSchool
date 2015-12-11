@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by sn0173nd on 12/2/2015.
+ * Created by sn0173nd on 12/2/2015. This class was taken from code Clara provided. I included prepared statements in the methods that add data to the db tables.
  */
 public class CreateTables {
 
@@ -33,7 +33,7 @@ public class CreateTables {
     public final static String CLASS_PRICE_COLUMN = "Price";
     public final static String TEACHER_PK_FK = "TeacherID";
 
-    // Student class table name, pks and columns
+    // StudentClass table name, pks and columns
     public final static String STUDENT_CLASS_TABLE_NAME = "StudentClass";
     public final static String STUDENT_CLASS_ID = "StudClassID";
     public final static String STUD_FK_PK_COL = "StudentID";
@@ -44,114 +44,74 @@ public class CreateTables {
     }
 
     public void StartTables() {
-        System.out.println("in start tables");
-
         try {
-
             if (!studentTableExists()) {
 
-                //Create a student table in the database with TODO columns and name fields
+                //Create a student table in the database with three columns, first name, last name and phone. There is also a primary key column that auto increments. It is the unique identifier for each record.
                 String createTableSQL = "CREATE TABLE " + STUDENT_TABLE_NAME + " (" + STUDENT_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + STUDENT_FIRST_COLUMN + " varchar(50), " + STUDENT_LAST_COLUMN + " varchar(50), " + STUDENT_PHONE_COLUMN + " varchar(12)" + ")";
                 ConnectDB.statement.executeUpdate(createTableSQL);
-
-                System.out.println("Created student table");
-
-                AddToStudent();
+                AddToStudent();  // puts test data in the student table
             }
 
             if (!teacherTableExists()) {
 
-                //Create a table in the database with TODO columns and name fields
+                //Create a teacher table in the database with three columns, first name, last name and phone. There is also a primary key column that auto increments. It is the unique identifier for each record.
                 String createTableSQL2 = "CREATE TABLE " + TEACHER_TABLE_NAME + " (" + TEACHER_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + TEACHER_FIRST_COLUMN + " varchar(50), " + TEACHER_LAST_COLUMN + " varchar(50), " + TEACHER_PHONE_COLUMN + " varchar(50))";
                 ConnectDB.statement.executeUpdate(createTableSQL2);
-
-                System.out.println("Created teacher table");
-
-                AddToTeacher();
+                AddToTeacher();  // puts test data in the teacher table
             }
 
             if (!classTableExists()) {
 
-                //Create a table in the database with TODO columns and name fields
+                //Create a class table in the database with four columns, class name, day, time and price. There is also a primary key column that auto increments. It is the unique identifier for each record. And there is a foreign key, which is the primary key from the teacher column. This table is used to connect the teacher and the class tables in a one to many realationship.
                 String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " DECIMAL (5,2), " + TEACHER_PK_FK + " INT)";
-                System.out.println(createTableSQL2);
                 ConnectDB.statement.executeUpdate(createTableSQL2);
+                AddToClass();  // puts test data in the class table
+                MakeTeacherFKinClass();  // adds foreign key constraint that connects the teacher and class tables
 
-                System.out.println("Created class table");
-
-                AddToClass();
-                MakeTeacherFKinClass();
             }
 
             if (!studentClassTableExists()){
-                System.out.println("Student Class Table does not exist");
+                //Create a StudentClass in the database with two columns, the primary keys from the Student and Class tables. Togeter they comprise a primary key. This table is used to connect the student and the class tables in a many to many realationship.
                 String createTableSQL2 = "CREATE TABLE " + STUDENT_CLASS_TABLE_NAME + " (" + STUD_FK_PK_COL + " int NOT NULL, " + CLASS_FK_PK_COL + " int NOT NULL, PRIMARY KEY (" + STUD_FK_PK_COL + ", " + CLASS_FK_PK_COL + "))";
-                System.out.println(createTableSQL2);
                 ConnectDB.statement.executeUpdate(createTableSQL2);
-
-                System.out.println("Created student class table");
-
-                AddToStudentClass();
+                AddToStudentClass();  // puts test data in StudentClass table
             }
         }
         catch (SQLException sqle){
-            System.out.println(sqle);
+            System.out.println("In Create Tables Class Start Tables Mehtod " + sqle);
         }
     }
 
 
     public void MakeTeacherFKinClass () {
+
         try {
-
-//            String addFKData = "UPDATE " + HARVESTS_TABLE_NAME + " SET " + STUDENT_PK_COL + " = 2 WHERE " + HARVESTS_PK_COL + " = 1;";
-//            System.out.println(addFKData);
-//            statement.executeUpdate(addFKData);
-//            addFKData = "UPDATE " + HARVESTS_TABLE_NAME + " SET " + STUDENT_PK_COL + " = 2 WHERE " + HARVESTS_PK_COL + " = 2;";
-//            statement.executeUpdate(addFKData);
-//            addFKData = "UPDATE " + HARVESTS_TABLE_NAME + " SET " + STUDENT_PK_COL + " = 1 WHERE " + HARVESTS_PK_COL + " = 3;";
-//            statement.executeUpdate(addFKData);
-
-
-
-            System.out.println("Added foreign key data to harvests");
 
             String constraintName = "teacherFKConst";
             String fkConstraint = "ALTER TABLE " + CLASS_TABLE_NAME + " MODIFY COLUMN " + TEACHER_PK_COL + " INT NOT NULL, ADD CONSTRAINT " + constraintName + " FOREIGN KEY(" + TEACHER_PK_FK + ") REFERENCES " + TEACHER_TABLE_NAME + "(" + TEACHER_PK_COL + ");";
-            System.out.println(fkConstraint);
             ConnectDB.statement.executeUpdate(fkConstraint);
 
-    //                ALTER TABLE harvests MODIFY COLUMN hiveID INT NOT NULL,
-    //                        ADD CONSTRAINT hiveFKConst
-    //                FOREIGN KEY(hiveID)
-    //                        REFERENCES hives(hiveID);
-
-            System.out.println("Foreign key constraint added");
-
         } catch(SQLException se){
-            System.out.println(se);  // TODO add more info to exception message
+            System.out.println("Setting contraint for foreign key in Class Table " + se);
             se.printStackTrace();
         }
     }
 
+    // Add some test data
+    // For the AddToStudent, AddToTeach and AddToClass we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us. Going forward, data is added to these tables when the user chooses the option to do so in teh GUI.
+    // For AddToStudentClass we insert key values that could be true. Going forward, values are added to StudentClass any time a student enrolls in a class.
     public void AddToStudent(){
-
-        // Add some test data
-        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-
-        // TODO do I want to add instantiations?
 
         try {
 
             String addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN + ", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Margaret', 'Elkins', '555-555-1212')";
-            System.out.println(addDataSQL);
             ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Scott', 'Sivad', '555-555-1313')";
-            System.out.println(addDataSQL);
             ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Sarah', 'Kwabi', '555-555-1414')";
             ConnectDB.statement.executeUpdate(addDataSQL);
             addDataSQL = "INSERT INTO " + STUDENT_TABLE_NAME + "(" + STUDENT_FIRST_COLUMN + ", " + STUDENT_LAST_COLUMN +", " + STUDENT_PHONE_COLUMN + ")" + " VALUES ('Caleb', 'Mohammad', '555-555-1515')";
-            System.out.println(addDataSQL);
             ConnectDB.statement.executeUpdate(addDataSQL);
         }
         catch (SQLException se){
@@ -162,18 +122,14 @@ public class CreateTables {
 
     public void AddToTeacher(){
 
-        // Add some test data
-        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-
         try {
 
+
             String addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Johann', 'Brahams', '654-654-6541')";
-            System.out.println(addDataSQL2);
             ConnectDB.statement.executeUpdate(addDataSQL2);
-        addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Wolfgang', 'Mozart', '321-321-3214')";System.out.println(addDataSQL2);
+            addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Wolfgang', 'Mozart', '321-321-3214')";
             ConnectDB.statement.executeUpdate(addDataSQL2);
             addDataSQL2 = "INSERT INTO " + TEACHER_TABLE_NAME + "(" + TEACHER_FIRST_COLUMN + ", " + TEACHER_LAST_COLUMN +", " + TEACHER_PHONE_COLUMN + ")" + " VALUES ('Samuel', 'Barber', '987-987-9874')";
-            System.out.println(addDataSQL2);
             ConnectDB.statement.executeUpdate(addDataSQL2);
         }
         catch (SQLException sqle){
@@ -183,22 +139,15 @@ public class CreateTables {
 
     public void AddToClass(){
 
-        // Add some test data
-        // Here we have to specify which columns the data will go into, because we want to omit the ID column and have MySQL fill it in for us.
-
         try {
 
             String createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Tuesday', '8:00am', '25.00', 1)";
-            System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
             createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Violin', 'Tuesday', '9:00am', '25.00', 2)";
-            System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
             createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Beginning Cello', 'Wednesday', '4:00pm', '15.00', 2)";
-            System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
             createTableSQL2 = "INSERT INTO " + CLASS_TABLE_NAME + " (" + CLASS_NAME_COLUMN + ", " + CLASS_DAY_COLUMN + ", " + CLASS_TIME_COLUMN + ", " + CLASS_PRICE_COLUMN +", " + TEACHER_PK_FK + ") VALUES ('Advanced Cello', 'Monday', '8:00am', '35.00', 3)";
-            System.out.println(createTableSQL2);
             ConnectDB.statement.executeUpdate(createTableSQL2);
         }
         catch (SQLException sqle){
@@ -218,22 +167,16 @@ public class CreateTables {
             insertToStCl.executeUpdate();
             insertToStCl.setInt(1, 3);
             insertToStCl.setInt(2, 4);
-            System.out.println("about to update student class table with three records");
             insertToStCl.executeUpdate();
-
-
-//            System.out.println(createTableSQL2);
-//            ConnectDB.statement.executeUpdate(createTableSQL2);
         }
         catch (SQLException sqle){
             System.out.println("In add to student " + sqle);
         }
     }
-    // from Clara
+    // These methods are from Clara. The have only been updated to reflect tables in musicschool database.
     private boolean studentTableExists() throws SQLException{
 
         String checkTablePresentQuery = "SHOW TABLES LIKE '" + STUDENT_TABLE_NAME + "'";   //Can query the database schema
-        System.out.println(checkTablePresentQuery);
         ResultSet tablesRS = ConnectDB.statement.executeQuery(checkTablePresentQuery);
         return (tablesRS.next());
     }

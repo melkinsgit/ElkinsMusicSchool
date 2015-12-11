@@ -46,7 +46,6 @@ public class MusicClass {
         int rowCount = Queries.GetRowCount(rs);
         try {
             while (rs.next()) {
-                System.out.println("record in result set is " + rs.getString(CreateTables.CLASS_NAME_COLUMN) + " " + rs.getString(CreateTables.CLASS_DAY_COLUMN) + " " + rs.getString(CreateTables.CLASS_PRICE_COLUMN));
                 classIDsARL.add(rs.getInt(CreateTables.CLASS_PK_COL));
                 classNamesARL.add(rs.getString(CreateTables.CLASS_NAME_COLUMN));
                 classTimesARL.add(rs.getString(CreateTables.CLASS_TIME_COLUMN));

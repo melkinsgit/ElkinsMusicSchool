@@ -46,10 +46,10 @@ public class MenuOne {
                 MusicClass musicClass = new MusicClass();
                 Student student = new Student();
                 ResultSet studentsRS = student.AllDataQuery();
-                int studentPicked = student.DisplayAllStudents(studentsRS);
+//                int studentPicked = student.DisplayAllStudents(studentsRS);
                 ResultSet classesRS = musicClass.AllDataQuery();
                 int classToTake = musicClass.DisplayAllClasses(classesRS);
-                musicClass.EnrollInClass(classToTake, studentPicked);
+//                musicClass.EnrollInClass(classToTake, studentPicked);
                 break;
             }
             case 4:{

@@ -3,7 +3,7 @@ package com.margaret;
 import java.sql.*;
 
 /**
- * Created by sn0173nd on 12/2/2015.
+ * Created by sn0173nd on 12/2/2015. This method came from code provided by Clara. I modified it to separate creation of the database under a connection to the server, and then made another connection to the database on the server.
  */
 public class ConnectDB {
 
@@ -20,20 +20,19 @@ public class ConnectDB {
         try {
             //Load driver class
             try {
-//                String Driver = "com.mysql.jdbc.Driver";
                 Class.forName(JDBC_DRIVER);
             } catch (ClassNotFoundException cnfe) {
                 System.out.println("No database drivers found. Quitting");
                 System.out.println(cnfe);
             }
 
-//            conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
             conn = DriverManager.getConnection(DB_CONNECTION_URL, USER, PASS);
-            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
+            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database program t create the database musicschool
 
             CreateDatabase();
             conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
-            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database
+            statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database musicschool
+
             CreateTables createTables = new CreateTables(); // set up the database
 
         } catch (SQLException se) {
@@ -42,6 +41,7 @@ public class ConnectDB {
         }
     }
 
+    // this method sends a sql server to the database program to create the database musicschool
     public void CreateDatabase(){
         String createDBStr = "CREATE DATABASE "  + DB_NAME + ";";
         try {
