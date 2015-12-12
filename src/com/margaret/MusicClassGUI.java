@@ -3,6 +3,8 @@ package com.margaret;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -11,7 +13,7 @@ import java.sql.SQLException;
  */
 public class MusicClassGUI {
     private JPanel musicClassGUITab;
-    private JButton button1;
+    private JButton quitButton;
     private JButton enrollStudentInClassButton;
     private JTextField classNameTextField;
     private JTextField priceTextField;
@@ -36,6 +38,8 @@ public class MusicClassGUI {
     String studentToSkedStr;
     String classToEnrollStr;
     Student student = new Student();
+    String start = "";
+    Teacher teacher = new Teacher();
 
     public MusicClassGUI() {
 
@@ -44,8 +48,10 @@ public class MusicClassGUI {
         classResultsTextArea.setLineWrap(true);
         classResultsTextArea.setEditable(false);
 
-
-        setStudentComboBox();
+        setStudentClassComboBox();
+        setTimeComboBox();
+        setDayComboBox();
+        setTeacherComboBox();
 
         allStudentsComboBox.addActionListener(new ActionListener() {
             @Override
@@ -103,11 +109,89 @@ public class MusicClassGUI {
                 }
             }
         });
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        dayComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        timeHourComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        priceTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        classAllTeachersComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        classResultsTextArea.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+            }
+        });
+        classErrorTextArea.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+            }
+        });
     }
 
-    public void setStudentComboBox (){
+    private void setTeacherComboBox() {
+        classAllTeachersComboBox.addItem(start);
+        String teachersInComboBox;
+        try {
+            ResultSet teachersComboBoxRS;
+            teachersComboBoxRS = teacher.AllDataQuery();
+            while (teachersComboBoxRS.next()){
+                teachersInComboBox = (teachersComboBoxRS.getString(CreateTables.TEACHER_PK_COL) + " " + teachersComboBoxRS.getString(CreateTables.TEACHER_FIRST_COLUMN) + " " + teachersComboBoxRS.getString(CreateTables.TEACHER_LAST_COLUMN));
+                classAllTeachersComboBox.addItem(teachersInComboBox);
+            }
+        }
+        catch (SQLException sqle){
+            System.out.println("In set teacher combo box " + sqle);
+        }
+    }
+
+    private void setDayComboBox() {
+        dayComboBox.addItem(start);
+        String [] daysArr = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        for (int i = 0; i < daysArr.length; i++){
+            dayComboBox.addItem(daysArr[i]);
+        }
+    }
+
+    private void setTimeComboBox() {
+        timeHourComboBox.addItem(start);
+        timeAMorPMComboBox.addItem(start);
+        String [] hoursArr = {"1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00"};
+        String [] amOrPMArr = {"am", "pm"};
+        for (int i = 0; i < hoursArr.length; i++){
+            timeHourComboBox.addItem(hoursArr[i]);
+        }
+        for (int i = 0; i < amOrPMArr.length; i++){
+            timeAMorPMComboBox.addItem(amOrPMArr[i]);
+        }
+    }
+
+    public void setStudentClassComboBox (){
         // put all student names in the combo box
-        String start = "";
         allStudentsComboBox.addItem(start);
         allClassesComboBox.addItem(start);
         String studentInComboBox;

@@ -30,16 +30,16 @@ public class MenuOne {
             case 2:{
                 // TODO make GUI
                 // TODO validate user input
-                System.out.println("TEACHER\nEnter First Name:");
-                String TFirst = s.nextLine();
-                System.out.println("Enter Last name:");
-                String TLast = s.nextLine();
-                System.out.println("Enter Phone:");
-                String TPhone = s.nextLine();
-                Teacher teacher = new Teacher (TFirst, TLast, TPhone);  // TODO do I want to add instantiations?
-                teacher.AddTeacher(TFirst, TLast, TPhone);
-                ResultSet teacherRS = teacher.AllDataQuery();
-                teacher.DisplayAllTeachers(teacherRS);
+//                System.out.println("TEACHER\nEnter First Name:");
+//                String TFirst = s.nextLine();
+//                System.out.println("Enter Last name:");
+//                String TLast = s.nextLine();
+//                System.out.println("Enter Phone:");
+//                String TPhone = s.nextLine();
+//                Teacher teacher = new Teacher (TFirst, TLast, TPhone);  // TODO do I want to add instantiations?
+//                teacher.AddTeacher(TFirst, TLast, TPhone);
+//                ResultSet teacherRS = teacher.AllDataQuery();
+//                teacher.DisplayAllTeachers(teacherRS);
                 break;
             }
             case 3:{

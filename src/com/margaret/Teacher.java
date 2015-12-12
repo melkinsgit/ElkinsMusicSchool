@@ -23,19 +23,35 @@ public class Teacher {
         this.phone = phone;
     }
 
-
-    public void AddTeacher (String First, String Last, String Phone){
+    public void AddTeacher (){
 
         try {
 
-            String addDataSQL = "INSERT INTO " + CreateTables.TEACHER_TABLE_NAME + "(" + CreateTables.TEACHER_FIRST_COLUMN + ", " + CreateTables.TEACHER_LAST_COLUMN + ", " + CreateTables.TEACHER_PHONE_COLUMN + ")" + " VALUES ('" + First + "', '" + Last+ "', '" + Phone + "')";
-            ConnectDB.statement.executeUpdate(addDataSQL);
+            String addDataSQL = "INSERT INTO " + CreateTables.TEACHER_TABLE_NAME + "(" + CreateTables.TEACHER_FIRST_COLUMN + ", " + CreateTables.TEACHER_LAST_COLUMN + ", " + CreateTables.TEACHER_PHONE_COLUMN + ")" + " VALUES ( ?, ?, ?)";
+            PreparedStatement addToTe = ConnectDB.conn.prepareStatement(addDataSQL);
+            addToTe.setString(1, this.firstName);
+            addToTe.setString(2, this.lastName);
+            addToTe.setString(3, this.phone);
+            addToTe.executeUpdate();
         }
         catch (SQLException se) {
-            System.out.println(se);
+            System.out.println("In Teacher Class Add Student Method " + se);
             se.printStackTrace();
         }
     }
+
+//    public void AddTeacher (){
+//
+//        try {
+//
+//            String addDataSQL = "INSERT INTO " + CreateTables.TEACHER_TABLE_NAME + "(" + CreateTables.TEACHER_FIRST_COLUMN + ", " + CreateTables.TEACHER_LAST_COLUMN + ", " + CreateTables.TEACHER_PHONE_COLUMN + ")" + " VALUES ('" + First + "', '" + Last+ "', '" + Phone + "')";
+//            ConnectDB.statement.executeUpdate(addDataSQL);
+//        }
+//        catch (SQLException se) {
+//            System.out.println(se);
+//            se.printStackTrace();
+//        }
+//    }
 
     public ResultSet AllDataQuery(){
         ResultSet returnRS = null;
