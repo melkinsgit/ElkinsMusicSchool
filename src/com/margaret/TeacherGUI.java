@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * Created by Margaret on 12/8/2015.
  */
-public class TeacherGUI extends JPanel {
+public class TeacherGUI {
 
     private JPanel TeacherGUITab;
     private JTextField teacherFirstNameTextField;

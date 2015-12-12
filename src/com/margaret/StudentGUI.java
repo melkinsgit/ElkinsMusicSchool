@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by sn0173nd on 12/7/2015.
  */
-public class StudentGUI extends JPanel{
+public class StudentGUI {
     private JPanel StudentGUITab;
     private JButton addStudentButton;
     private JTextArea studResultsTextArea;

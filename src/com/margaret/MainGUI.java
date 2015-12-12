@@ -25,7 +25,7 @@ public class MainGUI extends JFrame{
         tabbedPane.add("Student Features", new StudentGUI().getPanel());
         tabbedPane.add("Teacher Features", new TeacherGUI().getPanel());
         tabbedPane.add("Music Class Features", new MusicClassGUI().getPanel());
-//        tabbedPane.add("Enroll in Class", new EnrollGUI().getPanel());
+        tabbedPane.add("Enroll in Class", new EnrollGUI().getPanel());
 
         setVisible(true);
         pack();
