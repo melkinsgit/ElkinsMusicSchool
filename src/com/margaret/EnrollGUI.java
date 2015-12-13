@@ -20,6 +20,7 @@ public class EnrollGUI {
     private JComboBox classToEnrollComboBox;
     private JTextArea textArea1;
     private JTextField toEnrollAStudentTextField;
+    private JTextArea textArea2;
     Student student = new Student();
 
     public EnrollGUI() {
