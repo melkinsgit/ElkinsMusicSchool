@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="393" height="358"/>
     </constraints>
-    <properties/>
+    <properties>
+      <preferredSize width="800" height="500"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="5f259" class="javax.swing.JTextArea" binding="enrollErrorTextArea">
@@ -48,12 +50,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="1638d" class="javax.swing.JButton" binding="quitButton" default-binding="true">
+      <component id="1638d" class="javax.swing.JButton" binding="closeButton">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Quit"/>
+          <text value="Close"/>
         </properties>
       </component>
       <component id="f499a" class="javax.swing.JTextArea" binding="enrollResultsTextArea">

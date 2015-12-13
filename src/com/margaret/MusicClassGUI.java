@@ -9,9 +9,9 @@ import java.sql.SQLException;
 /**
  * Created by Margaret on 12/11/2015.
  */
-public class MusicClassGUI {
-    private JPanel musicClassGUITab;
-    private JButton quitButton;
+public class MusicClassGUI extends JFrame {
+    private JPanel musicClassGUI;
+    private JButton closeButton;
     private JTextField classNameTextField;
     private JTextField priceTextField;
     private JComboBox allStudentsComboBox;
@@ -43,11 +43,11 @@ public class MusicClassGUI {
     boolean OKToAdd = false;
     String textInputError;
 
-    public MusicClassGUI() {
+    public MusicClassGUI(){
 
         super("Add a Music Class");
         setPreferredSize(new Dimension(400, 300));
-        setContentPane(rootPanel);
+        setContentPane(musicClassGUI);
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -59,11 +59,12 @@ public class MusicClassGUI {
 
         setTimeComboBox();
         setDayComboBox();
+        setTeacherComboBox();
 
-        quitButton.addActionListener(new ActionListener() {
+        closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                setVisible(false);
             }
         });
         dayComboBox.addActionListener(new ActionListener() {
@@ -94,7 +95,6 @@ public class MusicClassGUI {
                 super.focusGained(e);
                 classErrorTextArea.setText("");
                 classResultsTextArea.setText("");
-                setTeacherComboBox();
             }
         });
         addClassButton.addActionListener(new ActionListener() {
@@ -170,6 +170,4 @@ public class MusicClassGUI {
             timeAMorPMComboBox.addItem(amOrPMArr[i]);
         }
     }
-
-    public JPanel getPanel () {return musicClassGUITab;}
 }

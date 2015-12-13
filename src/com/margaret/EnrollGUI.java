@@ -9,9 +9,9 @@ import java.sql.SQLException;
 /**
  * Created by Margaret on 12/12/2015.
  */
-public class EnrollGUI {
+public class EnrollGUI extends JFrame {
     private JPanel EnrollGUI;
-    private JButton quitButton;
+    private JButton closeButton;
     private JButton enrollStudentButton;
     private JComboBox enrollStudentComboBox;
     private JComboBox classToEnrollComboBox;
@@ -30,7 +30,12 @@ public class EnrollGUI {
 
     public EnrollGUI() {
 
-
+        super("Add a Music Class");
+        setPreferredSize(new Dimension(800, 500));
+        setContentPane(EnrollGUI);
+        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 
         enrollErrorTextArea.setLineWrap(true);
         enrollErrorTextArea.setEditable(false);
@@ -40,10 +45,10 @@ public class EnrollGUI {
         setClassComboBox();
         setStudentComboBox();
 
-        quitButton.addActionListener(new ActionListener() {
+        closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                setVisible(false);
             }
         });
 
@@ -143,7 +148,4 @@ public class EnrollGUI {
         }
     }
 
-    public JPanel getPanel() {
-        return EnrollGUI;
-    }
 }
