@@ -30,6 +30,7 @@ public class StudentGUI {
     private JLabel enterStudentLastNameLabel;
     private JLabel enterStudentPhoneLabel;
     private JLabel addStudentLabel;
+    private JButton enrollStudentInClassesButton;
     private JComboBox allClassesComboBox;
 
     protected String studentFirstToAdd;
@@ -38,8 +39,6 @@ public class StudentGUI {
 
     private String textInputError;
     Student student = new Student();
-    String classToEnrollStr;
-    String studentToSkedStr;
 
     boolean OKToShow = false;
     boolean OKToAdd = false;
@@ -58,12 +57,10 @@ public class StudentGUI {
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                MovieDatabase.shutdown();  // TODO shut down proper database
                 System.exit(0);   // TODO Should probably be a call back to Main class so all the System.exit(0) calls are in one place.
             }
         });
 
-        // TODO validate user input so no BLANKS!
         addStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,7 +69,6 @@ public class StudentGUI {
             }
         });
 
-        // this is for use in StudentGUI
         allStudentsComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,6 +113,12 @@ public class StudentGUI {
             }
         });
 
+        enrollStudentInClassesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EnrollGUI enrollGUI = new EnrollGUI();
+            }
+        });
     }
 
     public JPanel getPanel() { return StudentGUITab;}
@@ -220,43 +222,4 @@ public class StudentGUI {
         }
     }
 
-    public void setStudResultsTextArea(String studResultsTextArea) {
-        this.studResultsTextArea.setText(studResultsTextArea);
-    }
-
-    public void setStudErrorTextArea(String studErrorTextArea) {
-        this.studErrorTextArea.setText(studErrorTextArea);
-    }
-
-    public void setAllStudentsComboBox(JComboBox allStudentsComboBox) {
-        this.allStudentsComboBox = allStudentsComboBox;
-    }
-
-    public void setStudentFirstNameTextField(String studentFirstNameTextField) {
-        this.studentFirstNameTextField.setText(studentFirstNameTextField);
-    }
-
-    public void setStudentLastNameTextField(String studentLastNameTextField) {
-        this.studentLastNameTextField.setText(studentLastNameTextField);
-    }
-
-    public void setTextInputError(String textInputError) {
-        this.textInputError = textInputError;
-    }
-
-    public JComboBox getAllStudentsComboBox() {
-        return allStudentsComboBox;
-    }
-
-    public String getStudentFirstNameTextField() {
-        return studentFirstNameTextField.getText();
-    }
-
-    public String getStudentLastNameTextField() {
-        return studentLastNameTextField.getText();
-    }
-
-    public String getStudentPhoneTextField() {
-        return studentPhoneTextField.getText();
-    }
 }

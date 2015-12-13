@@ -11,7 +11,6 @@ public class MainGUI extends JFrame{
 
     //Not created in GUI designer
     private JTabbedPane tabbedPane;
-//    private static EnrollDataModel enrollDataModel;
 
     //Note that this fails with a NullPointer if the default layoutmanager (GridLayoutManager) for this form is used
     //Since all it does is hold the JTabbedPane, set the layout manager to something (probably anything) else.
@@ -24,15 +23,11 @@ public class MainGUI extends JFrame{
         rootPanel.add(tabbedPane);
         tabbedPane.add("Student Features", new StudentGUI().getPanel());
         tabbedPane.add("Teacher Features", new TeacherGUI().getPanel());
-        tabbedPane.add("Music Class Features", new MusicClassGUI().getPanel());
-        tabbedPane.add("Enroll in Class", new EnrollGUI().getPanel());
+//        tabbedPane.add("Music Class Features", new MusicClassGUI().getPanel());
+//        tabbedPane.add("Enroll in Class", new EnrollGUI().getPanel());
 
         setVisible(true);
         pack();
 
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

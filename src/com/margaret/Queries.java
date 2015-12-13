@@ -10,9 +10,6 @@ public class Queries {
 
     public final static int PHONE_LENGTH = 12;
 
-
-    //Select * from Classes inner join Teachers on Classes.TeacherID = Teachers.TeacherID
-
     public final static String teacherSkedJoin = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " INNER JOIN " + CreateTables.TEACHER_TABLE_NAME + " ON " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL + " = " + CreateTables.TEACHER_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL;
 
     public final static String enrollJoin = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " INNER JOIN " + CreateTables.TEACHER_TABLE_NAME + " ON " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL + "=" + CreateTables.TEACHER_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL;
@@ -57,8 +54,4 @@ public class Queries {
         // TODO see about getting dashes in the right places
         return retString;
     }
-
-    /*
-    Select ClassName, DayOfWeek, TimeOfDay from Students inner join StudentClass on Students.StudentID = StudentClass.StudentID inner join Classes on StudentClass.ClassID = Classes.ClassID where LastName like 'Elkins'
-     */
 }

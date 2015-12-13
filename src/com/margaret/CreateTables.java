@@ -63,7 +63,7 @@ public class CreateTables {
 
             if (!classTableExists()) {
 
-                //Create a class table in the database with four columns, class name, day, time and price. There is also a primary key column that auto increments. It is the unique identifier for each record. And there is a foreign key, which is the primary key from the teacher column. This table is used to connect the teacher and the class tables in a one to many realationship.
+                //Create a class table in the database with four columns, class name, day, time and price. There is also a primary key column that auto increments. It is the unique identifier for each record. And there is a foreign key, which is the primary key from the teacher column. This table is used to connect the teacher and the class tables in a one to many relationship.
                 String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " varchar(10), " + TEACHER_PK_FK + " INT)";
                 ConnectDB.statement.executeUpdate(createTableSQL2);
                 AddToClass();  // puts test data in the class table
@@ -72,7 +72,7 @@ public class CreateTables {
             }
 
             if (!studentClassTableExists()){
-                //Create a StudentClass in the database with two columns, the primary keys from the Student and Class tables. Togeter they comprise a primary key. This table is used to connect the student and the class tables in a many to many realationship.
+                //Create a StudentClass in the database with two columns, the primary keys from the Student and Class tables. Togeter they comprise a primary key. This table is used to connect the student and the class tables in a many to many relationship.
                 String createTableSQL2 = "CREATE TABLE " + STUDENT_CLASS_TABLE_NAME + " (" + STUD_FK_PK_COL + " int NOT NULL, " + CLASS_FK_PK_COL + " int NOT NULL, PRIMARY KEY (" + STUD_FK_PK_COL + ", " + CLASS_FK_PK_COL + "))";
                 ConnectDB.statement.executeUpdate(createTableSQL2);
                 AddToStudentClass();  // puts test data in StudentClass table

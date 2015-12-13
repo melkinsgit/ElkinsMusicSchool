@@ -26,7 +26,6 @@ public class Student {
         this.phone = phone;
     }
 
-//    public void AddStudent (Student studentToAdd){
     public void AddStudent (){
 
         try {
@@ -65,10 +64,7 @@ public class Student {
 
             String studentPickedID = studentPicked.substring(0, studentPicked.indexOf(" "));
 
-//            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
-
             String studentSkedQuery = "Select * From " + Queries.studentSkedJoin + " where " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " like '" + studentPickedID + "'";
-            System.out.println("The get sked rs query is " + studentSkedQuery);
             rs1 = ConnectDB.statement.executeQuery(studentSkedQuery);
             return rs1;
         }
@@ -76,39 +72,6 @@ public class Student {
             System.out.println("In Show Schedule for Student " + sqle);
         }
         return null;
-    }
-
-    public void DisplayStudentSked (ResultSet rs){
-        ArrayList<String> ClassNameARL = new ArrayList<String>();
-        ArrayList<String> DayOfWeekARL = new ArrayList<>();
-        ArrayList<String> TimeOfDayARL = new ArrayList<String>();
-        ArrayList<Double> classPriceARL = new ArrayList<Double>();
-        int rowCount = Queries.GetRowCount(rs);
-        try {
-           rs.beforeFirst();
-
-            while (rs.next()) {
-                ClassNameARL.add(rs.getString(CreateTables.CLASS_NAME_COLUMN));
-                DayOfWeekARL.add(rs.getString(CreateTables.CLASS_DAY_COLUMN));
-                TimeOfDayARL.add(rs.getString(CreateTables.CLASS_TIME_COLUMN));
-            }
-            rs.beforeFirst();
-
-
-            if (rs.next() == false) {
-                System.out.println("There are no students in the Database.");
-            } else { // then output the results once you know there is a result set
-                int loopCount = 0;  // have to count again
-                System.out.println("These are the students in the school:");
-                for (int i = 0; i < rowCount; i++) {
-                    loopCount++;
-                    System.out.println(ClassNameARL.get(i) + ". " + DayOfWeekARL.get(i) + " " + TimeOfDayARL.get(i));
-                }
-            }
-        }
-        catch (SQLException sqle){
-            System.out.println("In display student sked " + sqle);
-        }
     }
 
 

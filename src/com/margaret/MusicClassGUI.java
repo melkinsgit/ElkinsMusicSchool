@@ -1,6 +1,7 @@
 package com.margaret;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,6 @@ import java.sql.SQLException;
 public class MusicClassGUI {
     private JPanel musicClassGUITab;
     private JButton quitButton;
-    private JButton enrollStudentInClassButton;
     private JTextField classNameTextField;
     private JTextField priceTextField;
     private JComboBox allStudentsComboBox;
@@ -19,20 +19,17 @@ public class MusicClassGUI {
     private JButton addClassButton;
     private JTextArea classResultsTextArea;
     private JTextArea classErrorTextArea;
-    private JLabel classNameLabel;
-    private JComboBox dayComboBox;
-    private JLabel classDayLabel;
-    private JLabel classTimeLabel;
     private JComboBox timeHourComboBox;
     private JComboBox timeAMorPMComboBox;
-    private JLabel classPriceLabel;
     private JComboBox classAllTeachersComboBox;
+    private JComboBox dayComboBox;
+
+    private JLabel classDayLabel;
+    private JLabel classTimeLabel;
+    private JLabel classNameLabel;
+    private JLabel classPriceLabel;
     private JLabel addClassInstrLabel;
 
-    boolean OKToShow = false;
-    boolean OKToEnroll = false;
-    String studentToSkedStr;
-    String classToEnrollStr;
     Student student = new Student();
     String start = "";
     Teacher teacher = new Teacher();
@@ -47,6 +44,13 @@ public class MusicClassGUI {
     String textInputError;
 
     public MusicClassGUI() {
+
+        super("Add a Music Class");
+        setPreferredSize(new Dimension(400, 300));
+        setContentPane(rootPanel);
+        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 
         classErrorTextArea.setLineWrap(true);
         classErrorTextArea.setEditable(false);
@@ -111,11 +115,9 @@ public class MusicClassGUI {
         teacherToAddStr = (String) classAllTeachersComboBox.getSelectedItem();
         teacherToAdd = Integer.parseInt(teacherToAddStr.substring(0, teacherToAddStr.indexOf(" ")));
         priceToAddStr = priceTextField.getText();
-        System.out.println("The values in add class are " + classToAddStr + " " + dayToAddStr + " " + timeToAddStr + " " + amOrpmToAddStr + " " + teacherToAddStr + " " + priceToAddStr);
 
         if (Queries.IsValidDBString(classToAddStr) && Queries.IsValidDBString(dayToAddStr) && Queries.IsValidDBString(timeToAddStr) && Queries.IsValidDBString(amOrpmToAddStr)) {
             OKToAdd = true;
-            System.out.println("OK to add is true");
         } else {
             textInputError = "You must enter a values in all fields. Please complete your entry and click Add This Student.";
             classErrorTextArea.setText(textInputError);

@@ -29,6 +29,7 @@ public class TeacherGUI {
     private JLabel teachResultLabel;
     private JComboBox allTeachersComboBox;
     private JLabel showSkedLabel;
+    private JButton addNewMusicClassButton;
 
     protected String teacherFirstToAdd;
     protected String teacherLastToAdd;
@@ -105,6 +106,12 @@ public class TeacherGUI {
                     SkedInputOutput(teacherToSkedStr);
                     OKToShow = false;
                 }
+            }
+        });
+        addNewMusicClassButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MusicClassGUI musicClassGUI = new MusicClassGUI();
             }
         });
     }
