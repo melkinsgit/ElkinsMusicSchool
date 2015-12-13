@@ -16,18 +16,6 @@
           <text value="Enroll Student"/>
         </properties>
       </component>
-      <component id="4f4ef" class="javax.swing.JTextArea" binding="enrollResultsTextArea">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <enabled value="false"/>
-          <selectionColor color="-16777216"/>
-        </properties>
-      </component>
       <component id="5f259" class="javax.swing.JTextArea" binding="enrollErrorTextArea">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -64,7 +52,7 @@
       </component>
       <component id="47e7c" class="javax.swing.JComboBox" binding="classToEnrollComboBox">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
@@ -78,7 +66,7 @@
       </component>
       <component id="e1edd" class="javax.swing.JComboBox" binding="enrollStudentComboBox">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
@@ -89,6 +77,14 @@
         <properties>
           <text value="Quit"/>
         </properties>
+      </component>
+      <component id="f499a" class="javax.swing.JTextArea" binding="enrollResultsTextArea">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

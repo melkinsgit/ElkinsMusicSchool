@@ -64,7 +64,7 @@ public class CreateTables {
             if (!classTableExists()) {
 
                 //Create a class table in the database with four columns, class name, day, time and price. There is also a primary key column that auto increments. It is the unique identifier for each record. And there is a foreign key, which is the primary key from the teacher column. This table is used to connect the teacher and the class tables in a one to many realationship.
-                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " DECIMAL (5,2), " + TEACHER_PK_FK + " INT)";
+                String createTableSQL2 = "CREATE TABLE " + CLASS_TABLE_NAME + " (" + CLASS_PK_COL + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " + CLASS_NAME_COLUMN + " varchar(50), " + CLASS_DAY_COLUMN + " varchar(50), " + CLASS_TIME_COLUMN + " varchar (50), " + CLASS_PRICE_COLUMN + " varchar(10), " + TEACHER_PK_FK + " INT)";
                 ConnectDB.statement.executeUpdate(createTableSQL2);
                 AddToClass();  // puts test data in the class table
                 MakeTeacherFKinClass();  // adds foreign key constraint that connects the teacher and class tables

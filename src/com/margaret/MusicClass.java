@@ -13,7 +13,10 @@ public class MusicClass {
 
     String className;
     String classTime;
-    Double classPrice;
+    String classDay;
+    String classPrice;
+    Integer classTeacher;
+
     ArrayList<MusicClass> musicClasses;
 
     public MusicClass(){
@@ -74,24 +77,28 @@ public class MusicClass {
     }
 
     public void EnrollInClass(String classToJoin, String studentPicked) {
+        System.out.println("Class to join is " + classToJoin + " and student to join is " + studentPicked);
         ResultSet rs1;
         ResultSet rs2;
         try {
             String classIDPicked = classToJoin.substring(0, classToJoin.indexOf(" "));
+            System.out.println("Class ID for search is " + classIDPicked);
+
             String findClassData = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " WHERE " + CreateTables.CLASS_PK_COL + " LIKE ? ";
             PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
             selectRowByID.setString(1, classIDPicked);
             rs1 = selectRowByID.executeQuery();
 
             String studentIDPicked = studentPicked.substring(0, studentPicked.indexOf(" "));
+            System.out.println("Student ID for search is " + studentIDPicked);
 
             String findStudentData = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_PK_COL + " LIKE ? ";
             PreparedStatement selectRowByLastName = ConnectDB.conn.prepareStatement(findStudentData);
             selectRowByLastName.setString(1, studentIDPicked);
             rs2 = selectRowByLastName.executeQuery();
 
-            int classJoinInt = rs1.getInt(CreateTables.CLASS_PK_COL);
-            int studentJointInt = rs2.getInt(CreateTables.STUDENT_PK_COL);
+            int classJoinInt = Integer.parseInt(classIDPicked);
+            int studentJointInt = Integer.parseInt(studentIDPicked);
 
             while (rs1.next()){
                 String foundClassID = rs1.getString(CreateTables.CLASS_PK_COL);
@@ -111,7 +118,45 @@ public class MusicClass {
             if (sqle.getMessage().substring(0, sqle.getMessage().indexOf(" ")).equals("Duplicate")){
                 Queries.duplicateFlag = true;
             }
-            System.out.println("In Enroll In Class " + sqle.getMessage());
+            System.out.println("In Enroll In Class " + sqle.getMessage() + sqle);
+        }
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setClassTime(String classTime) {
+        this.classTime = classTime;
+    }
+
+    public void setClassDay(String classDay) {
+        this.classDay = classDay;
+    }
+
+    public void setClassPrice(String classPrice) {
+        this.classPrice = classPrice;
+    }
+
+    public void setClassTeacher(Integer classTeacher) {
+        this.classTeacher = classTeacher;
+    }
+
+    public void AddClass() {
+        try {
+
+            String addDataSQL = "INSERT INTO " + CreateTables.CLASS_TABLE_NAME + "(" + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + ", " + CreateTables.CLASS_PRICE_COLUMN + ", " + CreateTables.TEACHER_PK_COL + ")" + " VALUES ( ?, ?, ?, ?, ?)";
+            PreparedStatement addToSt = ConnectDB.conn.prepareStatement(addDataSQL);
+            addToSt.setString(1, this.className);
+            addToSt.setString(2, this.classDay);
+            addToSt.setString(3, this.classTime);
+            addToSt.setString(4, this.classPrice);
+            addToSt.setInt(5, this.classTeacher);
+            addToSt.executeUpdate();
+        }
+        catch (SQLException se) {
+            System.out.println("In Student Class Add Student Method " + se);
+            se.printStackTrace();
         }
     }
 }

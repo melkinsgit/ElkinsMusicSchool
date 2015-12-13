@@ -79,7 +79,6 @@ public class StudentGUI {
                 studErrorTextArea.setText("");
                 Object studentToSked = allStudentsComboBox.getSelectedItem();
                 String studentToSkedStr = (String) studentToSked;
-//                boolean OKToShow = false;
                 Student student = new Student();
                 if (!studentToSkedStr.equals("")){
                     OKToShow = true;
@@ -155,7 +154,7 @@ public class StudentGUI {
 
     private void addOneToComboBox(String studentFirstToAdd, String studentLastToAdd) {
         ResultSet getRecordRS;
-        String getRecordStr = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_FIRST_COLUMN + " LIKE '" + studentFirstToAdd + "' AND " + CreateTables.TEACHER_LAST_COLUMN + " LIKE '" + studentLastToAdd + "'";
+        String getRecordStr = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_FIRST_COLUMN + " LIKE '" + studentFirstToAdd + "' AND " + CreateTables.STUDENT_LAST_COLUMN + " LIKE '" + studentLastToAdd + "'";
         try {
             getRecordRS = ConnectDB.statement.executeQuery(getRecordStr);
             while (getRecordRS.next()) {
@@ -174,7 +173,7 @@ public class StudentGUI {
             ResultSet studSkedRS = studentforSked.GetSchedule(studentToSkedStr);
             String stringToDisplay = "";
             if (Queries.GetRowCount(studSkedRS) == 0){
-                stringToDisplay = "That student is not enrolled in any classes.";
+                stringToDisplay = studentToSkedStr.substring(studentToSkedStr.indexOf(" ")) + " is not enrolled in any classes.";
                 studResultsTextArea.setText(stringToDisplay);
             }
             else if (Queries.GetRowCount(studSkedRS) == 1) {
@@ -187,11 +186,9 @@ public class StudentGUI {
                 System.out.println("there are " + Queries.GetRowCount(studSkedRS) + " rows to display");
                 studSkedRS.next();
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
-                System.out.println("First line of sked is " + stringToDisplay);
                 studResultsTextArea.setText(stringToDisplay);
                 while (studSkedRS.next()) {
                     stringToDisplay = ("\n" + (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN)));
-                    System.out.println("next line of sked is " + stringToDisplay);
                     studResultsTextArea.append(stringToDisplay);
                 }
                 studSkedRS.beforeFirst();

@@ -59,11 +59,11 @@ public class MenuOne {
                 break;
             }
             case 6:{
-                Teacher teacher = new Teacher();
-                ResultSet teachersRS = teacher.AllDataQuery();
-                int teacherPicked = teacher.DisplayAllTeachers(teachersRS);
-                ResultSet teacherSkedRS = teacher.ShowSchedule(teacherPicked);
-                teacher.DisplayAllTeachers(teacherSkedRS);
+//                Teacher teacher = new Teacher();
+//                ResultSet teachersRS = teacher.AllDataQuery();
+//                int teacherPicked = teacher.DisplayAllTeachers(teachersRS);
+//                ResultSet teacherSkedRS = teacher.ShowSchedule(teacherPicked);
+//                teacher.DisplayAllTeachers(teacherSkedRS);
                 break;
             }
         }

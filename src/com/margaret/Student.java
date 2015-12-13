@@ -67,7 +67,7 @@ public class Student {
 
 //            String studentSked = "Select " + CreateTables.CLASS_NAME_COLUMN + ", " + CreateTables.CLASS_DAY_COLUMN + ", " + CreateTables.CLASS_TIME_COLUMN + " from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_LAST_COLUMN + " like '" + studentPickedLast + "' and " + CreateTables.STUDENT_FIRST_COLUMN + " like '" + studentPickedFirst + "'";
 
-            String studentSkedQuery = "Select * from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " like '" + studentPickedID + "'";
+            String studentSkedQuery = "Select * From " + Queries.studentSkedJoin + " where " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " like '" + studentPickedID + "'";
             System.out.println("The get sked rs query is " + studentSkedQuery);
             rs1 = ConnectDB.statement.executeQuery(studentSkedQuery);
             return rs1;

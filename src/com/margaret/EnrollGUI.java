@@ -23,72 +23,42 @@ public class EnrollGUI {
     Student student = new Student();
     String studentToEnrollStr;
     String classToEnrollStr;
-    boolean OKToShow = false;
-    boolean OKToEnroll = false;
+    boolean StudentOKToEnroll = false;
+    boolean ClassOKToEnroll = false;
+    MusicClass musicClass = new MusicClass();
 
     public EnrollGUI() {
 
-        setClassComboBox();
-        setStudentComboBox();
+//        setClassComboBox();
+//        setStudentComboBox();
 
         enrollErrorTextArea.setLineWrap(true);
         enrollErrorTextArea.setEditable(false);
         enrollResultsTextArea.setLineWrap(true);
         enrollResultsTextArea.setEditable(false);
 
-        enrollStudentComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-        enrollStudentButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
 
         enrollStudentComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // this is for use in Class GUI
-
+                studentToEnrollStr = (String) enrollStudentComboBox.getSelectedItem();
+                enrollErrorTextArea.setText("");
                 enrollResultsTextArea.setText("");
-                Object studentToSked = enrollStudentComboBox.getSelectedItem();
-                studentToEnrollStr = (String) studentToSked;
-                Student student = new Student();
-                if (!studentToEnrollStr.equals("")){
-                    OKToShow = true;
-                }
-                else {
-                    enrollErrorTextArea.setText("That is not a valid choice. Please choose a student name from the drop down menu.");
-                    enrollResultsTextArea.setText("");
-                }
-                if (OKToShow) {
-                    ;
-                }
             }
         });
 
         classToEnrollComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                classToEnrollStr = (String) classToEnrollComboBox.getSelectedItem();
                 enrollErrorTextArea.setText("");
-                Object classToEnroll = classToEnrollComboBox.getSelectedItem();
-                classToEnrollStr = (String) classToEnroll;
-                if (!classToEnrollStr.equals("")){
-                    OKToEnroll = true;
-                }
-                else {
-                    enrollErrorTextArea.setText("That is not a valid choice. Please choose a class from the drop down menu.");
-                    enrollResultsTextArea.setText("");
-                }
+                enrollResultsTextArea.setText("");
             }
         });
 
@@ -96,33 +66,44 @@ public class EnrollGUI {
         enrollStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (OKToShow && OKToEnroll){
-                    MusicClass musicClass = new MusicClass();
-                    musicClass.EnrollInClass(classToEnrollStr, studentToEnrollStr);
-                    if (Queries.studentEnrolled) {
-                        enrollResultsTextArea.setText(studentToEnrollStr + " has been enrolled in " + classToEnrollStr + ".");
-                        Queries.studentEnrolled = false;
-                    }
-                    OKToEnroll = false;
-                    OKToShow = false;
-                }
-                else {
-                    enrollErrorTextArea.setText("Please choose a student and a class before you click the Enroll Student in Class Button.");
-                }
-                if (Queries.duplicateFlag){
-                    enrollErrorTextArea.setText("That student is already enrolled in that class. To review a student's current schudule, go to the Student Features tab and use the Show Schedule option.");
-                    Queries.duplicateFlag = false;
-                }
+               enrollStudent();
             }
         });
         enrollStudentComboBox.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
                 super.focusGained(e);
-                setClassComboBox();
                 setStudentComboBox();
             }
         });
+        classToEnrollComboBox.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                setClassComboBox();
+            }
+        });
+        classToEnrollComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                enrollErrorTextArea.setText("");
+                enrollResultsTextArea.setText("");
+            }
+        });
+    }
+
+    private void enrollStudent() {
+
+        System.out.println("data for enroll in class method is " + classToEnrollStr.substring(classToEnrollStr.indexOf(" ")) + " " + studentToEnrollStr.substring(classToEnrollStr.indexOf(" ")));
+        musicClass.EnrollInClass(classToEnrollStr, studentToEnrollStr);
+        if (Queries.studentEnrolled) {
+            enrollResultsTextArea.setText(studentToEnrollStr.substring(classToEnrollStr.indexOf(" ")) + " has been enrolled in " + classToEnrollStr.substring(classToEnrollStr.indexOf(" ")) + ".");
+            Queries.studentEnrolled = false;
+        }
+        if (Queries.duplicateFlag){
+            enrollErrorTextArea.setText("That student is already enrolled in that class. To review a student's current schudule, go to the Student Features tab and use the Show Schedule option.");
+            Queries.duplicateFlag = false;
+        }
     }
 
     private void setStudentComboBox() {

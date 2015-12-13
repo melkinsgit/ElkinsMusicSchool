@@ -1,10 +1,7 @@
 package com.margaret;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -39,6 +36,15 @@ public class MusicClassGUI {
     Student student = new Student();
     String start = "";
     Teacher teacher = new Teacher();
+    String classToAddStr;
+    String dayToAddStr;
+    String timeToAddStr;
+    String amOrpmToAddStr;
+    String priceToAddStr;
+    String teacherToAddStr;
+    Integer teacherToAdd;
+    boolean OKToAdd = false;
+    String textInputError;
 
     public MusicClassGUI() {
 
@@ -47,111 +53,83 @@ public class MusicClassGUI {
         classResultsTextArea.setLineWrap(true);
         classResultsTextArea.setEditable(false);
 
-//        setStudentClassComboBox();
         setTimeComboBox();
         setDayComboBox();
-        setTeacherComboBox();
-
-//        allStudentsComboBox.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                // this is for use in Class GUI
-//
-//                classResultsTextArea.setText("");
-//                Object studentToSked = allStudentsComboBox.getSelectedItem();
-//                studentToSkedStr = (String) studentToSked;
-//                Student student = new Student();
-//                if (!studentToSkedStr.equals("")){
-//                    OKToShow = true;
-//                }
-//                else {
-//                    classErrorTextArea.setText("That is not a valid choice. Please choose a student name from the drop down menu.");
-//                    classResultsTextArea.setText("");
-//                }
-//                if (OKToShow) {
-//                    ;
-//                }
-//            }
-//        });
-
-//        allClassesComboBox.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                classErrorTextArea.setText("");
-//                Object classToEnroll = allClassesComboBox.getSelectedItem();
-//                classToEnrollStr = (String) classToEnroll;
-//                MusicClass musicClass = new MusicClass();
-//                if (!classToEnrollStr.equals("")){
-//                    OKToEnroll = true;
-//                }
-//                else {
-//                    classErrorTextArea.setText("That is not a valid choice. Please choose a class from the drop down menu.");
-//                    classResultsTextArea.setText("");
-//                }
-//            }
-//        });
-
-
-//        enrollStudentInClassButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (OKToShow && OKToEnroll){
-//                    MusicClass musicClass = new MusicClass();
-//                    System.out.println("Ready to enroll " + studentToSkedStr + " in " + classToEnrollStr);
-//                    musicClass.EnrollInClass(classToEnrollStr, studentToSkedStr);
-//                }
-//                else {
-//                    classErrorTextArea.setText("Please choose a student and a class before you click the Enroll Student in Class Button.");
-//                }
-//                if (Queries.duplicateFlag){
-//                    classErrorTextArea.setText("That student is already enrolled in that class. To review a student's current schudule, go to the Student Features tab and use the Show Schedule option.");
-//                }
-//            }
-//        });
-
 
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                System.exit(0);
             }
         });
         dayComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                classErrorTextArea.setText("");
+                classResultsTextArea.setText("");
             }
         });
         timeHourComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                classErrorTextArea.setText("");
+                classResultsTextArea.setText("");
             }
         });
         priceTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                classErrorTextArea.setText("");
+                classResultsTextArea.setText("");
             }
         });
-        classAllTeachersComboBox.addActionListener(new ActionListener() {
+
+        classAllTeachersComboBox.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                classErrorTextArea.setText("");
+                classResultsTextArea.setText("");
+                setTeacherComboBox();
+            }
+        });
+        addClassButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                addClass();
+            }
+        });
+    }
 
-            }
-        });
-        classResultsTextArea.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-            }
-        });
-        classErrorTextArea.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-            }
-        });
+    private void addClass() {
+
+        MusicClass classToAdd = new MusicClass();
+        classToAddStr = classNameTextField.getText();
+        dayToAddStr = (String) dayComboBox.getSelectedItem();
+        timeToAddStr = (String) timeHourComboBox.getSelectedItem();
+        amOrpmToAddStr = (String) timeAMorPMComboBox.getSelectedItem();
+        teacherToAddStr = (String) classAllTeachersComboBox.getSelectedItem();
+        teacherToAdd = Integer.parseInt(teacherToAddStr.substring(0, teacherToAddStr.indexOf(" ")));
+        priceToAddStr = priceTextField.getText();
+        System.out.println("The values in add class are " + classToAddStr + " " + dayToAddStr + " " + timeToAddStr + " " + amOrpmToAddStr + " " + teacherToAddStr + " " + priceToAddStr);
+
+        if (Queries.IsValidDBString(classToAddStr) && Queries.IsValidDBString(dayToAddStr) && Queries.IsValidDBString(timeToAddStr) && Queries.IsValidDBString(amOrpmToAddStr)) {
+            OKToAdd = true;
+            System.out.println("OK to add is true");
+        } else {
+            textInputError = "You must enter a values in all fields. Please complete your entry and click Add This Student.";
+            classErrorTextArea.setText(textInputError);
+        }
+        if (OKToAdd) {
+            classToAdd.setClassName(classToAddStr);
+            classToAdd.setClassDay(dayToAddStr);
+            classToAdd.setClassTime(timeToAddStr + " " + amOrpmToAddStr);
+            classToAdd.setClassPrice(priceToAddStr);
+            classToAdd.setClassTeacher(teacherToAdd);
+            classToAdd.AddClass();
+            classResultsTextArea.setText(classToAddStr + " on " + dayToAddStr + " at " + timeToAddStr + " " + amOrpmToAddStr + " has been added.");
+            OKToAdd = false;
+        }
     }
 
     private void setTeacherComboBox() {
@@ -190,36 +168,6 @@ public class MusicClassGUI {
             timeAMorPMComboBox.addItem(amOrPMArr[i]);
         }
     }
-
-//    public void setStudentClassComboBox (){
-//        // put all student names in the combo box
-//        allStudentsComboBox.addItem(start);
-//        allClassesComboBox.addItem(start);
-//        String studentInComboBox;
-//        String classInComboBox;
-//        try {
-//            MusicClass musicClass = new MusicClass();
-//            ResultSet comboBoxRS = student.AllDataQuery();
-//            while (comboBoxRS.next()) {
-//                studentInComboBox = (comboBoxRS.getString(CreateTables.STUDENT_PK_COL) + " " + comboBoxRS.getString(CreateTables.STUDENT_FIRST_COLUMN) + " " + comboBoxRS.getString(CreateTables.STUDENT_LAST_COLUMN));
-//                allStudentsComboBox.addItem(studentInComboBox);
-//            }
-//            comboBoxRS.beforeFirst();
-//
-//            ResultSet classComboBoxRS = MusicClass.AllDataQuery();
-//            while (classComboBoxRS.next()) {
-//                classInComboBox = ((classComboBoxRS.getString(CreateTables.CLASS_PK_COL)) + " " + (classComboBoxRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (classComboBoxRS.getString(CreateTables.CLASS_DAY_COLUMN)) + " " + (classComboBoxRS.getString(CreateTables.CLASS_TIME_COLUMN)));
-//                allClassesComboBox.addItem(classInComboBox);
-//            }
-//            classComboBoxRS.beforeFirst();
-//        }
-//        catch (SQLException sqle){
-//            System.out.println("Adding text to combo box in Student GUI " + sqle);
-//        }
-//    }
-
-
-
 
     public JPanel getPanel () {return musicClassGUITab;}
 }
