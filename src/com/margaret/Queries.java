@@ -24,6 +24,8 @@ public class Queries {
 
     public static boolean duplicateFlag = false;
 
+    public static boolean studentEnrolled = false;
+
     // From Clara's Movie Rating project
     public static int GetRowCount(ResultSet resultSet){
 

@@ -3,6 +3,8 @@ package com.margaret;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -48,25 +50,29 @@ public class TeacherGUI {
         allTeachersComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                teachErrorLabel.setText("");
+                teachResultLabel.setText("");
             }
         });
         teacherFirstNameTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                teachErrorLabel.setText("");
+                teachResultLabel.setText("");
             }
         });
         teacherLastNameTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                teachErrorLabel.setText("");
+                teachResultLabel.setText("");
             }
         });
         teacherPhoneTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                teachErrorLabel.setText("");
+                teachResultLabel.setText("");
             }
         });
 
@@ -76,6 +82,7 @@ public class TeacherGUI {
             public void actionPerformed(ActionEvent e) {
                 teachResultTextArea.setText("");
                 AddTeacher();
+                setTeacherComboBox();
             }
         });
         quitButton.addActionListener(new ActionListener() {
@@ -83,6 +90,13 @@ public class TeacherGUI {
             public void actionPerformed(ActionEvent e) {
 //                MovieDatabase.shutdown();  // TODO shut down proper database
                 System.exit(0);   // TODO Should probably be a call back to Main class so all the System.exit(0) calls are in one place.
+            }
+        });
+        TeacherGUITab.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                setTeacherComboBox();
             }
         });
     }
@@ -108,7 +122,6 @@ public class TeacherGUI {
             teacherToAdd.setFirstName(teacherFirstToAdd);
             teacherToAdd.setLastName(teacherLastToAdd);
             teacherToAdd.setPhone(teacherPhoneToAdd);
-//            studentToAdd.AddStudent(studentToAdd);
             teacherToAdd.AddTeacher();
             teachResultTextArea.setText(teacherFirstToAdd + " " + teacherLastToAdd + " has been added.");
             teacherFirstNameTextField.setText("");

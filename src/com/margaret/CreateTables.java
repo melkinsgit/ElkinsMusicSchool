@@ -79,7 +79,7 @@ public class CreateTables {
             }
         }
         catch (SQLException sqle){
-            System.out.println("In Create Tables Class Start Tables Mehtod " + sqle);
+            System.out.println("In Create Tables Class Start Tables Method " + sqle);
         }
     }
 

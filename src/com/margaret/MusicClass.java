@@ -30,8 +30,7 @@ public class MusicClass {
             return returnRS;
         }
         catch (SQLException sqle){
-            System.out.println("in Music class All Data Query call to select all " + sqle);
-            return returnRS;  // TODO how do I handle this problem
+            return returnRS;
         }
     }
 
@@ -77,24 +76,19 @@ public class MusicClass {
     public void EnrollInClass(String classToJoin, String studentPicked) {
         ResultSet rs1;
         ResultSet rs2;
-        System.out.println("Strings are class " + classToJoin + " and student " + studentPicked);
         try {
             String classIDPicked = classToJoin.substring(0, classToJoin.indexOf(" "));
             String findClassData = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " WHERE " + CreateTables.CLASS_PK_COL + " LIKE ? ";
             PreparedStatement selectRowByID = ConnectDB.conn.prepareStatement(findClassData);
             selectRowByID.setString(1, classIDPicked);
-            System.out.println(selectRowByID);
             rs1 = selectRowByID.executeQuery();
-            System.out.println("Printing result set from classes " + rs1.next());
 
             String studentIDPicked = studentPicked.substring(0, studentPicked.indexOf(" "));
 
             String findStudentData = "SELECT * FROM " + CreateTables.STUDENT_TABLE_NAME + " WHERE " + CreateTables.STUDENT_PK_COL + " LIKE ? ";
             PreparedStatement selectRowByLastName = ConnectDB.conn.prepareStatement(findStudentData);
             selectRowByLastName.setString(1, studentIDPicked);
-            System.out.println(selectRowByLastName);
             rs2 = selectRowByLastName.executeQuery();
-            System.out.println("Printing result set from student " + rs2.next());
 
             int classJoinInt = rs1.getInt(CreateTables.CLASS_PK_COL);
             int studentJointInt = rs2.getInt(CreateTables.STUDENT_PK_COL);
@@ -107,12 +101,11 @@ public class MusicClass {
             }
 
             String studentClassInsert = "INSERT " + CreateTables.STUDENT_CLASS_TABLE_NAME + "(" + CreateTables.STUD_FK_PK_COL + ", " + CreateTables.CLASS_FK_PK_COL + ") VALUES ( ?, ? )";
-            System.out.println(studentClassInsert);
             PreparedStatement insertToStCl = ConnectDB.conn.prepareStatement(studentClassInsert);
             insertToStCl.setInt(1, studentJointInt);
             insertToStCl.setInt(2, classJoinInt);
-            System.out.println("before insert command " + insertToStCl);
             insertToStCl.executeUpdate();
+            Queries.studentEnrolled = true;
         }
         catch (SQLException sqle){
             if (sqle.getMessage().substring(0, sqle.getMessage().indexOf(" ")).equals("Duplicate")){
