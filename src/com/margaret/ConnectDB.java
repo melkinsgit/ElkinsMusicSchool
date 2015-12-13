@@ -15,6 +15,8 @@ public class ConnectDB {
     static final String PASS = "cello"; // cello for home, itecitec for school
     static Connection conn = null;
     static Statement statement = null;
+    public static Statement tableStatement = null;
+//    static EnrollDataModel enrollDataModel;
 
     public ConnectDB() {
         try {
@@ -32,6 +34,7 @@ public class ConnectDB {
             CreateDatabase();
             conn = DriverManager.getConnection(DB_CONNECTION_URL + DB_NAME, USER, PASS);
             statement = conn.createStatement(); // Creates a Statement object for sending SQL statements to the database musicschool
+            tableStatement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
             CreateTables createTables = new CreateTables(); // set up the database
 
@@ -51,5 +54,4 @@ public class ConnectDB {
             System.out.println("Cannot create database MusicSchool " + sqle);
         }
     }
-
 }

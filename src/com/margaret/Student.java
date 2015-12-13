@@ -69,7 +69,7 @@ public class Student {
 
             String studentSkedQuery = "Select * from " + Queries.simplerJoin + " where " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " like '" + studentPickedID + "'";
             System.out.println("The get sked rs query is " + studentSkedQuery);
-            rs1= ConnectDB.statement.executeQuery(studentSkedQuery);
+            rs1 = ConnectDB.statement.executeQuery(studentSkedQuery);
             return rs1;
         }
         catch (SQLException sqle){

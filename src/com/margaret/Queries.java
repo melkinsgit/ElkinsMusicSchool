@@ -16,6 +16,10 @@ public class Queries {
 
 //    public final static String simpleJoin = "Select * FROM Students INNER JOIN StudentClass ON Students.StudentID = StudentClass.StudentID INNER JOIN Classes ON StudentClass.ClassID = Classes.ClassID where Students.LastName like 'Elkins'";
 
+    //Select * from Classes inner join Teachers on Classes.TeacherID = Teachers.TeacherID
+
+    public final static String enrollJoin = "SELECT * FROM " + CreateTables.CLASS_TABLE_NAME + " INNER JOIN " + CreateTables.TEACHER_TABLE_NAME + " ON " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL + "=" + CreateTables.TEACHER_TABLE_NAME + "." + CreateTables.TEACHER_PK_COL;
+
     public final static String simplerJoin = CreateTables.STUDENT_TABLE_NAME + " inner join " + CreateTables.STUDENT_CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_TABLE_NAME + "." + CreateTables.STUDENT_PK_COL + " = " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.STUD_FK_PK_COL + " inner join " + CreateTables.CLASS_TABLE_NAME + " on " + CreateTables.STUDENT_CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL + " = " + CreateTables.CLASS_TABLE_NAME + "." + CreateTables.CLASS_FK_PK_COL;
 
     public static boolean duplicateFlag = false;

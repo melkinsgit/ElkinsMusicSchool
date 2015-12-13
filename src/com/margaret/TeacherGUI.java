@@ -22,29 +22,11 @@ public class TeacherGUI {
     private JLabel enterTeacherFirstNameLabel;
     private JLabel enterTeacherLastNameLabel;
     private JLabel enterTeacherPhoneLabel;
-
-    private JPanel StudentGUITab;
-    private JButton addStudentButton;
-    private JTextArea studResultsTextArea;
-    private JTextArea studErrorTextArea;
     private JButton quitButton;
     private JLabel teachErrorLabel;
     private JLabel teachResultLabel;
     private JComboBox allTeachersComboBox;
     private JLabel showSkedLabel;
-    private JComboBox allStudentsComboBox;
-    private JTextField studentFirstNameTextField;
-    private JTextField studentLastNameTextField;
-    private JTextField studentPhoneTextField;
-
-
-    private JLabel errorMessagesLabel;
-    private JLabel showStudentSkedLabel;
-    private JLabel outputLabel;
-    private JLabel enterStudentFirstNameLabel;
-    private JLabel enterStudentLastNameLabel;
-    private JLabel enterStudentPhoneLabel;
-    private JLabel addStudentLabel;
 
     protected String teacherFirstToAdd;
     protected String teacherLastToAdd;

@@ -11,7 +11,7 @@ public class MainGUI extends JFrame{
 
     //Not created in GUI designer
     private JTabbedPane tabbedPane;
-
+//    private static EnrollDataModel enrollDataModel;
 
     //Note that this fails with a NullPointer if the default layoutmanager (GridLayoutManager) for this form is used
     //Since all it does is hold the JTabbedPane, set the layout manager to something (probably anything) else.
