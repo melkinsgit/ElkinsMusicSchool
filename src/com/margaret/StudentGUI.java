@@ -185,7 +185,6 @@ public class StudentGUI {
                 studResultsTextArea.setText(stringToDisplay);
             }
             else {
-                System.out.println("there are " + Queries.GetRowCount(studSkedRS) + " rows to display");
                 studSkedRS.next();
                 stringToDisplay = (studSkedRS.getString(CreateTables.CLASS_NAME_COLUMN)) + " " + (studSkedRS.getString(CreateTables.CLASS_DAY_COLUMN) + " " + studSkedRS.getString(CreateTables.CLASS_TIME_COLUMN));
                 studResultsTextArea.setText(stringToDisplay);
