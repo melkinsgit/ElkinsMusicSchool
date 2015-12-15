@@ -58,6 +58,7 @@ public class EnrollGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 studentToEnrollStr = (String) enrollStudentComboBox.getSelectedItem();
+                enrollErrorTextArea.setText("");
                 enrollResultsTextArea.setText("");
                 System.out.println("trying to verify student to enroll " + studentToEnrollStr);
                 if (!studentToEnrollStr.equals("")){
@@ -74,6 +75,7 @@ public class EnrollGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 classToEnrollStr = (String) classToEnrollComboBox.getSelectedItem();
+                enrollErrorTextArea.setText("");
                 enrollResultsTextArea.setText("");
                 if (!classToEnrollStr.equals("")){
                     enrollClassOK = true;
@@ -89,6 +91,8 @@ public class EnrollGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (enrollStudentOK & enrollClassOK){
+                    enrollStudentOK = false;
+                    enrollClassOK = false;
                     enrollStudent();
                 }
                 else {

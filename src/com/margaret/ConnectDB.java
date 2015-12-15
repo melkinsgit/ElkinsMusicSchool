@@ -11,8 +11,8 @@ public class ConnectDB {
     static final String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/";  // fixed
     static final String DB_NAME = "musicschool";  // fixed
     // database created using command line for my sql
-    static final String USER = "root";  // fixed current user name
-    static final String PASS = "cello"; // cello for home, itecitec for school
+    static final String USER = "root";  // TODO Clara - replace root with your user name here
+    static final String PASS = "cello"; // TODO Clara - replace cello with your password here
     static Connection conn = null;
     static Statement statement = null;
     public static Statement tableStatement = null;

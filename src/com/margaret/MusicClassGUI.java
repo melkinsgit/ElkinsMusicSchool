@@ -100,6 +100,7 @@ public class MusicClassGUI extends JFrame {
         addClassButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 addClass();
             }
         });
