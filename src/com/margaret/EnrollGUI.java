@@ -27,6 +27,8 @@ public class EnrollGUI extends JFrame {
     String studentToEnrollStr;
     String classToEnrollStr;
     MusicClass musicClass = new MusicClass();
+    boolean enrollStudentOK = false;
+    boolean enrollClassOK = false;
 
     public EnrollGUI() {
 
@@ -56,8 +58,15 @@ public class EnrollGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 studentToEnrollStr = (String) enrollStudentComboBox.getSelectedItem();
-                enrollErrorTextArea.setText("");
                 enrollResultsTextArea.setText("");
+                System.out.println("trying to verify student to enroll " + studentToEnrollStr);
+                if (!studentToEnrollStr.equals("")){
+                    enrollStudentOK = true;
+                }
+                else {
+                    enrollErrorTextArea.setText("That is not a valid entry. Please choose a Student to Enroll and a Class and click the Enroll Student Button.");
+                    enrollResultsTextArea.setText("");
+                }
             }
         });
 
@@ -65,15 +74,26 @@ public class EnrollGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 classToEnrollStr = (String) classToEnrollComboBox.getSelectedItem();
-                enrollErrorTextArea.setText("");
                 enrollResultsTextArea.setText("");
+                if (!classToEnrollStr.equals("")){
+                    enrollClassOK = true;
+                }
+                else {
+                    enrollErrorTextArea.setText("That is not a valid entry. Please choose a Student to Enroll and a Class and click the Enroll Student Button.");
+                    enrollResultsTextArea.setText("");
+                }
             }
         });
 
         enrollStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               enrollStudent();
+                if (enrollStudentOK & enrollClassOK){
+                    enrollStudent();
+                }
+                else {
+                    enrollErrorTextArea.setText("That is not a valid entry. Please choose a Student to Enroll and a Class and click the Enroll Student Button.");
+                }
             }
         });
 
