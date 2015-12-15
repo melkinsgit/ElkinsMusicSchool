@@ -21,7 +21,6 @@ public class EnrollGUI extends JFrame {
     private JLabel enrollInstrLabel;
     private JLabel studToEnrollLabel;
     private JLabel enrollClassLabel;
-    private JTextField enrollInstructTextField;
 
     Student student = new Student();
     String studentToEnrollStr;

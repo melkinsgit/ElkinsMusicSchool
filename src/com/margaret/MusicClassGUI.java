@@ -29,6 +29,7 @@ public class MusicClassGUI extends JFrame {
     private JLabel classNameLabel;
     private JLabel classPriceLabel;
     private JLabel addClassInstrLabel;
+    private JLabel enrollInstruct2Label;
 
     Student student = new Student();
     String start = "";
