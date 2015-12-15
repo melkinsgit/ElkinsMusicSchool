@@ -10,7 +10,7 @@ Welcome to the admin portal for the Elkins School of Music. You have the option 
  -- view a student's schedule
  -- view a teacher's schedule
 
-There are no known bugs that you need to be aware of, but not all user input is validated so there may be a few weak spots.
+There are no known bugs that you need to be aware of, but not all user input is validated so there may be a few weak spots. Also, since the program creates the database, but doesn't have a way to check if it exists, so if you run it multiple times without dropping the musicschool schema/database in mySQL, the program will attempt to create the DB and give the standard console error message that the database already exists.
 
 To run this program:
 1) download the code from this Github repository
