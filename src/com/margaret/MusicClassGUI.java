@@ -100,7 +100,6 @@ public class MusicClassGUI extends JFrame {
         addClassButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 addClass();
             }
         });
@@ -114,16 +113,16 @@ public class MusicClassGUI extends JFrame {
         timeToAddStr = (String) timeHourComboBox.getSelectedItem();
         amOrpmToAddStr = (String) timeAMorPMComboBox.getSelectedItem();
         teacherToAddStr = (String) classAllTeachersComboBox.getSelectedItem();
-        teacherToAdd = Integer.parseInt(teacherToAddStr.substring(0, teacherToAddStr.indexOf(" ")));
         priceToAddStr = priceTextField.getText();
 
-        if (Queries.IsValidDBString(classToAddStr) && Queries.IsValidDBString(dayToAddStr) && Queries.IsValidDBString(timeToAddStr) && Queries.IsValidDBString(amOrpmToAddStr)) {
+        if (Queries.IsValidDBString(classToAddStr) && Queries.IsValidDBString(dayToAddStr) && Queries.IsValidDBString(timeToAddStr) && Queries.IsValidDBString(amOrpmToAddStr) && Queries.IsValidDBString(teacherToAddStr) && Queries.IsValidDBString(priceToAddStr)) {
             OKToAdd = true;
         } else {
             textInputError = "You must enter a values in all fields. Please complete your entry and click Add This Student.";
             classErrorTextArea.setText(textInputError);
         }
         if (OKToAdd) {
+            teacherToAdd = Integer.parseInt(teacherToAddStr.substring(0, teacherToAddStr.indexOf(" ")));
             classToAdd.setClassName(classToAddStr);
             classToAdd.setClassDay(dayToAddStr);
             classToAdd.setClassTime(timeToAddStr + " " + amOrpmToAddStr);
